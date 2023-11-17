@@ -24,7 +24,9 @@ https://youtu.be/tRZGeaHPoaw?si=M6d74r01X-D-Ogb2 great vid on how git and github
 5. **System Initialization and Control:**
    - **Initialization Function:**
      - Initialize all necessary hardware and software components.
-
+     - 
+   - **Main Control Loop:**
+     - The main loop that coordinates the system's operation.
 
 The above is the priority at the moment
 
@@ -52,11 +54,6 @@ The above is the priority at the moment
    - **Communication with Audio Hardware:**
      - Interface functions for sending audio data to the audio hardware.
 
-5. **System Initialization and Control:**
-   - **Initialization Function:**
-     - Initialize all necessary hardware and software components.
-
-   - **Main Control Loop:**
-     - The main loop that coordinates the system's operation.
+   
 
 Remember to modularize the code, keeping related functions together in separate files. This approach makes it easier to manage, debug, and extend your software. Additionally, it's beneficial to add comments to your code to explain the purpose and functionality of each function.
