@@ -3,8 +3,19 @@
 
 All up to date code will be here (in src folder)
 https://youtu.be/tRZGeaHPoaw?si=M6d74r01X-D-Ogb2 great vid on how git and github works, worth a watch.
-
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Instructions
+- Get GIT - https://git-scm.com/downloads
+- On the main Melobottle page on github click code - download a zip of all the files (replace current on local computer if necessary)
+- Make your nessersary edits
+- Open gitbash
+- In the command line
+     - cd path/to/the unzipped folder(The Melobottle.main)
+     - git init
+     - git add .(the '.' is to include all files in directory)
+     - git commit -m "Your commit message e.g. second commit"
+     - git push -u origin master
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. **Input Processing Functions:**
    - **Ultrasonic Sensor:**
      - Function to read data from the ultrasonic sensor.
