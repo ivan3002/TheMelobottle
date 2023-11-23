@@ -24,11 +24,11 @@ Instructions
 
 If you are working on a shared repository and want to merge your changes into the main branch, you typically create a pull request. This can be done on the GitHub website.
 
-Go to your repository on GitHub.
-Switch to the branch you just pushed.
-Click on "New Pull Request."
-Review your changes and create the pull request.
-After the pull request is reviewed and accepted, your changes will be merged into the main branch.
+- Go to your repository on GitHub.
+- Switch to the branch you just pushed.
+- Click on "New Pull Request."
+- Review your changes and create the pull request.
+- After the pull request is reviewed and accepted, your changes will be merged into the main branch.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. **Input Processing Functions:**
    - **Ultrasonic Sensor:**
