@@ -10,11 +10,14 @@ Instructions
 - Make your nessersary edits
 - Open gitbash
 - In the command line
-     - cd path/to/the unzipped folder(The Melobottle.main)
+     - cd path/to/the unzipped folder(The Melobottle-main)
      - git init
-     - git add .(the '.' is to include all files in directory)
+     - git remote add origin https://github.com/ivan3002/TheMelobottle-Main.git
+     - git add . (the '.' is to include all files in directory)
      - git commit -m "Your commit message e.g. second commit"
      - git push -u origin master
+ 
+  - You can use the command git status to see the files that need to be pushes
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. **Input Processing Functions:**
    - **Ultrasonic Sensor:**
