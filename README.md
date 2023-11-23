@@ -6,18 +6,21 @@ https://youtu.be/tRZGeaHPoaw?si=M6d74r01X-D-Ogb2 great vid on how git and github
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Instructions
 - Get GIT - https://git-scm.com/downloads
-- On the main Melobottle page on github click code - download a zip of all the files (replace current on local computer if necessary)
-- Make your nessersary edits
 - Open gitbash
 - In the command line
-     - cd path/to/the unzipped folder(The Melobottle-main)
-     - git init
-     - git remote add origin https://github.com/ivan3002/TheMelobottle-Main.git
-     - git add . (the '.' is to include all files in directory)
-     - git commit -m "Your commit message e.g. second commit"
-     - git push -u origin master
+     - cd (path to where you want to store files)
+     - git clone https://github.com/ivan3002/TheMelobottle.git
+     - cd repository_directory (Replace "repository_directory" with the name of the directory created by the cloning process.) -  e.g. cd M:/TheMelobottle
+  It's a good practice to work on a separate branch for your changes. Create and switch to a new branch: 
+     - git checkout -b branch_name (e.g. ivan's branch)
+  Open the files, make your changes, and save them.
+     - git add .
+     - git commit -m "Your commit message here"
+     - git push origin branch_name
+
+    
  
-  - You can use the command git status to see the files that need to be pushes
+  - You can use the command git status to see the files that need to be pushed
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. **Input Processing Functions:**
    - **Ultrasonic Sensor:**
