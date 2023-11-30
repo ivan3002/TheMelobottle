@@ -59,6 +59,6 @@ void measureAndControlLEDtest() {
         GPIOB->ODR |= (1 << 3); // Turn on LED (Assuming LED is connected to pin B3)
     } else {
         GPIOB->ODR &= (1 << 3); // Turn off LED
-				GPIOC->ODR 
+				GPIOC->ODR; 
     }
 }
