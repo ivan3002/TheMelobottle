@@ -23,8 +23,8 @@ void seti2c() {
     I2C1->CR1 = 0; // Disable the I2C peripheral for configuration
 
     // Configure I2C clock speed (replace 100000 with your desired speed)
-    I2C1->CCR = 42; // Set CCR register (depends on your clock speed and other factors)
-    I2C1->TRISE = 43; // Set TRISE register (depends on your clock speed and other factors)
+    I2C1->CCR = 80; // Set CCR register (depends on your clock speed and other factors)
+    I2C1->TRISE = 17; // Set TRISE register (depends on your clock speed and other factors)
 
     I2C1->CR1 |= I2C_CR1_PE; // Enable the I2C peripheral
 }

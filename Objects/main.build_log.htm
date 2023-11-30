@@ -26,7 +26,138 @@ Project File Date:  11/30/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'c:\Keil_v5\ARM\ARMCLANG\Bin'
-Build target 'Target 1'
+Rebuild target 'Target 1'
+src/main.c(1): warning: In file included from...
+src/Sensors/ultrasonic.h(4): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void measureAndControlLEDtest();
+                             ^
+                              void
+src/Sensors/ultrasonic.h(4): warning: no newline at end of file [-Wnewline-eof]
+void measureAndControlLEDtest();
+                                ^
+src/main.c(7): warning: // comments are not allowed in this language [-Wcomment]
+    // Initialize your peripherals
+    ^
+src/main.c(8): warning: implicit declaration of function 'seti2c' [-Wimplicit-function-declaration]
+    seti2c();
+    ^
+src/main.c(9): warning: implicit declaration of function 'initialpins' [-Wimplicit-function-declaration]
+    initialpins();
+    ^
+src/main.c(10): warning: implicit declaration of function 'timerinit' [-Wimplicit-function-declaration]
+                timerinit();
+                ^
+src/main.c(20): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+7 warnings generated.
+compiling main.c...
+src/Initialisation/initialisation_funcs.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "STM32F407xx.h"
+         ^~~~~~~~~~~~~~~
+         "stm32f407xx.h"
+src/Initialisation/initialisation_funcs.c(5): warning: // comments are not allowed in this language [-Wcomment]
+         RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN; // GPIOB clock
+                                              ^
+src/Initialisation/initialisation_funcs.c(4): warning: no previous prototype for function 'setgpioclock' [-Wmissing-prototypes]
+void setgpioclock(){
+     ^
+src/Initialisation/initialisation_funcs.c(4): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void setgpioclock(){
+^
+static 
+src/Initialisation/initialisation_funcs.c(4): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void setgpioclock(){
+                 ^
+src/Initialisation/initialisation_funcs.c(10): warning: no previous prototype for function 'seti2c' [-Wmissing-prototypes]
+void seti2c() {
+     ^
+src/Initialisation/initialisation_funcs.c(10): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void seti2c() {
+^
+static 
+src/Initialisation/initialisation_funcs.c(10): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void seti2c() {
+           ^
+src/Initialisation/initialisation_funcs.c(32): warning: no previous prototype for function 'initialpins' [-Wmissing-prototypes]
+void initialpins(){
+     ^
+src/Initialisation/initialisation_funcs.c(32): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void initialpins(){
+^
+static 
+src/Initialisation/initialisation_funcs.c(32): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void initialpins(){
+                ^
+src/Initialisation/initialisation_funcs.c(40): warning: no previous prototype for function 'timerinit' [-Wmissing-prototypes]
+void timerinit(){
+     ^
+src/Initialisation/initialisation_funcs.c(40): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void timerinit(){
+^
+static 
+src/Initialisation/initialisation_funcs.c(40): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void timerinit(){
+              ^
+10 warnings generated.
+compiling initialisation_funcs.c...
+assembling startup_stm32f407xx.s...
+src/Sensors/ultrasonic.c(1): warning: In file included from...
+src/Sensors/../Initialisation/initialisation_funcs.h(5): warning: no newline at end of file [-Wnewline-eof]
+void timerinit(void);
+                     ^
+src/Sensors/ultrasonic.c(2): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "STM32F407xx.h"
+         ^~~~~~~~~~~~~~~
+         "stm32f407xx.h"
+src/Sensors/ultrasonic.c(9): warning: // comments are not allowed in this language [-Wcomment]
+    // Trigger the ultrasonic sensor by setting the trigger pin high for a short duration
+    ^
+src/Sensors/ultrasonic.c(14): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIOB->ODR &= ~(1 << 1);
+                                   ~~ ^~~~~~~~~
+src/Sensors/ultrasonic.c(6): warning: no previous prototype for function 'getEchoPulseDuration' [-Wmissing-prototypes]
+uint32_t getEchoPulseDuration() {
+         ^
+src/Sensors/ultrasonic.c(6): note: declare 'static' if the function is not intended to be used outside of this translation unit
+uint32_t getEchoPulseDuration() {
+^
+static 
+src/Sensors/ultrasonic.c(6): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+uint32_t getEchoPulseDuration() {
+                             ^
+src/Sensors/ultrasonic.c(35): warning: no previous prototype for function 'measureDistance' [-Wmissing-prototypes]
+uint16_t measureDistance() {
+         ^
+src/Sensors/ultrasonic.c(35): note: declare 'static' if the function is not intended to be used outside of this translation unit
+uint16_t measureDistance() {
+^
+static 
+src/Sensors/ultrasonic.c(35): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+uint16_t measureDistance() {
+                        ^
+src/Sensors/ultrasonic.c(59): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR |= ~(1 << 3); // Turn on LED (Assuming LED is connected to pin B3)
+                   ~~ ^~~~~~~~~
+src/Sensors/ultrasonic.c(61): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR &= ~(1 << 3); // Turn off LED
+                   ~~ ^~~~~~~~~
+src/Sensors/ultrasonic.c(64): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+src/Sensors/ultrasonic.c(46): warning: no previous prototype for function 'measureAndControlLEDtest' [-Wmissing-prototypes]
+void measureAndControlLEDtest() {
+     ^
+src/Sensors/ultrasonic.c(46): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void measureAndControlLEDtest() {
+^
+static 
+src/Sensors/ultrasonic.c(46): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void measureAndControlLEDtest() {
+                             ^
+13 warnings generated.
+compiling ultrasonic.c...
+compiling system_stm32f4xx.c...
 src/audiocode/sawwave.c(1): warning: In file included from...
 src/audiocode/../audiodrivers/Audio_Drivers.h(2): warning: // comments are not allowed in this language [-Wcomment]
 // My versions of the audio drivers supplied with the STM32F4 discovery board.
@@ -76,10 +207,10 @@ src/audiocode/sawwave.c(57): warning: implicit conversion from 'int' to 'float' 
         float amplitude = volume / harmonic; // Adjust the amplitude here
                                  ~ ^~~~~~~~
 src/audiocode/sawwave.c(59): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
-        sawtoothWave += amplitude * sin(i * 2.0 * PI * harmonic / SINESIZE);
+        sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE);
                         ^~~~~~~~~ ~
 src/audiocode/sawwave.c(59): warning: implicit conversion when assigning computation result loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
-        sawtoothWave += amplitude * sin(i * 2.0 * PI * harmonic / SINESIZE);
+        sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE);
                      ~~ ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 src/audiocode/sawwave.c(56): warning: unused variable 'frequency' [-Wunused-variable]
         float frequency = desiredFreq * harmonic;
@@ -136,9 +267,426 @@ int16_t SineBuff[SINESIZE];
 ^
 30 warnings generated.
 compiling sawwave.c...
+src/audiodrivers/cs43l22.c(37): warning: In file included from...
+src/audiodrivers/cs43l22.h(41): warning: // comments are not allowed in this language [-Wcomment]
+// The next line is a modification to the original source code to remove 
+^
+src/audiodrivers/cs43l22.c(37): warning: In file included from...
+src/audiodrivers/cs43l22.h(43): warning: In file included from...
+src/audiodrivers/./audio_replacement.h(1): warning: // comments are not allowed in this language [-Wcomment]
+// This file is required to replace some of the constants and structures in the 
+^
+src/audiodrivers/cs43l22.c(107): warning: no previous extern declaration for non-static variable 'OutputDev' [-Wmissing-variable-declarations]
+volatile uint8_t OutputDev = 0;
+                 ^
+src/audiodrivers/cs43l22.c(107): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+volatile uint8_t OutputDev = 0;
+         ^
+src/audiodrivers/cs43l22.c(141): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL1, 0x01);  
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(167): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL2, OutputDev);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(170): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_CLOCKING_CTL, 0x81);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(173): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_INTERFACE_CTL1, CODEC_STANDARD);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(182): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_PLAYBACK_CTL2, 0x06);
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(185): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_SPEAKER_A_VOL, 0x00);
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(186): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_SPEAKER_B_VOL, 0x00);
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(197): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_ANALOG_ZC_SR_SETT, 0x00);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(199): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_MISC_CTL, 0x04);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(201): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_LIMIT_CTL1, 0x00);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(203): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_TONE_CTL, 0x0F);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(205): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_PCMA_VOL, 0x0A);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(206): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_PCMB_VOL, 0x0A);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(133): warning: unused parameter 'AudioFreq' [-Wunused-parameter]
+uint32_t cs43l22_Init(uint16_t DeviceAddr, uint16_t OutputDevice, uint8_t Volume, uint32_t AudioFreq)
+                                                                                           ^
+src/audiodrivers/cs43l22.c(234): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  Value = AUDIO_IO_Read(DeviceAddr, CS43L22_CHIPID_ADDR);
+          ~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(253): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_MISC_CTL, 0x06);
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(259): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL1, 0x9E);  
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(246): warning: unused parameter 'pBuffer' [-Wunused-parameter]
+uint32_t cs43l22_Play(uint16_t DeviceAddr, uint16_t* pBuffer, uint16_t Size)
+                                                     ^
+src/audiodrivers/cs43l22.c(246): warning: unused parameter 'Size' [-Wunused-parameter]
+uint32_t cs43l22_Play(uint16_t DeviceAddr, uint16_t* pBuffer, uint16_t Size)
+                                                                       ^
+src/audiodrivers/cs43l22.c(281): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL1, 0x01);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(301): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL2, OutputDev);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(304): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL1, 0x9E); 
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(327): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_MISC_CTL, 0x04);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(330): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL1, 0x9F);
+             ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(319): warning: unused parameter 'CodecPdwnMode' [-Wunused-parameter]
+uint32_t cs43l22_Stop(uint16_t DeviceAddr, uint32_t CodecPdwnMode)
+                                                    ^
+src/audiodrivers/cs43l22.c(352): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_MASTER_A_VOL, convertedvol - 0xE7); 
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(353): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_MASTER_B_VOL, convertedvol - 0xE7);     
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(358): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_MASTER_A_VOL, convertedvol + 0x19); 
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(359): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_MASTER_B_VOL, convertedvol + 0x19); 
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(371): warning: unused parameter 'DeviceAddr' [-Wunused-parameter]
+uint32_t cs43l22_SetFrequency(uint16_t DeviceAddr, uint32_t AudioFreq)
+                                       ^
+src/audiodrivers/cs43l22.c(371): warning: unused parameter 'AudioFreq' [-Wunused-parameter]
+uint32_t cs43l22_SetFrequency(uint16_t DeviceAddr, uint32_t AudioFreq)
+                                                            ^
+src/audiodrivers/cs43l22.c(390): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL2, 0xFF);
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(391): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_HEADPHONE_A_VOL, 0x01);
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(392): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_HEADPHONE_B_VOL, 0x01);
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(396): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_HEADPHONE_A_VOL, 0x00);
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(397): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_HEADPHONE_B_VOL, 0x00);
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(398): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL2, OutputDev);
+               ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(419): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+      counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL2, 0xFA); /* SPK always ON & HP always OFF */
+                 ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(424): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+      counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL2, 0xAF); /* SPK always OFF & HP always ON */
+                 ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(429): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+      counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL2, 0xAA); /* SPK always ON & HP always ON */
+                 ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(434): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+      counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL2, 0x05); /* Detect the HP or the SPK automatically */
+                 ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(439): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+      counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_POWER_CTL2, 0x05); /* Detect the HP or the SPK automatically */
+                 ~~~~~~~~~~~~~~ ^~~~~~~~~~
+src/audiodrivers/cs43l22.c(451): warning: unused parameter 'DeviceAddr' [-Wunused-parameter]
+uint32_t cs43l22_Reset(uint16_t DeviceAddr)
+                                ^
+src/audiodrivers/cs43l22.c(474): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  return result;
+  ~~~~~~ ^~~~~~
+47 warnings generated.
+compiling cs43l22.c...
+src/audiodrivers/Audio_Drivers.c(2): warning: // comments are not allowed in this language [-Wcomment]
+// My versions of the audio drivers required for the the STM32F4 discovery board.
+^
+src/audiodrivers/Audio_Drivers.c(5): warning: In file included from...
+src/audiodrivers/./Audio_Drivers.h(2): warning: // comments are not allowed in this language [-Wcomment]
+// My versions of the audio drivers supplied with the STM32F4 discovery board.
+^
+src/audiodrivers/Audio_Drivers.c(5): warning: In file included from...
+src/audiodrivers/./Audio_Drivers.h(33): warning: In file included from...
+src/audiodrivers/./cs43l22.h(41): warning: // comments are not allowed in this language [-Wcomment]
+// The next line is a modification to the original source code to remove 
+^
+src/audiodrivers/Audio_Drivers.c(5): warning: In file included from...
+src/audiodrivers/./Audio_Drivers.h(33): warning: In file included from...
+src/audiodrivers/./cs43l22.h(43): warning: In file included from...
+src/audiodrivers/./audio_replacement.h(1): warning: // comments are not allowed in this language [-Wcomment]
+// This file is required to replace some of the constants and structures in the 
+^
+src/audiodrivers/Audio_Drivers.c(10): warning: no previous extern declaration for non-static variable 'audioI2SStatus' [-Wmissing-variable-declarations]
+MY_AUDIO_StatusTypeDef                  audioI2SStatus = MY_AUDIO_RESET;
+                                        ^
+src/audiodrivers/Audio_Drivers.c(10): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+MY_AUDIO_StatusTypeDef                  audioI2SStatus = MY_AUDIO_RESET;
+^
+src/audiodrivers/Audio_Drivers.c(11): warning: no previous extern declaration for non-static variable 'audioDMAStatus' [-Wmissing-variable-declarations]
+MY_AUDIO_StatusTypeDef                  audioDMAStatus = MY_AUDIO_RESET;
+                                        ^
+src/audiodrivers/Audio_Drivers.c(11): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+MY_AUDIO_StatusTypeDef                  audioDMAStatus = MY_AUDIO_RESET;
+^
+src/audiodrivers/Audio_Drivers.c(12): warning: no previous extern declaration for non-static variable 'audioI2CStatus' [-Wmissing-variable-declarations]
+MY_AUDIO_StatusTypeDef                  audioI2CStatus = MY_AUDIO_RESET;        
+                                        ^
+src/audiodrivers/Audio_Drivers.c(12): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+MY_AUDIO_StatusTypeDef                  audioI2CStatus = MY_AUDIO_RESET;        
+^
+src/audiodrivers/Audio_Drivers.c(13): warning: no previous extern declaration for non-static variable 'audioDACStatus' [-Wmissing-variable-declarations]
+MY_AUDIO_StatusTypeDef                  audioDACStatus = MY_AUDIO_RESET;
+                                        ^
+src/audiodrivers/Audio_Drivers.c(13): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+MY_AUDIO_StatusTypeDef                  audioDACStatus = MY_AUDIO_RESET;
+^
+src/audiodrivers/Audio_Drivers.c(15): warning: no previous extern declaration for non-static variable 'AudioI2C' [-Wmissing-variable-declarations]
+I2C_TypeDef *AudioI2C = (I2C_TypeDef *) I2C1_BASE;
+             ^
+src/audiodrivers/Audio_Drivers.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+I2C_TypeDef *AudioI2C = (I2C_TypeDef *) I2C1_BASE;
+^
+src/audiodrivers/Audio_Drivers.c(16): warning: no previous extern declaration for non-static variable 'AudioI2S' [-Wmissing-variable-declarations]
+SPI_TypeDef *AudioI2S = (SPI_TypeDef *) SPI3_BASE;
+             ^
+src/audiodrivers/Audio_Drivers.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+SPI_TypeDef *AudioI2S = (SPI_TypeDef *) SPI3_BASE;
+^
+src/audiodrivers/Audio_Drivers.c(31): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  port->MODER = (port->MODER & bitMask) | (mode << 2*pin);
+                                        ~  ~~~~~^~~~~~~~
+src/audiodrivers/Audio_Drivers.c(35): warning: implicit conversion changes signedness: 'int32_t' (aka 'int') to 'unsigned int' [-Wsign-conversion]
+        if (alternate >= 0 && pin > 7) port->AFR[1] = (port->AFR[1] & ~(0x0F << 4*(pin-8))) | (alternate << 4*(pin-8));
+                                                                                            ~  ~~~~~~~~~~^~~~~~~~~~~~
+src/audiodrivers/Audio_Drivers.c(35): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        if (alternate >= 0 && pin > 7) port->AFR[1] = (port->AFR[1] & ~(0x0F << 4*(pin-8))) | (alternate << 4*(pin-8));
+                                                                    ~ ^~~~~~~~~~~~~~~~~~~~
+src/audiodrivers/Audio_Drivers.c(36): warning: implicit conversion changes signedness: 'int32_t' (aka 'int') to 'unsigned int' [-Wsign-conversion]
+        else if (alternate >= 0) port->AFR[0] = (port->AFR[0] & ~(0x0F << 4*pin)) | (alternate << 4*pin);       
+                                                                                  ~  ~~~~~~~~~~^~~~~~~~
+src/audiodrivers/Audio_Drivers.c(36): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        else if (alternate >= 0) port->AFR[0] = (port->AFR[0] & ~(0x0F << 4*pin)) | (alternate << 4*pin);       
+                                                              ~ ^~~~~~~~~~~~~~~~
+src/audiodrivers/Audio_Drivers.c(20): warning: no previous prototype for function 'Configure_GPIO_Output' [-Wmissing-prototypes]
+void Configure_GPIO_Output(GPIO_TypeDef *port, uint32_t pin, uint32_t speed, int32_t alternate) {
+     ^
+src/audiodrivers/Audio_Drivers.c(20): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Configure_GPIO_Output(GPIO_TypeDef *port, uint32_t pin, uint32_t speed, int32_t alternate) {
+^
+static 
+src/audiodrivers/Audio_Drivers.c(56): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+        uint32_t PPRE2_Factors[8] = {0, 0, 0, 0, 1, 2, 3, 4};
+                 ^
+src/audiodrivers/Audio_Drivers.c(75): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        audioTimer->SR &= ~0x07;         // Clear status flags before enabling counter
+                       ~~ ^~~~~
+src/audiodrivers/Audio_Drivers.c(70): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+        uint32_t countToWaitFor = (delayInMilliSeconds < 6500) ? 10 * delayInMilliSeconds : 65000;
+                 ^
+src/audiodrivers/Audio_Drivers.c(110): warning: no previous prototype for function 'myConfigureI2SClock' [-Wmissing-prototypes]
+MY_AUDIO_StatusTypeDef myConfigureI2SClock(uint32_t newN, uint32_t newR)
+                       ^
+src/audiodrivers/Audio_Drivers.c(110): note: declare 'static' if the function is not intended to be used outside of this translation unit
+MY_AUDIO_StatusTypeDef myConfigureI2SClock(uint32_t newN, uint32_t newR)
+^
+static 
+src/audiodrivers/Audio_Drivers.c(151): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+        uint32_t newPLLConfig = 0;
+                 ^
+src/audiodrivers/Audio_Drivers.c(134): warning: no previous prototype for function 'myConfigureTheMainClockPLL' [-Wmissing-prototypes]
+MY_AUDIO_StatusTypeDef myConfigureTheMainClockPLL()
+                       ^
+src/audiodrivers/Audio_Drivers.c(134): note: declare 'static' if the function is not intended to be used outside of this translation unit
+MY_AUDIO_StatusTypeDef myConfigureTheMainClockPLL()
+^
+static 
+src/audiodrivers/Audio_Drivers.c(134): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+MY_AUDIO_StatusTypeDef myConfigureTheMainClockPLL()
+                                                 ^
+src/audiodrivers/Audio_Drivers.c(205): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+  uint32_t pllm = 0U, pllvco = 0U, pllp = 0U, pllsource = 0U, pllFreq = 0;
+           ^
+src/audiodrivers/Audio_Drivers.c(168): warning: no previous prototype for function 'myConfigureFlashWaitStatesAndBusClocks' [-Wmissing-prototypes]
+MY_AUDIO_StatusTypeDef myConfigureFlashWaitStatesAndBusClocks()
+                       ^
+src/audiodrivers/Audio_Drivers.c(168): note: declare 'static' if the function is not intended to be used outside of this translation unit
+MY_AUDIO_StatusTypeDef myConfigureFlashWaitStatesAndBusClocks()
+^
+static 
+src/audiodrivers/Audio_Drivers.c(168): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+MY_AUDIO_StatusTypeDef myConfigureFlashWaitStatesAndBusClocks()
+                                                             ^
+src/audiodrivers/Audio_Drivers.c(257): warning: no previous extern declaration for non-static variable 'I2CMaxTimeOut' [-Wmissing-variable-declarations]
+const uint32_t I2CMaxTimeOut = 0x1000;
+               ^
+src/audiodrivers/Audio_Drivers.c(257): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const uint32_t I2CMaxTimeOut = 0x1000;
+      ^
+src/audiodrivers/Audio_Drivers.c(258): warning: no previous extern declaration for non-static variable 'I2CDefaultTimeOut' [-Wmissing-variable-declarations]
+const uint32_t I2CDefaultTimeOut = 25;
+               ^
+src/audiodrivers/Audio_Drivers.c(258): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const uint32_t I2CDefaultTimeOut = 25;
+      ^
+src/audiodrivers/Audio_Drivers.c(260): warning: no previous prototype for function 'configureAudioDACI2CRegisters' [-Wmissing-prototypes]
+MY_AUDIO_StatusTypeDef configureAudioDACI2CRegisters() {        
+                       ^
+src/audiodrivers/Audio_Drivers.c(260): note: declare 'static' if the function is not intended to be used outside of this translation unit
+MY_AUDIO_StatusTypeDef configureAudioDACI2CRegisters() {        
+^
+static 
+src/audiodrivers/Audio_Drivers.c(260): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+MY_AUDIO_StatusTypeDef configureAudioDACI2CRegisters() {        
+                                                    ^
+src/audiodrivers/Audio_Drivers.c(326): warning: no previous prototype for function 'setupResetForAudioDAC' [-Wmissing-prototypes]
+void setupResetForAudioDAC(void) {
+     ^
+src/audiodrivers/Audio_Drivers.c(326): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void setupResetForAudioDAC(void) {
+^
+static 
+src/audiodrivers/Audio_Drivers.c(529): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                        *pData++ = I2Cx->DR;
+                                 ~ ~~~~~~^~
+src/audiodrivers/Audio_Drivers.c(550): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+      *pData++ = I2Cx->DR;
+               ~ ~~~~~~^~
+src/audiodrivers/Audio_Drivers.c(551): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+      *pData++ = I2Cx->DR;
+               ~ ~~~~~~^~
+src/audiodrivers/Audio_Drivers.c(449): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+                MY_AUDIO_StatusTypeDef retValue = MY_AUDIO_OK;
+                                       ^
+src/audiodrivers/Audio_Drivers.c(585): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+        uint32_t transferSize = Size;
+                 ^
+src/audiodrivers/Audio_Drivers.c(651): warning: no previous prototype for function 'myI2Cx_WriteData' [-Wmissing-prototypes]
+uint32_t myI2Cx_WriteData(uint8_t Addr, uint8_t Reg, uint8_t Value){
+         ^
+src/audiodrivers/Audio_Drivers.c(651): note: declare 'static' if the function is not intended to be used outside of this translation unit
+uint32_t myI2Cx_WriteData(uint8_t Addr, uint8_t Reg, uint8_t Value){
+^
+static 
+src/audiodrivers/Audio_Drivers.c(666): warning: no previous prototype for function 'checkAudioDAC_ID' [-Wmissing-prototypes]
+uint32_t checkAudioDAC_ID(uint8_t deviceAddress) {
+         ^
+src/audiodrivers/Audio_Drivers.c(666): note: declare 'static' if the function is not intended to be used outside of this translation unit
+uint32_t checkAudioDAC_ID(uint8_t deviceAddress) {
+^
+static 
+src/audiodrivers/Audio_Drivers.c(682): warning: unused parameter 'DeviceAddr' [-Wunused-parameter]
+extern uint8_t AUDIO_IO_Read(uint8_t DeviceAddr, uint8_t chipIdAddress) {
+                                     ^
+src/audiodrivers/Audio_Drivers.c(682): warning: unused parameter 'chipIdAddress' [-Wunused-parameter]
+extern uint8_t AUDIO_IO_Read(uint8_t DeviceAddr, uint8_t chipIdAddress) {
+                                                         ^
+src/audiodrivers/Audio_Drivers.c(691): warning: no previous prototype for function 'setupI2SPeripheral' [-Wmissing-prototypes]
+void setupI2SPeripheral(uint32_t audioSamplingFreq){
+     ^
+src/audiodrivers/Audio_Drivers.c(691): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void setupI2SPeripheral(uint32_t audioSamplingFreq){
+^
+static 
+src/audiodrivers/Audio_Drivers.c(756): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+        DMA_Stream_TypeDef *audioDMA = DMA1_Stream7;
+                            ^
+src/audiodrivers/Audio_Drivers.c(746): warning: no previous prototype for function 'setupDMAForI2SPeripheral' [-Wmissing-prototypes]
+void setupDMAForI2SPeripheral(){
+     ^
+src/audiodrivers/Audio_Drivers.c(746): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void setupDMAForI2SPeripheral(){
+^
+static 
+src/audiodrivers/Audio_Drivers.c(746): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void setupDMAForI2SPeripheral(){
+                             ^
+src/audiodrivers/Audio_Drivers.c(790): warning: no previous extern declaration for non-static variable 'myI2SFreq' [-Wmissing-variable-declarations]
+const uint32_t myI2SFreq[8] = {8000, 11025, 16000, 22050, 32000, 44100, 48000, 96000};
+               ^
+src/audiodrivers/Audio_Drivers.c(790): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const uint32_t myI2SFreq[8] = {8000, 11025, 16000, 22050, 32000, 44100, 48000, 96000};
+      ^
+src/audiodrivers/Audio_Drivers.c(791): warning: no previous extern declaration for non-static variable 'myI2SPLLN' [-Wmissing-variable-declarations]
+const uint32_t myI2SPLLN[8] = {256, 429, 213, 429, 426, 271, 258, 344};
+               ^
+src/audiodrivers/Audio_Drivers.c(791): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const uint32_t myI2SPLLN[8] = {256, 429, 213, 429, 426, 271, 258, 344};
+      ^
+src/audiodrivers/Audio_Drivers.c(792): warning: no previous extern declaration for non-static variable 'myI2SPLLR' [-Wmissing-variable-declarations]
+const uint32_t myI2SPLLR[8] = {5, 4, 4, 4, 4, 6, 3, 1};
+               ^
+src/audiodrivers/Audio_Drivers.c(792): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const uint32_t myI2SPLLR[8] = {5, 4, 4, 4, 4, 6, 3, 1};
+      ^
+src/audiodrivers/Audio_Drivers.c(796): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+  for(uint8_t index = 0; index < 8; index++)
+      ^
+src/audiodrivers/Audio_Drivers.c(796): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+src/audiodrivers/Audio_Drivers.c(806): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+        while (RCC->CR & RCC_CR_PLLI2SRDY) {};
+                                             ^
+src/audiodrivers/Audio_Drivers.c(814): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+        while (!(RCC->CR & RCC_CR_PLLI2SRDY)) {};
+                                                ^
+src/audiodrivers/Audio_Drivers.c(793): warning: no previous prototype for function 'configureI2SClockPLL' [-Wmissing-prototypes]
+void configureI2SClockPLL(uint32_t AudioFreq){ 
+     ^
+src/audiodrivers/Audio_Drivers.c(793): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void configureI2SClockPLL(uint32_t AudioFreq){ 
+^
+static 
+src/audiodrivers/Audio_Drivers.c(847): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+        uint32_t temp = checkAudioDAC_ID(DAC_ADDR_ON_I2C);
+                 ^
+src/audiodrivers/Audio_Drivers.c(865): warning: no previous prototype for function 'setupDMAForAudioDAC' [-Wmissing-prototypes]
+void setupDMAForAudioDAC(uint32_t buffStart, uint32_t txTransferSize) {
+     ^
+src/audiodrivers/Audio_Drivers.c(865): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void setupDMAForAudioDAC(uint32_t buffStart, uint32_t txTransferSize) {
+^
+static 
+src/audiodrivers/Audio_Drivers.c(907): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+        cs43l22_Play(audioI2CAddress, (uint16_t *)&PlayBuff[0], PBSIZE);
+        ~~~~~~~~~~~~                                            ^~~~~~
+src/audiodrivers/Audio_Drivers.c(910): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+        uint32_t tmp = (uint32_t)PlayBuff;
+                 ^
+src/audiodrivers/Audio_Drivers.c(926): warning: no previous prototype for function 'DMA1_Stream7_IRQHandler' [-Wmissing-prototypes]
+void DMA1_Stream7_IRQHandler(){
+     ^
+src/audiodrivers/Audio_Drivers.c(926): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void DMA1_Stream7_IRQHandler(){
+^
+static 
+src/audiodrivers/Audio_Drivers.c(926): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void DMA1_Stream7_IRQHandler(){
+                            ^
+src/audiodrivers/Audio_Drivers.c(978): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+  uint32_t tmp = (uint32_t)pData;
+           ^
+59 warnings generated.
+compiling Audio_Drivers.c...
 linking...
-Program Size: Code=1500 RO-data=424 RW-data=8 ZI-data=9832  
-".\Objects\main.axf" - 0 Error(s), 30 Warning(s).
+Program Size: Code=1484 RO-data=424 RW-data=8 ZI-data=9832  
+".\Objects\main.axf" - 0 Error(s), 166 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -164,12 +712,12 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
-      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
-      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

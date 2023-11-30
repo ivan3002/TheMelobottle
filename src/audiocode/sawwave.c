@@ -56,7 +56,7 @@ void sawwave(){
         float frequency = desiredFreq * harmonic;
         float amplitude = volume / harmonic; // Adjust the amplitude here
 
-        sawtoothWave += amplitude * sin(i * 2.0 * PI * harmonic / SINESIZE);
+        sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE);
     }
 
     SineBuff[j] = (int16_t)(sawtoothWave * 10000);
