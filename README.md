@@ -16,7 +16,7 @@ Instructions
   Open the files, make your changes, and save them.
      - git add .
      - git commit -m "Your commit message here"
-     - git push origin branch_name
+     - git push -u origin branch_name
 
     
  
