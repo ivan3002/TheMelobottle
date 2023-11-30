@@ -5,13 +5,15 @@
 
 int main() {
     // Initialize your peripherals
-    seti2c();
+    //seti2c();
     initialpins();
-		timerinit();
-
+		//timerinit();
+		sawwave();
+	
     // Main loop
-    while (1) {
+    //while (1) {
+				
         // Measure distance and control LED
-        measureAndControlLEDtest();
-    }
+        
+    //}
 }

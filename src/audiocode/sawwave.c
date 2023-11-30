@@ -9,8 +9,12 @@
 #define PI 3.141592653589793 
 #define SINESIZE 1024
 #define PBSIZE 4096 
+
+
 int16_t PlayBuff[PBSIZE]; 
 int16_t SineBuff[SINESIZE]; 
+float DELTA_T = 2.0/44100;
+
 
 enum eNoteStatus { ready, going, finish } noteStatus = ready;
 enum eBufferStatus { empty, finished, firstHalfReq, firstHalfDone,
@@ -30,7 +34,6 @@ void myAudioTransferCompleteCallback(void) {
 void sawwave(){
 
 	myAudioSpeedUpTheSystemClock();
-	initAudioTimer(); 
 	
 	// Initialise the audio driver: 
 	myAudioInitialisePeripherals(OUTPUT_DEVICE_AUTO, 80, AUDIO_FREQUENCY_44K);
@@ -56,7 +59,7 @@ void sawwave(){
         float frequency = desiredFreq * harmonic;
         float amplitude = volume / harmonic; // Adjust the amplitude here
 
-        sawtoothWave += amplitude * sin(i * 2.0 * PI * harmonic / SINESIZE);
+        sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE);
     }
 
     SineBuff[j] = (int16_t)(sawtoothWave * 10000);
@@ -90,11 +93,22 @@ void sawwave(){
 		}*/
 		
 		
+		float lastSampleInput = 0.0, lastSampleOutput = 0.0;
+		//float a1 = 0.9776, b0 =  0.0112;
+		
+		float desiredCutoff = 500.0 * (2*PI);
+	
+	
+		
+		
+		float a1 = -( ( desiredCutoff - ( 2/DELTA_T ) ) / ( desiredCutoff + (2/DELTA_T) ) );
+		float b0 = desiredCutoff / (desiredCutoff+2/DELTA_T);
+		
 		
 	 while (1){
 		// If there's been a request to fill half of the buffer,
 		// then set the start and end points to fill:
-
+		 
 		uint32_t startFill = 0, endFill = 0;
 		if (bufferStatus == firstHalfReq) {
 			startFill = 0;
@@ -113,12 +127,18 @@ void sawwave(){
 				currentPhase += phaseIncrement;
 				if (currentPhase > SINESIZE) currentPhase -= SINESIZE;
 				int16_t nextSample = SineBuff[(uint16_t)(currentPhase)];
-				PlayBuff[i] = nextSample;
-				PlayBuff[i + 1] = nextSample;
 				
-					}
+				float filteredSample = a1 * lastSampleOutput + b0 * (nextSample + lastSampleInput);				
+				
+				PlayBuff[i] = (int16_t)(0.5*filteredSample);
+				PlayBuff[i + 1] = (int16_t)(0.5*filteredSample);
+				
+				lastSampleInput = nextSample;
+				lastSampleOutput = filteredSample;
 			}
-		} // end of while loop 
+			
+		}
+	} // end of while loop 
 
 
 }
