@@ -21,26 +21,153 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-C:\Users\ivanp\OneDrive\Uni\Assigments and Projects\Stage 2 Project\Melobottle_sourcecode\main.uvprojx
-Project File Date:  11/16/2023
+C:\Users\ivanp\Downloads\TheMelobottle\main.uvprojx
+Project File Date:  11/25/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Build target 'Target 1'
-assembling startup_stm32f407xx.s...
-src/main.c(2): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-int main(){
+Rebuild target 'Target 1'
+compiling system_stm32f4xx.c...
+src/main.c(1): warning: In file included from...
+src/Sensors/ultrasonic.h(2): warning: no newline at end of file [-Wnewline-eof]
+#define uint32_t getEchoPulseDuration(void)
+                                           ^
+src/main.c(6): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+int main() {
         ^
          void
-src/main.c(4): warning: no newline at end of file [-Wnewline-eof]
+src/main.c(7): warning: // comments are not allowed in this language [-Wcomment]
+    // Initialize your peripherals
+    ^
+src/main.c(8): warning: implicit declaration of function 'seti2c' [-Wimplicit-function-declaration]
+    seti2c();
+    ^
+src/main.c(9): warning: implicit declaration of function 'initialpins' [-Wimplicit-function-declaration]
+    initialpins();
+    ^
+src/main.c(10): warning: implicit declaration of function 'timerinit' [-Wimplicit-function-declaration]
+                timerinit();
+                ^
+src/main.c(15): warning: implicit declaration of function 'measureAndControlLEDtest' [-Wimplicit-function-declaration]
+        measureAndControlLEDtest();
+        ^
+src/main.c(17): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-2 warnings generated.
+8 warnings generated.
 compiling main.c...
-compiling system_stm32f4xx.c...
+src/Initialisation/initialisation_funcs.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "STM32F407xx.h"
+         ^~~~~~~~~~~~~~~
+         "stm32f407xx.h"
+src/Initialisation/initialisation_funcs.c(4): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void setgpioclock(){
+                 ^
+                  void
+src/Initialisation/initialisation_funcs.c(5): warning: // comments are not allowed in this language [-Wcomment]
+         RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN; // GPIOB clock
+                                              ^
+src/Initialisation/initialisation_funcs.c(4): warning: no previous prototype for function 'setgpioclock' [-Wmissing-prototypes]
+void setgpioclock(){
+     ^
+src/Initialisation/initialisation_funcs.c(4): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void setgpioclock(){
+^
+static 
+src/Initialisation/initialisation_funcs.c(10): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void seti2c() {
+           ^
+            void
+src/Initialisation/initialisation_funcs.c(10): warning: no previous prototype for function 'seti2c' [-Wmissing-prototypes]
+void seti2c() {
+     ^
+src/Initialisation/initialisation_funcs.c(10): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void seti2c() {
+^
+static 
+src/Initialisation/initialisation_funcs.c(28): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void initialpins(){
+                ^
+                 void
+src/Initialisation/initialisation_funcs.c(28): warning: no previous prototype for function 'initialpins' [-Wmissing-prototypes]
+void initialpins(){
+     ^
+src/Initialisation/initialisation_funcs.c(28): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void initialpins(){
+^
+static 
+src/Initialisation/initialisation_funcs.c(36): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void timerinit(){
+              ^
+               void
+src/Initialisation/initialisation_funcs.c(36): warning: no previous prototype for function 'timerinit' [-Wmissing-prototypes]
+void timerinit(){
+     ^
+src/Initialisation/initialisation_funcs.c(36): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void timerinit(){
+^
+static 
+10 warnings generated.
+compiling initialisation_funcs.c...
+assembling startup_stm32f407xx.s...
+src/Sensors/ultrasonic.c(1): warning: In file included from...
+src/Sensors/../Initialisation/initialisation_funcs.h(5): warning: no newline at end of file [-Wnewline-eof]
+void timerinit(void);
+                     ^
+src/Sensors/ultrasonic.c(2): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "STM32F407xx.h"
+         ^~~~~~~~~~~~~~~
+         "stm32f407xx.h"
+src/Sensors/ultrasonic.c(8): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+uint32_t getEchoPulseDuration() {
+                             ^
+                              void
+src/Sensors/ultrasonic.c(11): warning: // comments are not allowed in this language [-Wcomment]
+    // Trigger the ultrasonic sensor by setting the trigger pin high for a short duration
+    ^
+src/Sensors/ultrasonic.c(16): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIOB->ODR &= ~(1 << 1);
+                                   ~~ ^~~~~~~~~
+src/Sensors/ultrasonic.c(8): warning: no previous prototype for function 'getEchoPulseDuration' [-Wmissing-prototypes]
+uint32_t getEchoPulseDuration() {
+         ^
+src/Sensors/ultrasonic.c(8): note: declare 'static' if the function is not intended to be used outside of this translation unit
+uint32_t getEchoPulseDuration() {
+^
+static 
+src/Sensors/ultrasonic.c(37): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+uint16_t measureDistance() {
+                        ^
+                         void
+src/Sensors/ultrasonic.c(37): warning: no previous prototype for function 'measureDistance' [-Wmissing-prototypes]
+uint16_t measureDistance() {
+         ^
+src/Sensors/ultrasonic.c(37): note: declare 'static' if the function is not intended to be used outside of this translation unit
+uint16_t measureDistance() {
+^
+static 
+src/Sensors/ultrasonic.c(48): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void measureAndControlLEDtest() {
+                             ^
+                              void
+src/Sensors/ultrasonic.c(63): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR &= ~(1 << 3); // Turn off LED
+                   ~~ ^~~~~~~~~
+src/Sensors/ultrasonic.c(65): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+src/Sensors/ultrasonic.c(48): warning: no previous prototype for function 'measureAndControlLEDtest' [-Wmissing-prototypes]
+void measureAndControlLEDtest() {
+     ^
+src/Sensors/ultrasonic.c(48): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void measureAndControlLEDtest() {
+^
+static 
+12 warnings generated.
+compiling ultrasonic.c...
 linking...
-Program Size: Code=376 RO-data=408 RW-data=0 ZI-data=1632  
-".\Objects\main.axf" - 0 Error(s), 2 Warning(s).
+Program Size: Code=904 RO-data=408 RW-data=0 ZI-data=1632  
+".\Objects\main.axf" - 0 Error(s), 30 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -66,12 +193,12 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
-      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f407xx.s
-      Source file:   MDK/Device/Source/ARM/STM32F40xxx_41xxx_OPT.s
       Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
       Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
-Build Time Elapsed:  00:00:02
+      Source file:   MDK/Device/Source/ARM/STM32F40xxx_41xxx_OPT.s
+      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f407xx.s
+      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

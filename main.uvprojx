@@ -389,6 +389,16 @@
               <FileType>1</FileType>
               <FilePath>.\src\main.c</FilePath>
             </File>
+            <File>
+              <FileName>initialisation_funcs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\Initialisation\initialisation_funcs.c</FilePath>
+            </File>
+            <File>
+              <FileName>ultrasonic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\Sensors\ultrasonic.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
