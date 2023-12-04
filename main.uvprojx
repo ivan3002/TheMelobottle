@@ -413,6 +413,11 @@
               <FileType>1</FileType>
               <FilePath>.\src\audiodrivers\cs43l22.c</FilePath>
             </File>
+            <File>
+              <FileName>accel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\Sensors\accel.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

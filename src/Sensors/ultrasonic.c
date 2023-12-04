@@ -10,7 +10,7 @@ uint32_t getEchoPulseDuration() {
 	
 		int i;
     GPIOB->ODR |= (1 << 1); // Assuming trigger pin is connected to B1
-    for (i = 0; i < 100000; ++i); // Add a delay or use a timer for precise timing
+    for (i = 0; i < 1000; ++i); // Add a delay or use a timer for precise timing
 			GPIOB->ODR &= ~(1 << 1);
 
     // Wait for the echo pulse to start
@@ -56,9 +56,9 @@ void measureAndControlLEDtest() {
 	
     // Turn on LED if the measured distance is less than the threshold
     if (distance < thresholdDistance) {
-        GPIOB->ODR |= (1 << 3); // Turn on LED (Assuming LED is connected to pin B3)
+        GPIOB->ODR |= ~(1 << 3); // Turn on LED (Assuming LED is connected to pin B3)
     } else {
-        GPIOB->ODR &= (1 << 3); // Turn off LED
-				GPIOC->ODR; 
+        GPIOB->ODR &= ~(1 << 3); // Turn off LED
+				
     }
 }

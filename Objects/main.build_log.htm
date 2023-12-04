@@ -27,118 +27,7 @@ Project File Date:  11/30/2023
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'c:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-src/audiocode/sawwave.c(1): warning: In file included from...
-src/audiocode/../audiodrivers/Audio_Drivers.h(2): warning: // comments are not allowed in this language [-Wcomment]
-// My versions of the audio drivers supplied with the STM32F4 discovery board.
-^
-src/audiocode/sawwave.c(1): warning: In file included from...
-src/audiocode/../audiodrivers/Audio_Drivers.h(33): warning: In file included from...
-src/audiocode/../audiodrivers/./cs43l22.h(41): warning: // comments are not allowed in this language [-Wcomment]
-// The next line is a modification to the original source code to remove 
-^
-src/audiocode/sawwave.c(1): warning: In file included from...
-src/audiocode/../audiodrivers/Audio_Drivers.h(33): warning: In file included from...
-src/audiocode/../audiodrivers/./cs43l22.h(43): warning: In file included from...
-src/audiocode/../audiodrivers/./audio_replacement.h(1): warning: // comments are not allowed in this language [-Wcomment]
-// This file is required to replace some of the constants and structures in the 
-^
-src/audiocode/sawwave.c(8): warning: // comments are not allowed in this language [-Wcomment]
-// Set up the sine look-up table:
-^
-src/audiocode/sawwave.c(15): warning: no previous extern declaration for non-static variable 'noteStatus' [-Wmissing-variable-declarations]
-enum eNoteStatus { ready, going, finish } noteStatus = ready;
-                                          ^
-src/audiocode/sawwave.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-enum eNoteStatus { ready, going, finish } noteStatus = ready;
-^
-src/audiocode/sawwave.c(17): warning: no previous extern declaration for non-static variable 'bufferStatus' [-Wmissing-variable-declarations]
-secondHalfReq, secondHalfDone } bufferStatus = empty; 
-                                ^
-src/audiocode/sawwave.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-enum eBufferStatus { empty, finished, firstHalfReq, firstHalfDone,
-^
-src/audiocode/sawwave.c(39): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
-        for(int i=0; i <= PBSIZE; i++) {
-            ^
-src/audiocode/sawwave.c(39): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/audiocode/sawwave.c(52): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
-        for (int j = 0; j < SINESIZE; j++) {
-             ^
-src/audiocode/sawwave.c(52): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/audiocode/sawwave.c(55): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
-    for (int harmonic = 1; harmonic <= 10; harmonic++) {
-         ^
-src/audiocode/sawwave.c(55): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/audiocode/sawwave.c(56): warning: implicit conversion from 'int' to 'float' may lose precision [-Wimplicit-int-float-conversion]
-        float frequency = desiredFreq * harmonic;
-                                      ~ ^~~~~~~~
-src/audiocode/sawwave.c(57): warning: implicit conversion from 'int' to 'float' may lose precision [-Wimplicit-int-float-conversion]
-        float amplitude = volume / harmonic; // Adjust the amplitude here
-                                 ~ ^~~~~~~~
-src/audiocode/sawwave.c(59): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
-        sawtoothWave += amplitude * sin(i * 2.0 * PI * harmonic / SINESIZE);
-                        ^~~~~~~~~ ~
-src/audiocode/sawwave.c(59): warning: implicit conversion when assigning computation result loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
-        sawtoothWave += amplitude * sin(i * 2.0 * PI * harmonic / SINESIZE);
-                     ~~ ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/audiocode/sawwave.c(56): warning: unused variable 'frequency' [-Wunused-variable]
-        float frequency = desiredFreq * harmonic;
-              ^
-src/audiocode/sawwave.c(112): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
-                        for (int i = startFill; i < endFill; i += 2) {
-                             ^
-src/audiocode/sawwave.c(112): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/audiocode/sawwave.c(112): warning: declaration shadows a local variable [-Wshadow]
-                        for (int i = startFill; i < endFill; i += 2) {
-                                 ^
-src/audiocode/sawwave.c(39): note: previous declaration is here
-        for(int i=0; i <= PBSIZE; i++) {
-                ^
-src/audiocode/sawwave.c(112): warning: implicit conversion changes signedness: 'uint32_t' (aka 'unsigned int') to 'int' [-Wsign-conversion]
-                        for (int i = startFill; i < endFill; i += 2) {
-                                 ~   ^~~~~~~~~
-src/audiocode/sawwave.c(115): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
-                                int16_t nextSample = SineBuff[(uint16_t)(currentPhase)];
-                                        ^
-src/audiocode/sawwave.c(124): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-src/audiocode/sawwave.c(44): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
-        float currentPhase = 0.0;
-              ^
-src/audiocode/sawwave.c(30): warning: no previous prototype for function 'sawwave' [-Wmissing-prototypes]
-void sawwave(){
-     ^
-src/audiocode/sawwave.c(30): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void sawwave(){
-^
-static 
-src/audiocode/sawwave.c(30): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void sawwave(){
-            ^
-src/audiocode/sawwave.c(112): warning: comparison of integers of different signs: 'int' and 'uint32_t' (aka 'unsigned int') [-Wsign-compare]
-                        for (int i = startFill; i < endFill; i += 2) {
-                                                ~ ^ ~~~~~~~
-src/audiocode/sawwave.c(30): warning: function 'sawwave' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
-void sawwave(){
-              ^
-src/audiocode/sawwave.c(12): warning: no previous extern declaration for non-static variable 'PlayBuff' [-Wmissing-variable-declarations]
-int16_t PlayBuff[PBSIZE]; 
-        ^
-src/audiocode/sawwave.c(12): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t PlayBuff[PBSIZE]; 
-^
-src/audiocode/sawwave.c(13): warning: no previous extern declaration for non-static variable 'SineBuff' [-Wmissing-variable-declarations]
-int16_t SineBuff[SINESIZE]; 
-        ^
-src/audiocode/sawwave.c(13): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t SineBuff[SINESIZE]; 
-^
-30 warnings generated.
-compiling sawwave.c...
-linking...
-Program Size: Code=1500 RO-data=424 RW-data=8 ZI-data=9832  
-".\Objects\main.axf" - 0 Error(s), 30 Warning(s).
+".\Objects\main.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -164,12 +53,12 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
+      Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
       Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
-      Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
