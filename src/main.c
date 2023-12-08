@@ -1,4 +1,6 @@
 #include "Sensors/ultrasonic.h"
+#include "Sensors/accel.h"
+#include "Initialisation/initialisation_funcs.h"
 
 
 
@@ -7,13 +9,8 @@ int main() {
     // Initialize your peripherals
     seti2c();
     initialpins();
-		timerinit();
-		
+		//timerinit();
+		acceldataread();
 
-    // Main loop
-    while (1) {
-        // Measure distance and control LED
-	
-        measureAndControlLEDtest();
-    }
+    
 }
