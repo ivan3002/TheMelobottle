@@ -41,6 +41,13 @@ uint16_t measureDistance() {
     return distance;
 }
 
+void flash(){
+	int number = 1000;
+	GPIOB->ODR |= (1 << 3);
+}
+	
+
+
 
 
 void measureAndControlLEDtest() {
@@ -56,7 +63,7 @@ void measureAndControlLEDtest() {
 	
     // Turn on LED if the measured distance is less than the threshold
     if (distance < thresholdDistance) {
-        GPIOB->ODR |= ~(1 << 3); // Turn on LED (Assuming LED is connected to pin B3)
+        GPIOB->ODR |= (1 << 3); // Turn on LED (Assuming LED is connected to pin B3)
     } else {
         GPIOB->ODR &= ~(1 << 3); // Turn off LED
 				

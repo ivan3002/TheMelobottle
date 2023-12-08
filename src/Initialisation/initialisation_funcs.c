@@ -6,27 +6,41 @@ void setgpioclock(){
 
 }
 
+void seti2cclock(){
+	RCC->APB1ENR |= RCC_APB1ENR_I2C1EN; // Enable I2C1 clock
+}
+
 
 void seti2c() {
-    setgpioclock(); // Enable GPIOB clock
-    RCC->APB1ENR |= RCC_APB1ENR_I2C1EN; // Enable I2C1 clock
-   
-    GPIOB->AFR[0] |= 0x00000044; /* Set alternate function AF4 for SDA and SCL, (Setting the appropriate bits in the GPIO alternate function register to enable the I2C peripheral
-																																											as the alternate function for these bits)*/  
-	
+		I2C1->CR1 &= ~I2C_CR1_PE; // Disable the I2C peripheral for configuration
 		
-		GPIOB->OTYPER|= (GPIO_OTYPER_OT7_Msk) | (0x01 << GPIO_OTYPER_OT7_Pos); //set control bits for the GPIO input port for "open drain" operation
+		seti2cclock(); //i2c clock
 	
-    GPIOB->MODER |=  (GPIOB->MODER & ~(GPIO_MODER_MODER6_Msk | GPIO_MODER_MODER7_Msk))
-                   | (0x10 << GPIO_MODER_MODER6_Pos) | (0x10 << GPIO_MODER_MODER7_Pos); // Set alternate function mode for PB6 (SCL) and PB7 (SDA)
-
-    I2C1->CR1 = 0; // Disable the I2C peripheral for configuration
-
-    // Configure I2C clock speed (replace 100000 with your desired speed)
-    I2C1->CCR = 80; // Set CCR register (depends on your clock speed and other factors)
-    I2C1->TRISE = 17; // Set TRISE register (depends on your clock speed and other factors)
+    I2C1->CR2 = (I2C1->CR2 & ~I2C_CR2_FREQ_Msk) | (0x10 << I2C_CR2_FREQ_Pos);
+    // Configure I2C clock speed 
+    I2C1->CCR =(I2C1->CCR & ~I2C_CCR_CCR_Msk) | (0x50<< I2C_CCR_CCR_Pos); // Set CCR register (depends on your clock speed and other factors)
+    I2C1->TRISE =(I2C1->TRISE & ~I2C_TRISE_TRISE_Msk) | (0x11<< I2C_TRISE_TRISE_Pos); // Set TRISE register (depends on your clock speed and other factors)
 
     I2C1->CR1 |= I2C_CR1_PE; // Enable the I2C peripheral
+	
+    setgpioclock(); // Enable GPIOB clock
+		
+    GPIOB->OTYPER|= (GPIO_OTYPER_OT6_Msk) | (0x01 << GPIO_OTYPER_OT6_Pos); //set control bits for the GPIO input port for "open drain" operation
+		GPIOB->OTYPER|= (GPIO_OTYPER_OT7_Msk) | (0x01 << GPIO_OTYPER_OT7_Pos); //set control bits for the GPIO input port for "open drain" operation
+		
+   
+    GPIOB->AFR[0] |= (0x04 << GPIO_AFRL_AFSEL6_Pos) | (0x04 << GPIO_AFRL_AFSEL7_Pos); /* Set alternate function AF4 for SDA and SCL, (Setting the appropriate bits in the GPIO alternate function register to enable the I2C peripheral
+																																											as the alternate function for these bits)*/  
+	
+		GPIOB->MODER = (GPIOB->MODER & ~(GPIO_MODER_MODER6_Msk | GPIO_MODER_MODER7_Msk)) | (0x02 << GPIO_MODER_MODER6_Pos) | (0x02 << GPIO_MODER_MODER7_Pos); // Set alternate function mode for PB6 (SCL) and PB7 (SDA)
+		// Configure PB6 (SCL) with internal pull-up
+		GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD6_Msk) | (0x01 << GPIO_PUPDR_PUPD6_Pos); //pull-up
+
+		// Configure PB7 (SDA) with internal pull-up
+		GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD7_Msk) | (0x01 << GPIO_PUPDR_PUPD7_Pos); //pull-up
+	
+	
+
 }
 
 void initialpins(){
