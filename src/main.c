@@ -5,12 +5,16 @@
 
 
 
+
 int main() {
     // Initialize your peripherals
-    seti2c();
-    initialpins();
-		//timerinit();
-		acceldataread();
+	
+	seti2c();
+	initialpins();
+	//timerinit();
+
+	acceltest();
+
 
     
 }

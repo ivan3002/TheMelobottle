@@ -1,1 +1,2 @@
-void acceldataread();
+int acceldataread();
+void acceltest();

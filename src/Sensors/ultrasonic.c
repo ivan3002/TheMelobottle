@@ -40,14 +40,7 @@ uint16_t measureDistance() {
 		uint16_t distance = (uint16_t)((pulseDuration * 343) / 2000);
     return distance;
 }
-
-void flash(){
-	int number = 1000;
-	GPIOB->ODR |= (1 << 3);
-}
 	
-
-
 
 
 void measureAndControlLEDtest() {

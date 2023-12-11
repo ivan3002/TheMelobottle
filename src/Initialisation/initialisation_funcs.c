@@ -25,19 +25,22 @@ void seti2c() {
 	
     setgpioclock(); // Enable GPIOB clock
 		
-    GPIOB->OTYPER|= (GPIO_OTYPER_OT6_Msk) | (0x01 << GPIO_OTYPER_OT6_Pos); //set control bits for the GPIO input port for "open drain" operation
+    GPIOB->OTYPER|= (GPIO_OTYPER_OT8_Msk) | (0x01 << GPIO_OTYPER_OT8_Pos); //set control bits for the GPIO input port for "open drain" operation
 		GPIOB->OTYPER|= (GPIO_OTYPER_OT7_Msk) | (0x01 << GPIO_OTYPER_OT7_Pos); //set control bits for the GPIO input port for "open drain" operation
+	
+		GPIOB->MODER = (GPIOB->MODER & ~(GPIO_MODER_MODER8_Msk | GPIO_MODER_MODER7_Msk)) | (0x02 << GPIO_MODER_MODER8_Pos) | (0x02 << GPIO_MODER_MODER7_Pos); // Set alternate function mode for PB8 (SCL) and PB7 (SDA)
 		
    
-    GPIOB->AFR[0] |= (0x04 << GPIO_AFRL_AFSEL6_Pos) | (0x04 << GPIO_AFRL_AFSEL7_Pos); /* Set alternate function AF4 for SDA and SCL, (Setting the appropriate bits in the GPIO alternate function register to enable the I2C peripheral
+    GPIOB->AFR[0] |= (0x04 << GPIO_AFRL_AFSEL7_Pos); /* Set alternate function AF4 for SDA and SCL, (Setting the appropriate bits in the GPIO alternate function register to enable the I2C peripheral
 																																											as the alternate function for these bits)*/  
+		GPIOB->AFR[1] |= (0x04 << GPIO_AFRH_AFSEL8_Pos);
 	
-		GPIOB->MODER = (GPIOB->MODER & ~(GPIO_MODER_MODER6_Msk | GPIO_MODER_MODER7_Msk)) | (0x02 << GPIO_MODER_MODER6_Pos) | (0x02 << GPIO_MODER_MODER7_Pos); // Set alternate function mode for PB6 (SCL) and PB7 (SDA)
-		// Configure PB6 (SCL) with internal pull-up
-		GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD6_Msk) | (0x01 << GPIO_PUPDR_PUPD6_Pos); //pull-up
+
+		// Configure PB8 (SCL) with internal pull-up
+		//GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD8_Msk) | (0x01 << GPIO_PUPDR_PUPD8_Pos); //pull-up
 
 		// Configure PB7 (SDA) with internal pull-up
-		GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD7_Msk) | (0x01 << GPIO_PUPDR_PUPD7_Pos); //pull-up
+		//GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD7_Msk) | (0x01 << GPIO_PUPDR_PUPD7_Pos); //pull-up
 	
 	
 
@@ -47,7 +50,9 @@ void initialpins(){
 	setgpioclock();
 	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER1_Msk) | (0x01 << GPIO_MODER_MODER1_Pos); //trig
 	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER2_Msk) | (0x00 << GPIO_MODER_MODER2_Pos);	//echo
-	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER3_Msk) | (0x01 << GPIO_MODER_MODER3_Pos);
+	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER3_Msk) | (0x01 << GPIO_MODER_MODER3_Pos); //test LED green
+	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER4_Msk) | (0x01 << GPIO_MODER_MODER4_Pos); //test LED red
+	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER5_Msk) | (0x01 << GPIO_MODER_MODER5_Pos); //test LED yellow
 }
 
 

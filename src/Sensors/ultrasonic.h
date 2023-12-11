@@ -2,4 +2,3 @@
 #define uint32_t getEchoPulseDuration(void)
 
 void measureAndControlLEDtest();
-void flash();
