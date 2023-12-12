@@ -18,8 +18,8 @@ Instructions
      - git commit -m "Your commit message here"
      - git push -u origin branch_name
 
-  At the start of each subsequent session you do simply use the command "git pull" to get the most up to date code. Then when finished the same git add .; git commit -m and git push commands
- 
+  **At the start of each subsequent session you do simply use the command "git pull" to get the most up to date code. Then when finished the same git add .; git commit -m and git push commands
+ **
   - You can use the command git status to see the files that need to be pushed
 
 If you are working on a shared repository and want to merge your changes into the main branch, you typically create a pull request. This can be done on the GitHub website.
