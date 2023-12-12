@@ -18,7 +18,7 @@ Instructions
      - git commit -m "Your commit message here"
      - git push -u origin branch_name
 
-    
+  At the start of each subsequent session you do simply use the command "git pull" to get the most up to date code. Then when finished the same git add .; git commit -m and git push commands
  
   - You can use the command git status to see the files that need to be pushed
 
