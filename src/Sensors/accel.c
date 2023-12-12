@@ -3,7 +3,7 @@
 
 int acceldataread(){
 
-	I2C1->CR1 |= I2C_CR1_START; // Send the I2C start symbol
+	I2C1->CR1 |= (0x01 << I2C_CR1_START_Pos); // Send the I2C start symbol
  
 	
 	int time_a = 100000;  // Adjust the timeout value as needed

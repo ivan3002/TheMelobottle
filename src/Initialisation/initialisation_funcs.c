@@ -37,10 +37,10 @@ void seti2c() {
 	
 
 		// Configure PB8 (SCL) with internal pull-up
-		//GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD8_Msk) | (0x01 << GPIO_PUPDR_PUPD8_Pos); //pull-up
+		GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD8_Msk) | (0x01 << GPIO_PUPDR_PUPD8_Pos); //pull-up
 
 		// Configure PB7 (SDA) with internal pull-up
-		//GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD7_Msk) | (0x01 << GPIO_PUPDR_PUPD7_Pos); //pull-up
+		GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD7_Msk) | (0x01 << GPIO_PUPDR_PUPD7_Pos); //pull-up
 	
 	
 
