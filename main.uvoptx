@@ -28,7 +28,7 @@
     <TargetOption>
       <CLKADS>12000000</CLKADS>
       <OPTTT>
-        <gFlags>0</gFlags>
+        <gFlags>1</gFlags>
         <BeepAtEnd>1</BeepAtEnd>
         <RunSim>0</RunSim>
         <RunTarget>1</RunTarget>
@@ -154,7 +154,7 @@
           <Type>0</Type>
           <LineNumber>11</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134221410</Address>
+          <Address>134222006</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -168,9 +168,9 @@
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>25</LineNumber>
+          <LineNumber>152</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134221994</Address>
+          <Address>134225214</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -179,12 +179,12 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\src\audiocode\sawwave.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\main\src/audiocode/sawwave.c\25</Expression>
+          <Expression>\\main\src/audiocode/sawwave.c\152</Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>28</LineNumber>
+          <LineNumber>155</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -200,7 +200,7 @@
         <Bp>
           <Number>3</Number>
           <Type>0</Type>
-          <LineNumber>29</LineNumber>
+          <LineNumber>157</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -349,6 +349,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\src\audiodrivers\cs43l22.c</PathWithFileName>
       <FilenameWithoutPath>cs43l22.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>7</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\lpfilter.c</PathWithFileName>
+      <FilenameWithoutPath>lpfilter.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
