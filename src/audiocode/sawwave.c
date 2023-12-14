@@ -30,7 +30,7 @@ void myAudioTransferCompleteCallback(void) {
  bufferStatus = secondHalfReq;
 } 
 
-
+// saw wave function
 void sawwave(){
 
 	myAudioSpeedUpTheSystemClock();
@@ -54,7 +54,7 @@ void sawwave(){
 
 	for (int j = 0; j < SINESIZE; j++) {
     float sawtoothWave = 0.0;
-
+	// harmonic iterations
     for (int harmonic = 1; harmonic <= 10; harmonic++) {
         float frequency = desiredFreq * harmonic;
         float amplitude = volume / harmonic; // Adjust the amplitude here
@@ -68,7 +68,7 @@ void sawwave(){
 	
 	
 	 
-	                                   
+	// sine wave generation                                   
 	/*for (int i = 0; i < SINESIZE; i++) {
 		float q = 32760 * sin(i * 2.0 * PI / SINESIZE);
 		SineBuff[i] = (int16_t)q;
@@ -77,6 +77,7 @@ void sawwave(){
 	//Start the audio driver play routine
 	myAudioStartPlaying(PlayBuff, PBSIZE); 
 	
+	// sine wave gen
 	/*while(1){
 		if (bufferStatus == firstHalfReq) {
 			for (int i=0; i<=PBSIZE/2 -1;++1){
@@ -96,7 +97,9 @@ void sawwave(){
 		float lastSampleInput = 0.0, lastLastSampleInput= 0.0, lastSampleOutput = 0.0, lastLastSampleOutput = 0.0, filteredSample = 0.0;
 		//float a1 = 0.9776, b0 =  0.0112;
 		
-		float desiredCutoff = 10000;
+		
+		// cutoff for filter
+		float desiredCutoff = 440;
 	
 	
 		
@@ -109,8 +112,9 @@ void sawwave(){
 		 //float b0 = desiredCutoff / (desiredCutoff+2/DELTA_T);
 		
 		
-		
+		// coefficient initialisation
 		float a1,a2,b0,b1,b2;
+		// q factor initialisation
 		float	Q = 1*0.5;
 		
 	 while (1){
@@ -131,15 +135,18 @@ void sawwave(){
  }
 
 		if (startFill != endFill) {
+			// calc values for coefficient calc
 			float ff = desiredCutoff/AUDIO_FREQUENCY_44K;
-				float ita = 1.0/ tan(PI*ff);
-				
-			  
-				b0 = 1.0 / (1.0 + Q * ita + ita * ita);
-				b1 = 2*b0;
-				b2 = b0;
-				a1 = 2.0*(ita*ita - 1.0) * b0;
-				a2 = -(1.0 - Q*ita + ita*ita) * b0;
+			float ita = 1.0/ tan(PI*ff);
+			
+			// calc coefficients
+			b0 = 1.0 / (1.0 + Q * ita + ita * ita);
+			b1 = 2*b0;
+			b2 = b0;
+			a1 = 2.0*(ita*ita - 1.0) * b0;
+			a2 = -(1.0 - Q*ita + ita*ita) * b0;
+			
+			// begin buffer fill loop
 			for (int i = startFill; i < endFill; i += 2) {
 				
 				currentPhase += phaseIncrement;
@@ -154,7 +161,7 @@ void sawwave(){
 				
 				
 				
-				//filteredSample = lpfilter(AUDIO_FREQUENCY_44K, desiredCutoff, lastSampleInput, lastLastSampleInput, lastSampleOutput, lastLastSampleOutput, nextSample);
+				
 				
 				float filteredSample = ( a1 * lastSampleOutput ) + ( a2 * lastLastSampleOutput ) + ( b0 * nextSample )  + ( b1 * lastSampleInput ) + ( b2 * lastLastSampleInput );
 				
@@ -176,6 +183,7 @@ void sawwave(){
 					PlayBuff[i] = nextSample;
 					PlayBuff[i + 1] = nextSample;
 				*/
+				
 			}
 		}
 	} // end of while loop 
