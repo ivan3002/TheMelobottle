@@ -22,149 +22,17 @@ Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 M:\TheMelobottle\main.uvprojx
-Project File Date:  12/12/2023
+Project File Date:  12/14/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'c:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
-src/main.c(1): warning: In file included from...
-src/Sensors/ultrasonic.h(4): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void measureAndControlLEDtest();
-                             ^
-                              void
-src/main.c(2): warning: In file included from...
-src/Sensors/accel.h(1): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-int acceldataread();
-                 ^
-                  void
-src/Sensors/accel.h(2): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void acceltest();
-              ^
-               void
-src/Sensors/accel.h(2): warning: no newline at end of file [-Wnewline-eof]
-void acceltest();
-                 ^
-src/main.c(3): warning: In file included from...
-src/Initialisation/initialisation_funcs.h(5): warning: no newline at end of file [-Wnewline-eof]
-void timerinit(void);
-                     ^
-src/main.c(10): warning: // comments are not allowed in this language [-Wcomment]
-    // Initialize your peripherals
-    ^
-src/main.c(20): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-7 warnings generated.
-compiling main.c...
 assembling startup_stm32f407xx.s...
-src/Sensors/accel.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
-#include "STM32F407xx.h"
-         ^~~~~~~~~~~~~~~
-         "stm32f407xx.h"
-src/Sensors/accel.c(6): warning: // comments are not allowed in this language [-Wcomment]
-        I2C3->CR1 |= (0x01 << I2C_CR1_START_Pos); // Send the I2C start symbol
-                                                  ^
-src/Sensors/accel.c(23): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int' [-Wsign-conversion]
-                dummy = (I2C3->SR2); // Dummy read of SR2 
-                      ~  ~~~~~~^~~
-src/Sensors/accel.c(25): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int' [-Wsign-conversion]
-        dummy = (I2C3->SR2); // Dummy read of SR2 
-              ~  ~~~~~~^~~
-src/Sensors/accel.c(45): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int' [-Wsign-conversion]
-        rA = (I2C3->DR);
-           ~  ~~~~~~^~
-src/Sensors/accel.c(9): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
-        int time_a = 100000;  // Adjust the timeout value as needed
-            ^
-src/Sensors/accel.c(4): warning: no previous prototype for function 'acceldataread' [-Wmissing-prototypes]
-int acceldataread(){
-    ^
-src/Sensors/accel.c(4): note: declare 'static' if the function is not intended to be used outside of this translation unit
-int acceldataread(){
-^
-static 
-src/Sensors/accel.c(4): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-int acceldataread(){
-                 ^
-src/Sensors/accel.c(67): warning: no newline at end of file [-Wnewline-eof]
-        
-        ^
-src/Sensors/accel.c(52): warning: no previous prototype for function 'acceltest' [-Wmissing-prototypes]
-void acceltest(){
-     ^
-src/Sensors/accel.c(52): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void acceltest(){
-^
-static 
-src/Sensors/accel.c(52): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void acceltest(){
-              ^
-11 warnings generated.
-compiling accel.c...
-compiling system_stm32f4xx.c...
-src/Initialisation/initialisation_funcs.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
-#include "STM32F407xx.h"
-         ^~~~~~~~~~~~~~~
-         "stm32f407xx.h"
-src/Initialisation/initialisation_funcs.c(5): warning: // comments are not allowed in this language [-Wcomment]
-        RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // GPIOA clock
-                                             ^
-src/Initialisation/initialisation_funcs.c(4): warning: no previous prototype for function 'setgpioclock' [-Wmissing-prototypes]
-void setgpioclock(){
-     ^
-src/Initialisation/initialisation_funcs.c(4): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void setgpioclock(){
-^
-static 
-src/Initialisation/initialisation_funcs.c(4): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void setgpioclock(){
-                 ^
-src/Initialisation/initialisation_funcs.c(11): warning: no previous prototype for function 'seti2cclock' [-Wmissing-prototypes]
-void seti2cclock(){
-     ^
-src/Initialisation/initialisation_funcs.c(11): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void seti2cclock(){
-^
-static 
-src/Initialisation/initialisation_funcs.c(11): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void seti2cclock(){
-                ^
-src/Initialisation/initialisation_funcs.c(16): warning: no previous prototype for function 'seti2c' [-Wmissing-prototypes]
-void seti2c() {
-     ^
-src/Initialisation/initialisation_funcs.c(16): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void seti2c() {
-^
-static 
-src/Initialisation/initialisation_funcs.c(16): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void seti2c() {
-           ^
-src/Initialisation/initialisation_funcs.c(61): warning: no previous prototype for function 'initialpins' [-Wmissing-prototypes]
-void initialpins(){
-     ^
-src/Initialisation/initialisation_funcs.c(61): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void initialpins(){
-^
-static 
-src/Initialisation/initialisation_funcs.c(61): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void initialpins(){
-                ^
-src/Initialisation/initialisation_funcs.c(71): warning: no previous prototype for function 'timerinit' [-Wmissing-prototypes]
-void timerinit(){
-     ^
-src/Initialisation/initialisation_funcs.c(71): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void timerinit(){
-^
-static 
-src/Initialisation/initialisation_funcs.c(71): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void timerinit(){
-              ^
-12 warnings generated.
-compiling initialisation_funcs.c...
 src/Sensors/ultrasonic.c(1): warning: In file included from...
-src/Sensors/../Initialisation/initialisation_funcs.h(5): warning: no newline at end of file [-Wnewline-eof]
-void timerinit(void);
-                     ^
+src/Sensors/../Initialisation/initialisation_funcs.h(6): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void configureI2CRegisters();
+                          ^
+                           void
 src/Sensors/ultrasonic.c(2): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
 #include "STM32F407xx.h"
          ^~~~~~~~~~~~~~~
@@ -213,6 +81,167 @@ void measureAndControlLEDtest() {
                              ^
 12 warnings generated.
 compiling ultrasonic.c...
+src/Sensors/accel.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "STM32F407xx.h"
+         ^~~~~~~~~~~~~~~
+         "stm32f407xx.h"
+src/Sensors/accel.c(6): warning: // comments are not allowed in this language [-Wcomment]
+        I2C3->CR1 |= (0x01 << I2C_CR1_START_Pos); // Send the I2C start symbol
+                                                  ^
+src/Sensors/accel.c(23): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int' [-Wsign-conversion]
+                dummy = (I2C3->SR2); // Dummy read of SR2 
+                      ~  ~~~~~~^~~
+src/Sensors/accel.c(25): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int' [-Wsign-conversion]
+        dummy = (I2C3->SR2); // Dummy read of SR2 
+              ~  ~~~~~~^~~
+src/Sensors/accel.c(45): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int' [-Wsign-conversion]
+        rA = (I2C3->DR);
+           ~  ~~~~~~^~
+src/Sensors/accel.c(9): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+        int time_a = 100000;  // Adjust the timeout value as needed
+            ^
+src/Sensors/accel.c(4): warning: no previous prototype for function 'acceldataread' [-Wmissing-prototypes]
+int acceldataread(){
+    ^
+src/Sensors/accel.c(4): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int acceldataread(){
+^
+static 
+src/Sensors/accel.c(4): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+int acceldataread(){
+                 ^
+src/Sensors/accel.c(67): warning: no newline at end of file [-Wnewline-eof]
+        
+        ^
+src/Sensors/accel.c(52): warning: no previous prototype for function 'acceltest' [-Wmissing-prototypes]
+void acceltest(){
+     ^
+src/Sensors/accel.c(52): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void acceltest(){
+^
+static 
+src/Sensors/accel.c(52): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void acceltest(){
+              ^
+11 warnings generated.
+compiling accel.c...
+src/main.c(1): warning: In file included from...
+src/Sensors/ultrasonic.h(4): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void measureAndControlLEDtest();
+                             ^
+                              void
+src/main.c(2): warning: In file included from...
+src/Sensors/accel.h(1): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+int acceldataread();
+                 ^
+                  void
+src/Sensors/accel.h(2): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void acceltest();
+              ^
+               void
+src/Sensors/accel.h(2): warning: no newline at end of file [-Wnewline-eof]
+void acceltest();
+                 ^
+src/main.c(3): warning: In file included from...
+src/Initialisation/initialisation_funcs.h(6): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void configureI2CRegisters();
+                          ^
+                           void
+src/main.c(10): warning: // comments are not allowed in this language [-Wcomment]
+  // Initialize your peripherals
+  ^
+src/main.c(20): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+7 warnings generated.
+compiling main.c...
+compiling system_stm32f4xx.c...
+src/Initialisation/initialisation_funcs.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "STM32F407xx.h"
+         ^~~~~~~~~~~~~~~
+         "stm32f407xx.h"
+src/Initialisation/initialisation_funcs.c(6): warning: // comments are not allowed in this language [-Wcomment]
+        // Note these functions only work for standard I2C speeds of up to 100 kbit/s.
+        ^
+src/Initialisation/initialisation_funcs.c(5): warning: no previous prototype for function 'configureI2CRegisters' [-Wmissing-prototypes]
+void configureI2CRegisters() {  
+     ^
+src/Initialisation/initialisation_funcs.c(5): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void configureI2CRegisters() {  
+^
+static 
+src/Initialisation/initialisation_funcs.c(5): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void configureI2CRegisters() {  
+                          ^
+src/Initialisation/initialisation_funcs.c(38): warning: implicit declaration of function 'Configure_GPIO_Output' [-Wimplicit-function-declaration]
+        Configure_GPIO_Output(GPIOA, 8, 2, 4);
+        ^
+src/Initialisation/initialisation_funcs.c(32): warning: no previous prototype for function 'setupClocksAndGPIOForI2C' [-Wmissing-prototypes]
+void setupClocksAndGPIOForI2C(void) {
+     ^
+src/Initialisation/initialisation_funcs.c(32): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void setupClocksAndGPIOForI2C(void) {
+^
+static 
+src/Initialisation/initialisation_funcs.c(58): warning: no previous prototype for function 'setupI2CPeripheral' [-Wmissing-prototypes]
+void setupI2CPeripheral(void) {     
+     ^
+src/Initialisation/initialisation_funcs.c(58): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void setupI2CPeripheral(void) {     
+^
+static 
+src/Initialisation/initialisation_funcs.c(70): warning: no previous prototype for function 'setgpioclock' [-Wmissing-prototypes]
+void setgpioclock(){
+     ^
+src/Initialisation/initialisation_funcs.c(70): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void setgpioclock(){
+^
+static 
+src/Initialisation/initialisation_funcs.c(70): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void setgpioclock(){
+                 ^
+src/Initialisation/initialisation_funcs.c(77): warning: no previous prototype for function 'seti2cclock' [-Wmissing-prototypes]
+void seti2cclock(){
+     ^
+src/Initialisation/initialisation_funcs.c(77): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void seti2cclock(){
+^
+static 
+src/Initialisation/initialisation_funcs.c(77): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void seti2cclock(){
+                ^
+src/Initialisation/initialisation_funcs.c(81): warning: no previous prototype for function 'seti2c' [-Wmissing-prototypes]
+void seti2c() {
+     ^
+src/Initialisation/initialisation_funcs.c(81): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void seti2c() {
+^
+static 
+src/Initialisation/initialisation_funcs.c(81): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void seti2c() {
+           ^
+src/Initialisation/initialisation_funcs.c(126): warning: no previous prototype for function 'initialpins' [-Wmissing-prototypes]
+void initialpins(){
+     ^
+src/Initialisation/initialisation_funcs.c(126): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void initialpins(){
+^
+static 
+src/Initialisation/initialisation_funcs.c(126): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void initialpins(){
+                ^
+src/Initialisation/initialisation_funcs.c(136): warning: no previous prototype for function 'timerinit' [-Wmissing-prototypes]
+void timerinit(){
+     ^
+src/Initialisation/initialisation_funcs.c(136): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void timerinit(){
+^
+static 
+src/Initialisation/initialisation_funcs.c(136): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void timerinit(){
+              ^
+17 warnings generated.
+compiling initialisation_funcs.c...
 src/audiocode/sawwave.c(1): warning: In file included from...
 src/audiocode/../audiodrivers/Audio_Drivers.h(2): warning: // comments are not allowed in this language [-Wcomment]
 // My versions of the audio drivers supplied with the STM32F4 discovery board.
@@ -740,8 +769,8 @@ src/audiodrivers/Audio_Drivers.c(978): warning: ISO C90 forbids mixing declarati
 59 warnings generated.
 compiling Audio_Drivers.c...
 linking...
-Program Size: Code=1868 RO-data=424 RW-data=8 ZI-data=9832  
-".\Objects\main.axf" - 0 Error(s), 178 Warning(s).
+Program Size: Code=2422 RO-data=434 RW-data=12 ZI-data=9832  
+".\Objects\main.axf" - 0 Error(s), 183 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -752,27 +781,27 @@ Package Vendor: ARM
    * Component: CORE Version: 5.5.0
 
 Package Vendor: Keil
-                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
-                Keil.STM32F4xx_DFP.2.17.1
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.15.0.pack
+                Keil.STM32F4xx_DFP.2.15.0
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
    * Component: Startup Version: 2.6.3
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_Target_1
   C:\KEIL_V5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include
-  C:\KEIL_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+  C:\KEIL_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:2.6.3
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
+      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
       Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
-      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
-      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

@@ -7,9 +7,9 @@
 
 
 int main() {
-    // Initialize your peripherals
+  // Initialize your peripherals
 	
-	seti2c();
+	setupI2CPeripheral();
 	initialpins();
 	//timerinit();
 
