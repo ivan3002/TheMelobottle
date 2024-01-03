@@ -1,10 +1,76 @@
 #include "STM32F407xx.h"
 
 
-void setgpioclock(){
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // GPIOA clock
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN; // GPIOB clock
+
+void configureI2CRegisters() {	
+	// Note these functions only work for standard I2C speeds of up to 100 kbit/s.
+	// But that's OK, since I'll define the clock speed to be 100000.  I'm only
+	// operating in master mode, so I won't bother to set the own address fields,
+	// and I'm only using 7-bit addressing, with all other settings left as 
+	// defaults.
+	uint32_t clockSpeed = 100000;
+  uint32_t peripheralClockFreq = 0U;
+
+  // Disable the I2C1 peripheral
+	I2C3->CR1 &=  ~I2C_CR1_PE;
+
+  // Get the peripheral clock frequency (APB clock)
+	peripheralClockFreq = (SystemCoreClock >> APBPrescTable[(RCC->CFGR & RCC_CFGR_PPRE1)>> RCC_CFGR_PPRE1_Pos]);
+
+  // Configure CR2 with the frequency of the clock in MHz, and set the rise time accordingly:
+	I2C3->CR2 = peripheralClockFreq / 1000000;
+	I2C3->TRISE = I2C3->CR2 + 1;
+	
+	// Set the speed of transfer to 100 kbaud:
+  I2C3->CCR = peripheralClockFreq / clockSpeed / 2;
+
+  // Enable the I2C1 peripheral
+	I2C3->CR1 |=  I2C_CR1_PE;
+
+}
+
+void setupClocksAndGPIOForI2C(void) {
+  // Enable the clocks to the GPIO ports for the I2C signals:
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN; //GPIOA clock
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOCEN; // GPIOC clock
+	
+	// Configure the GPIO ports for the I2C signals (noting that they are open-drain):
+	Configure_GPIO_Output(GPIOA, 8, 2, 4);
+	Configure_GPIO_Output(GPIOC, 9, 2, 4);
+	GPIOA->OTYPER |= 0x01 << 8;
+	GPIOC->OTYPER |= 0x01 << 9;
+
+  // Enable the peripheral clock to the I2C3 peripheral:
+  RCC->APB1ENR |= RCC_APB1ENR_I2C3EN;
+	
+  // Force the I2C peripheral to reset to get into a known state:
+	RCC->APB1RSTR |= RCC_APB1RSTR_I2C3RST;
+	RCC->APB1RSTR &= ~(RCC_APB1RSTR_I2C3RST);
+
+  // Enable and set I2Cx event interrupts to the highest priority
+  NVIC_SetPriority(I2C3_EV_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0));
+	NVIC_EnableIRQ(I2C3_EV_IRQn);
+
+  // Enable and set I2Cx error interrupts to the highest priority
+  NVIC_SetPriority(I2C3_ER_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0));
+	NVIC_EnableIRQ(I2C3_ER_IRQn);
+}
+void setupI2CPeripheral(void) {     
+    // Set up the GPIO pins, enable clocks in the RCC and interrupts in the NVIC:
+    setupClocksAndGPIOForI2C();
+		
+		// Initialise the I2C periperhal itself:
+    configureI2CRegisters();
+	
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void setgpioclock(){
+	//RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // GPIOA clock
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN; // GPIOB clock
+	//RCC->AHB1ENR |= RCC_AHB1ENR_GPIOCEN; // GPIOC clock
 
 }
 
@@ -12,14 +78,13 @@ void seti2cclock(){
 	RCC->APB1ENR |= RCC_APB1ENR_I2C3EN; // Enable I2C3 clock
 }
 
-
 void seti2c() {
 	
 		setgpioclock(); // Enable GPIOB clock
 	
 		//GPIOB->MODER = (GPIOB->MODER & ~(GPIO_MODER_MODER8_Msk | GPIO_MODER_MODER7_Msk)) | (0x02 << GPIO_MODER_MODER8_Pos) | (0x02 << GPIO_MODER_MODER7_Pos); // Set alternate function mode for PB8 (SCL) and PB7 (SDA)
-		GPIOA->MODER = (GPIOA->MODER &  ~GPIO_MODER_MODER8_Msk) | (0x02 << GPIO_MODER_MODER8_Pos);
-		GPIOC->MODER = (GPIOC->MODER &  ~GPIO_MODER_MODER9_Msk) | (0x02 << GPIO_MODER_MODER9_Pos);
+		GPIOA->MODER = (GPIOA->MODER &  ~GPIO_MODER_MODER8_Msk) | (0x02 << GPIO_MODER_MODER8_Pos); //SCL
+		GPIOC->MODER = (GPIOC->MODER &  ~GPIO_MODER_MODER9_Msk) | (0x02 << GPIO_MODER_MODER9_Pos); //SDA                                                                                                                     
 		
     GPIOA->OTYPER|= (GPIO_OTYPER_OT8_Msk) | (0x01 << GPIO_OTYPER_OT8_Pos); //set control bits for the GPIO input port for "open drain" operation
 		GPIOC->OTYPER|= (GPIO_OTYPER_OT9_Msk) | (0x01 << GPIO_OTYPER_OT9_Pos); //set control bits for the GPIO input port for "open drain" operation
