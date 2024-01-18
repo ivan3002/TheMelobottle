@@ -27,6 +27,131 @@ Project File Date:  01/18/2024
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
+src/Initialisation/i2ctests.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "STM32F407xx.h"
+         ^~~~~~~~~~~~~~~
+         "stm32f407xx.h"
+src/Initialisation/i2ctests.c(3): warning: // comments are not allowed in this language [-Wcomment]
+//This code is based on the setup for the "Procboard." The accelerometer used is the same as our application here
+^
+src/Initialisation/i2ctests.c(21): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(27): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(28): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR2;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(13): warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+        int32_t volatile temp = 0;  // Used for dummy reads to clear flags
+                         ^
+src/Initialisation/i2ctests.c(8): warning: no previous prototype for function 'PB_I2C_Write' [-Wmissing-prototypes]
+int32_t PB_I2C_Write (char address, char reg, char data) {
+        ^
+src/Initialisation/i2ctests.c(8): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int32_t PB_I2C_Write (char address, char reg, char data) {
+^
+static 
+src/Initialisation/i2ctests.c(49): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void PB_I2C_Reset() {
+                 ^
+                  void
+src/Initialisation/i2ctests.c(51): warning: implicit declaration of function 'MicroDelay' [-Wimplicit-function-declaration]
+        MicroDelay(1000);
+        ^
+src/Initialisation/i2ctests.c(52): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        I2C3->CR1               &= ~(1<<15);
+                                ~~ ^~~~~~~~
+src/Initialisation/i2ctests.c(49): warning: no previous prototype for function 'PB_I2C_Reset' [-Wmissing-prototypes]
+void PB_I2C_Reset() {
+     ^
+src/Initialisation/i2ctests.c(49): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void PB_I2C_Reset() {
+^
+static 
+src/Initialisation/i2ctests.c(70): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(78): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(79): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR2;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(101): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(61): warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+        int32_t volatile temp = 0;  // Used for dummy reads to clear flags
+                         ^
+src/Initialisation/i2ctests.c(56): warning: no previous prototype for function 'PB_I2C_Start_Read' [-Wmissing-prototypes]
+int32_t PB_I2C_Start_Read (char address, char reg) {
+        ^
+src/Initialisation/i2ctests.c(56): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int32_t PB_I2C_Start_Read (char address, char reg) {
+^
+static 
+src/Initialisation/i2ctests.c(124): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;  // Clear ADDR flag
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(125): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR2;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(130): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->DR;
+             ~ ~~~~~~^~
+src/Initialisation/i2ctests.c(110): warning: no previous prototype for function 'PB_I2C_Read_Single' [-Wmissing-prototypes]
+int32_t PB_I2C_Read_Single (char address, char reg) {
+        ^
+src/Initialisation/i2ctests.c(110): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int32_t PB_I2C_Read_Single (char address, char reg) {
+^
+static 
+src/Initialisation/i2ctests.c(141): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void greenLED(){
+             ^
+              void
+src/Initialisation/i2ctests.c(142): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR &= ~(1 << 5);
+                   ~~ ^~~~~~~~~
+src/Initialisation/i2ctests.c(144): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+        for (int i = 0; i < 100000; ++i) {
+             ^
+src/Initialisation/i2ctests.c(144): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+src/Initialisation/i2ctests.c(147): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR &= ~(1 << 4);
+                   ~~ ^~~~~~~~~
+src/Initialisation/i2ctests.c(141): warning: no previous prototype for function 'greenLED' [-Wmissing-prototypes]
+void greenLED(){
+     ^
+src/Initialisation/i2ctests.c(141): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void greenLED(){
+^
+static 
+src/Initialisation/i2ctests.c(149): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void yellowLED(){
+              ^
+               void
+src/Initialisation/i2ctests.c(150): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR &= ~(1 << 4);
+                   ~~ ^~~~~~~~~
+src/Initialisation/i2ctests.c(152): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+        for (int i = 0; i <100000; ++i) {
+             ^
+src/Initialisation/i2ctests.c(152): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+src/Initialisation/i2ctests.c(155): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR &= ~(1 << 5);
+                   ~~ ^~~~~~~~~
+src/Initialisation/i2ctests.c(149): warning: no previous prototype for function 'yellowLED' [-Wmissing-prototypes]
+void yellowLED(){
+     ^
+src/Initialisation/i2ctests.c(149): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void yellowLED(){
+^
+static 
+33 warnings generated.
+compiling i2ctests.c...
 src/main.c(1): warning: In file included from...
 src/Sensors/ultrasonic.h(4): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
 void measureAndControlLEDtest();
@@ -74,6 +199,144 @@ src/main.c(26): warning: implicit declaration of function 'sawwave' [-Wimplicit-
         ^
 11 warnings generated.
 compiling main.c...
+src/Sensors/accel.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "STM32F407xx.h"
+         ^~~~~~~~~~~~~~~
+         "stm32f407xx.h"
+src/Sensors/accel.c(4): warning: // comments are not allowed in this language [-Wcomment]
+//1010 1000 binary SUB to write for slave-transmit subaddress updating - 0xA8
+^
+src/Sensors/accel.c(21): warning: no previous extern declaration for non-static variable 'x' [-Wmissing-variable-declarations]
+signed int x=0;
+           ^
+src/Sensors/accel.c(21): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+signed int x=0;
+^
+src/Sensors/accel.c(22): warning: no previous extern declaration for non-static variable 'y' [-Wmissing-variable-declarations]
+signed int y=0;
+           ^
+src/Sensors/accel.c(22): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+signed int y=0;
+^
+src/Sensors/accel.c(23): warning: no previous extern declaration for non-static variable 'z' [-Wmissing-variable-declarations]
+signed int z=0;
+           ^
+src/Sensors/accel.c(23): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+signed int z=0;
+^
+src/Sensors/accel.c(24): warning: no previous extern declaration for non-static variable 'xl' [-Wmissing-variable-declarations]
+int16_t xl=0;
+        ^
+src/Sensors/accel.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t xl=0;
+^
+src/Sensors/accel.c(25): warning: no previous extern declaration for non-static variable 'xh' [-Wmissing-variable-declarations]
+int16_t xh=0;
+        ^
+src/Sensors/accel.c(25): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t xh=0;
+^
+src/Sensors/accel.c(26): warning: no previous extern declaration for non-static variable 'yl' [-Wmissing-variable-declarations]
+int16_t yl=0;
+        ^
+src/Sensors/accel.c(26): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t yl=0;
+^
+src/Sensors/accel.c(27): warning: no previous extern declaration for non-static variable 'yh' [-Wmissing-variable-declarations]
+int16_t yh=0;
+        ^
+src/Sensors/accel.c(27): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t yh=0;
+^
+src/Sensors/accel.c(28): warning: no previous extern declaration for non-static variable 'zl' [-Wmissing-variable-declarations]
+int16_t zl=0;
+        ^
+src/Sensors/accel.c(28): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t zl=0;
+^
+src/Sensors/accel.c(29): warning: no previous extern declaration for non-static variable 'zh' [-Wmissing-variable-declarations]
+int16_t zh=0;
+        ^
+src/Sensors/accel.c(29): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t zh=0;
+^
+src/Sensors/accel.c(30): warning: no previous extern declaration for non-static variable 'pitch' [-Wmissing-variable-declarations]
+int16_t pitch=0;
+        ^
+src/Sensors/accel.c(30): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t pitch=0;
+^
+src/Sensors/accel.c(31): warning: no previous extern declaration for non-static variable 'roll' [-Wmissing-variable-declarations]
+int16_t roll=0;
+        ^
+src/Sensors/accel.c(31): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t roll=0;
+^
+src/Sensors/accel.c(33): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void initialiseaccel(){
+                    ^
+                     void
+src/Sensors/accel.c(39): warning: implicit declaration of function 'PB_I2C_Write' [-Wimplicit-function-declaration]
+        PB_I2C_Write (0x3A,0x21 ,0x00);
+        ^
+src/Sensors/accel.c(33): warning: no previous prototype for function 'initialiseaccel' [-Wmissing-prototypes]
+void initialiseaccel(){
+     ^
+src/Sensors/accel.c(33): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void initialiseaccel(){
+^
+static 
+src/Sensors/accel.c(48): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+int16_t getangledata(){
+                    ^
+                     void
+src/Sensors/accel.c(50): warning: implicit declaration of function 'PB_I2C_Read_Single' [-Wimplicit-function-declaration]
+          xl=PB_I2C_Read_Single(0x3A,0x28);             // write address and register values
+             ^
+src/Sensors/accel.c(50): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+          xl=PB_I2C_Read_Single(0x3A,0x28);             // write address and register values
+            ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(51): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+                xh=PB_I2C_Read_Single(0x3A,0x29);
+                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(52): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+                yl=PB_I2C_Read_Single(0x3A,0x2A);
+                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(53): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+                yh=PB_I2C_Read_Single(0x3A,0x2B);
+                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(54): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+                zl=PB_I2C_Read_Single(0x3A,0x2C);
+                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(55): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+                zh=PB_I2C_Read_Single(0x3A,0x2D);
+                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(63): warning: implicitly declaring library function 'atan2' with type 'double (double, double)' [-Wimplicit-function-declaration]
+                pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
+                              ^
+src/Sensors/accel.c(63): note: include the header <math.h> or explicitly provide a declaration for 'atan2'
+src/Sensors/accel.c(63): warning: implicitly declaring library function 'sqrt' with type 'double (double)' [-Wimplicit-function-declaration]
+                pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
+                                       ^
+src/Sensors/accel.c(63): note: include the header <math.h> or explicitly provide a declaration for 'sqrt'
+src/Sensors/accel.c(63): warning: implicit conversion turns floating-point number into integer: 'double' to 'int16_t' (aka 'short') [-Wfloat-conversion]
+                pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
+                      ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+src/Sensors/accel.c(64): warning: implicit conversion turns floating-point number into integer: 'double' to 'int16_t' (aka 'short') [-Wfloat-conversion]
+                roll = 180 * atan2(y, sqrt(x*x + z*z))/3.142; //logo horizontal
+                     ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+src/Sensors/accel.c(76): warning: no newline at end of file [-Wnewline-eof]
+        
+        ^
+src/Sensors/accel.c(48): warning: no previous prototype for function 'getangledata' [-Wmissing-prototypes]
+int16_t getangledata(){
+        ^
+src/Sensors/accel.c(48): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int16_t getangledata(){
+^
+static 
+30 warnings generated.
+compiling accel.c...
 src/Initialisation/initialisation_funcs.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
 #include "STM32F407xx.h"
          ^~~~~~~~~~~~~~~
@@ -232,144 +495,6 @@ void measureAndControlLEDtest() {
 static 
 12 warnings generated.
 compiling ultrasonic.c...
-src/Sensors/accel.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
-#include "STM32F407xx.h"
-         ^~~~~~~~~~~~~~~
-         "stm32f407xx.h"
-src/Sensors/accel.c(4): warning: // comments are not allowed in this language [-Wcomment]
-//1010 1000 binary SUB to write for slave-transmit subaddress updating - 0xA8
-^
-src/Sensors/accel.c(21): warning: no previous extern declaration for non-static variable 'x' [-Wmissing-variable-declarations]
-signed int x=0;
-           ^
-src/Sensors/accel.c(21): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-signed int x=0;
-^
-src/Sensors/accel.c(22): warning: no previous extern declaration for non-static variable 'y' [-Wmissing-variable-declarations]
-signed int y=0;
-           ^
-src/Sensors/accel.c(22): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-signed int y=0;
-^
-src/Sensors/accel.c(23): warning: no previous extern declaration for non-static variable 'z' [-Wmissing-variable-declarations]
-signed int z=0;
-           ^
-src/Sensors/accel.c(23): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-signed int z=0;
-^
-src/Sensors/accel.c(24): warning: no previous extern declaration for non-static variable 'xl' [-Wmissing-variable-declarations]
-int16_t xl=0;
-        ^
-src/Sensors/accel.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t xl=0;
-^
-src/Sensors/accel.c(25): warning: no previous extern declaration for non-static variable 'xh' [-Wmissing-variable-declarations]
-int16_t xh=0;
-        ^
-src/Sensors/accel.c(25): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t xh=0;
-^
-src/Sensors/accel.c(26): warning: no previous extern declaration for non-static variable 'yl' [-Wmissing-variable-declarations]
-int16_t yl=0;
-        ^
-src/Sensors/accel.c(26): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t yl=0;
-^
-src/Sensors/accel.c(27): warning: no previous extern declaration for non-static variable 'yh' [-Wmissing-variable-declarations]
-int16_t yh=0;
-        ^
-src/Sensors/accel.c(27): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t yh=0;
-^
-src/Sensors/accel.c(28): warning: no previous extern declaration for non-static variable 'zl' [-Wmissing-variable-declarations]
-int16_t zl=0;
-        ^
-src/Sensors/accel.c(28): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t zl=0;
-^
-src/Sensors/accel.c(29): warning: no previous extern declaration for non-static variable 'zh' [-Wmissing-variable-declarations]
-int16_t zh=0;
-        ^
-src/Sensors/accel.c(29): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t zh=0;
-^
-src/Sensors/accel.c(30): warning: no previous extern declaration for non-static variable 'pitch' [-Wmissing-variable-declarations]
-int16_t pitch=0;
-        ^
-src/Sensors/accel.c(30): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t pitch=0;
-^
-src/Sensors/accel.c(31): warning: no previous extern declaration for non-static variable 'roll' [-Wmissing-variable-declarations]
-int16_t roll=0;
-        ^
-src/Sensors/accel.c(31): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t roll=0;
-^
-src/Sensors/accel.c(33): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void initialiseaccel(){
-                    ^
-                     void
-src/Sensors/accel.c(39): warning: implicit declaration of function 'PB_I2C_Write' [-Wimplicit-function-declaration]
-        PB_I2C_Write (0x3A,0x21 ,0x00);
-        ^
-src/Sensors/accel.c(33): warning: no previous prototype for function 'initialiseaccel' [-Wmissing-prototypes]
-void initialiseaccel(){
-     ^
-src/Sensors/accel.c(33): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void initialiseaccel(){
-^
-static 
-src/Sensors/accel.c(48): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-int16_t getangledata(){
-                    ^
-                     void
-src/Sensors/accel.c(50): warning: implicit declaration of function 'PB_I2C_Read_Single' [-Wimplicit-function-declaration]
-          xl=PB_I2C_Read_Single(0x3A,0x28);             // write address and register values
-             ^
-src/Sensors/accel.c(50): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-          xl=PB_I2C_Read_Single(0x3A,0x28);             // write address and register values
-            ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(51): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-                xh=PB_I2C_Read_Single(0x3A,0x29);
-                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(52): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-                yl=PB_I2C_Read_Single(0x3A,0x2A);
-                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(53): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-                yh=PB_I2C_Read_Single(0x3A,0x2B);
-                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(54): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-                zl=PB_I2C_Read_Single(0x3A,0x2C);
-                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(55): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-                zh=PB_I2C_Read_Single(0x3A,0x2D);
-                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(63): warning: implicitly declaring library function 'atan2' with type 'double (double, double)' [-Wimplicit-function-declaration]
-                pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
-                              ^
-src/Sensors/accel.c(63): note: include the header <math.h> or explicitly provide a declaration for 'atan2'
-src/Sensors/accel.c(63): warning: implicitly declaring library function 'sqrt' with type 'double (double)' [-Wimplicit-function-declaration]
-                pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
-                                       ^
-src/Sensors/accel.c(63): note: include the header <math.h> or explicitly provide a declaration for 'sqrt'
-src/Sensors/accel.c(63): warning: implicit conversion turns floating-point number into integer: 'double' to 'int16_t' (aka 'short') [-Wfloat-conversion]
-                pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
-                      ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
-src/Sensors/accel.c(64): warning: implicit conversion turns floating-point number into integer: 'double' to 'int16_t' (aka 'short') [-Wfloat-conversion]
-                roll = 180 * atan2(y, sqrt(x*x + z*z))/3.142; //logo horizontal
-                     ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
-src/Sensors/accel.c(76): warning: no newline at end of file [-Wnewline-eof]
-        
-        ^
-src/Sensors/accel.c(48): warning: no previous prototype for function 'getangledata' [-Wmissing-prototypes]
-int16_t getangledata(){
-        ^
-src/Sensors/accel.c(48): note: declare 'static' if the function is not intended to be used outside of this translation unit
-int16_t getangledata(){
-^
-static 
-30 warnings generated.
-compiling accel.c...
 src/audiocode/sawwave.c(1): warning: In file included from...
 src/audiocode/../audiodrivers/Audio_Drivers.h(2): warning: // comments are not allowed in this language [-Wcomment]
 // My versions of the audio drivers supplied with the STM32F4 discovery board.
@@ -529,6 +654,9 @@ static
 src/audiocode/sawwave.c(153): warning: comparison of integers of different signs: 'int' and 'uint32_t' (aka 'unsigned int') [-Wsign-compare]
                         for (int i = startFill; i < endFill; i += 2) {
                                                 ~ ^ ~~~~~~~
+src/audiocode/sawwave.c(37): warning: function 'sawwave' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+void sawwave(){
+              ^
 src/audiocode/sawwave.c(14): warning: no previous extern declaration for non-static variable 'PlayBuff' [-Wmissing-variable-declarations]
 int16_t PlayBuff[PBSIZE]; 
         ^
@@ -541,133 +669,8 @@ int16_t SineBuff[SINESIZE];
 src/audiocode/sawwave.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 int16_t SineBuff[SINESIZE]; 
 ^
-48 warnings generated.
+49 warnings generated.
 compiling sawwave.c...
-src/Initialisation/i2ctests.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
-#include "STM32F407xx.h"
-         ^~~~~~~~~~~~~~~
-         "stm32f407xx.h"
-src/Initialisation/i2ctests.c(3): warning: // comments are not allowed in this language [-Wcomment]
-//This code is based on the setup for the "Procboard." The accelerometer used is the same as our application here
-^
-src/Initialisation/i2ctests.c(21): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(27): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(28): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR2;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(13): warning: variable 'temp' set but not used [-Wunused-but-set-variable]
-        int32_t volatile temp = 0;  // Used for dummy reads to clear flags
-                         ^
-src/Initialisation/i2ctests.c(8): warning: no previous prototype for function 'PB_I2C_Write' [-Wmissing-prototypes]
-int32_t PB_I2C_Write (char address, char reg, char data) {
-        ^
-src/Initialisation/i2ctests.c(8): note: declare 'static' if the function is not intended to be used outside of this translation unit
-int32_t PB_I2C_Write (char address, char reg, char data) {
-^
-static 
-src/Initialisation/i2ctests.c(49): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void PB_I2C_Reset() {
-                 ^
-                  void
-src/Initialisation/i2ctests.c(51): warning: implicit declaration of function 'MicroDelay' [-Wimplicit-function-declaration]
-        MicroDelay(1000);
-        ^
-src/Initialisation/i2ctests.c(52): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        I2C3->CR1               &= ~(1<<15);
-                                ~~ ^~~~~~~~
-src/Initialisation/i2ctests.c(49): warning: no previous prototype for function 'PB_I2C_Reset' [-Wmissing-prototypes]
-void PB_I2C_Reset() {
-     ^
-src/Initialisation/i2ctests.c(49): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void PB_I2C_Reset() {
-^
-static 
-src/Initialisation/i2ctests.c(70): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(78): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(79): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR2;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(101): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(61): warning: variable 'temp' set but not used [-Wunused-but-set-variable]
-        int32_t volatile temp = 0;  // Used for dummy reads to clear flags
-                         ^
-src/Initialisation/i2ctests.c(56): warning: no previous prototype for function 'PB_I2C_Start_Read' [-Wmissing-prototypes]
-int32_t PB_I2C_Start_Read (char address, char reg) {
-        ^
-src/Initialisation/i2ctests.c(56): note: declare 'static' if the function is not intended to be used outside of this translation unit
-int32_t PB_I2C_Start_Read (char address, char reg) {
-^
-static 
-src/Initialisation/i2ctests.c(124): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;  // Clear ADDR flag
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(125): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR2;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(130): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->DR;
-             ~ ~~~~~~^~
-src/Initialisation/i2ctests.c(110): warning: no previous prototype for function 'PB_I2C_Read_Single' [-Wmissing-prototypes]
-int32_t PB_I2C_Read_Single (char address, char reg) {
-        ^
-src/Initialisation/i2ctests.c(110): note: declare 'static' if the function is not intended to be used outside of this translation unit
-int32_t PB_I2C_Read_Single (char address, char reg) {
-^
-static 
-src/Initialisation/i2ctests.c(141): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void greenLED(){
-             ^
-              void
-src/Initialisation/i2ctests.c(142): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOB->ODR &= ~(1 << 5);
-                   ~~ ^~~~~~~~~
-src/Initialisation/i2ctests.c(144): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
-        for (int i = 0; i < 100000; ++i) {
-             ^
-src/Initialisation/i2ctests.c(144): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/Initialisation/i2ctests.c(147): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOB->ODR &= ~(1 << 4);
-                   ~~ ^~~~~~~~~
-src/Initialisation/i2ctests.c(141): warning: no previous prototype for function 'greenLED' [-Wmissing-prototypes]
-void greenLED(){
-     ^
-src/Initialisation/i2ctests.c(141): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void greenLED(){
-^
-static 
-src/Initialisation/i2ctests.c(149): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void yellowLED(){
-              ^
-               void
-src/Initialisation/i2ctests.c(150): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOB->ODR &= ~(1 << 4);
-                   ~~ ^~~~~~~~~
-src/Initialisation/i2ctests.c(152): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
-        for (int i = 0; i <100000; ++i) {
-             ^
-src/Initialisation/i2ctests.c(152): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/Initialisation/i2ctests.c(155): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOB->ODR &= ~(1 << 5);
-                   ~~ ^~~~~~~~~
-src/Initialisation/i2ctests.c(149): warning: no previous prototype for function 'yellowLED' [-Wmissing-prototypes]
-void yellowLED(){
-     ^
-src/Initialisation/i2ctests.c(149): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void yellowLED(){
-^
-static 
-33 warnings generated.
-compiling i2ctests.c...
 src/audiodrivers/Audio_Drivers.c(2): warning: // comments are not allowed in this language [-Wcomment]
 // My versions of the audio drivers required for the the STM32F4 discovery board.
 ^
@@ -1106,7 +1109,7 @@ assembling startup_stm32f407xx.s...
 compiling system_stm32f4xx.c...
 linking...
 Program Size: Code=15056 RO-data=968 RW-data=24 ZI-data=11880  
-".\Objects\main.axf" - 0 Error(s), 265 Warning(s).
+".\Objects\main.axf" - 0 Error(s), 266 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -1132,12 +1135,12 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f407xx.s
       Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
+      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f407xx.s
       Source file:   MDK/Device/Source/ARM/STM32F40xxx_41xxx_OPT.s
       Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>
