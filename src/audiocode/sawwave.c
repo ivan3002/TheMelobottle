@@ -45,7 +45,7 @@ void sawwave(){
 	
 	// Set-up the phase and phase increment:
 	float currentPhase = 0.0;
-	float desiredFreq = 440.0;
+	float desiredFreq = 110.0;
 	float phaseIncrement = (SINESIZE * desiredFreq / ((float)AUDIO_FREQUENCY_44K));
 	
 
@@ -99,7 +99,7 @@ void sawwave(){
 		
 		
 		// cutoff for filter
-		float desiredCutoff = 440;
+		float desiredCutoff = 200;
 	
 	
 		
