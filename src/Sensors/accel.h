@@ -1,2 +1,4 @@
-int acceldataread();
-void acceltest();
+#include <stdint.h>
+
+void initialiseaccel();
+int16_t getangledata();	

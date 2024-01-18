@@ -1,10 +1,14 @@
 #include "STM32F407xx.h"
+#include "i2ctests.h"
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void setgpioclock(){
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // GPIOA clock
+	//RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // GPIOA clock
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN; // GPIOB clock
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOCEN; // GPIOC clock
+	//RCC->AHB1ENR |= RCC_AHB1ENR_GPIOCEN; // GPIOC clock
 
 }
 
@@ -13,57 +17,12 @@ void seti2cclock(){
 }
 
 
-void seti2c() {
-	
-		setgpioclock(); // Enable GPIOB clock
-	
-		//GPIOB->MODER = (GPIOB->MODER & ~(GPIO_MODER_MODER8_Msk | GPIO_MODER_MODER7_Msk)) | (0x02 << GPIO_MODER_MODER8_Pos) | (0x02 << GPIO_MODER_MODER7_Pos); // Set alternate function mode for PB8 (SCL) and PB7 (SDA)
-		GPIOA->MODER = (GPIOA->MODER &  ~GPIO_MODER_MODER8_Msk) | (0x02 << GPIO_MODER_MODER8_Pos);
-		GPIOC->MODER = (GPIOC->MODER &  ~GPIO_MODER_MODER9_Msk) | (0x02 << GPIO_MODER_MODER9_Pos);
-		
-    GPIOA->OTYPER|= (GPIO_OTYPER_OT8_Msk) | (0x01 << GPIO_OTYPER_OT8_Pos); //set control bits for the GPIO input port for "open drain" operation
-		GPIOC->OTYPER|= (GPIO_OTYPER_OT9_Msk) | (0x01 << GPIO_OTYPER_OT9_Pos); //set control bits for the GPIO input port for "open drain" operation
-	
-		GPIOA->OSPEEDR = (GPIOA->OSPEEDR &  ~GPIO_OSPEEDR_OSPEED9_Msk) | (0x02 << GPIO_OSPEEDR_OSPEED9_Pos); //high speed output
-	  GPIOC->OSPEEDR = (GPIOC->OSPEEDR &  ~GPIO_OSPEEDR_OSPEED9_Msk) | (0x02 << GPIO_OSPEEDR_OSPEED9_Pos);
-	
-   
-    GPIOA->AFR[1] |= (0x04 << GPIO_AFRH_AFSEL8_Pos); /* Set alternate function AF4 for SDA and SCL, (Setting the appropriate bits in the GPIO alternate function register to enable the I2C peripheral
-																																											as the alternate function for these bits)*/  
-		GPIOC->AFR[1] |= (0x04 << GPIO_AFRH_AFSEL9_Pos);
-	
-
-		// Configure PB8 (SCL) with internal pull-up
-		//GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD8_Msk) | (0x01 << GPIO_PUPDR_PUPD8_Pos); //pull-up
-
-		// Configure PB7 (SDA) with internal pull-up
-		//GPIOB->PUPDR = (GPIOB->PUPDR & ~GPIO_PUPDR_PUPD7_Msk) | (0x01 << GPIO_PUPDR_PUPD7_Pos); //pull-up
-	
-		I2C3->CR1 &= ~I2C_CR1_PE; // Disable the I2C peripheral for configuration
-		
-		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		seti2cclock(); //i2c clock
-	
-    I2C3->CR2 = (I2C3->CR2 & ~I2C_CR2_FREQ_Msk) | (0x10 << I2C_CR2_FREQ_Pos);
-    // Configure I2C clock speed 
-    I2C3->CCR =(I2C3->CCR & ~I2C_CCR_CCR_Msk) | (0x50<< I2C_CCR_CCR_Pos); // Set CCR register (depends on your clock speed and other factors)
-    I2C3->TRISE =(I2C3->TRISE & ~I2C_TRISE_TRISE_Msk) | (0x11<< I2C_TRISE_TRISE_Pos); // Set TRISE register (depends on your clock speed and other factors)
-		I2C3->CR1 |= I2C_CR1_NOSTRETCH; 
-
-    I2C3->CR1 |= I2C_CR1_PE; // Enable the I2C peripheral
-	
-   
-	
-
-}
 
 void initialpins(){
 	setgpioclock();
 	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER1_Msk) | (0x01 << GPIO_MODER_MODER1_Pos); //trig
 	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER2_Msk) | (0x00 << GPIO_MODER_MODER2_Pos);	//echo
-	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER3_Msk) | (0x01 << GPIO_MODER_MODER3_Pos); //test LED green
-	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER4_Msk) | (0x01 << GPIO_MODER_MODER4_Pos); //test LED red
+	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER4_Msk) | (0x01 << GPIO_MODER_MODER4_Pos); //test LED green
 	GPIOB -> MODER = (GPIOB->MODER & ~GPIO_MODER_MODER5_Msk) | (0x01 << GPIO_MODER_MODER5_Pos); //test LED yellow
 }
 
@@ -87,7 +46,56 @@ void timerinit(){
 
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
+void MicroDelay (unsigned int delayInMicroSeconds) {
+	float compensation = (float)SystemCoreClock / (float)16e6;
+  volatile unsigned long x = (unsigned long)(compensation * (36 * delayInMicroSeconds >> 4));
+  while (x-- > 0);
+}
+
+
+
+void PB_I2C_Init() {
+  // The I2C peripheral attached to the PICkit and connector pins is I2C3, so
+  // I'll use this one.  It uses pins PA8 (SCK) and PC9 (SDA), so need to enable 
+  // the clocks for both of these GPIO ports:
+  RCC->AHB1ENR |= 0x05;        // Enable clocks for GPIOA and GPIOC
+
+  // I2C requires an open-drain output for bidirectional operation,
+  // and the alternate function needs to be selected for the IO block.
+  // No need for a pull-up, since these are provided on the board.
+  GPIOA->MODER &= ~(3 << 16);  // Clear bits 12 & 13 (PA8)
+  GPIOA->MODER |= 2 << 16;     // MODER8[1:0] = "10" for AF
+  GPIOA->OTYPER |= 1 << 8;     // Set PA8 open drain output
+  GPIOA->PUPDR &= ~(3 << 16);  // Disable PUs and PDs for PA8
+	GPIOA->PUPDR |= 1<<16; // this will enable the pull-up this code was written for a different device with pullups on board
+  GPIOA->OSPEEDR |= (3 << 16); // Set to high-speed mode
+
+  GPIOC->MODER &= ~(3 << 18);  // Clear bits 18 & 19 (PC9)
+  GPIOC->MODER |= 2 << 18;     // MODER9[1:0] = "10" for AF
+  GPIOC->OTYPER |= 1 << 9;     // Set PC9 open drain output
+  GPIOC->PUPDR &= ~(3 << 18);  // Disable PUs and PDs for PC9
+	GPIOC->PUPDR |= 1<<18;
+  GPIOC->OSPEEDR |= (3 << 18); // Set to high-speed mode
+
+  // Then the clock enable for the I2C3 peripheral:
+  RCC->APB1ENR |= 1UL << 23;
+  
+  // The specific alternate function needs to be selected for each I/O pin:
+  GPIOA->AFR[1] |= (4UL << 0);   // Enable SCK to PA8 
+  GPIOC->AFR[1] |= (4UL << 4);   // Enable SDA to PC9 
+
+  // Finally, configure the I2C:
+  RCC->APB1ENR |= 1UL << 23;
+  I2C3->CR1    |= (1<<15);     // Reset the I2C peripheral
+	MicroDelay(1000);
+  I2C3->CR1    &= ~(1<<15);
+  I2C3->CR2     = 0x0010;      // For a 16 MHz HSI
+  I2C3->CCR     = 0x0050;      // and a 100 kHz bit rate 
+  I2C3->TRISE   = 0x0009;      // 1000 ns / 62.5 ns = 16 + 1
+  I2C3->CR1     = 0x0001;      // Enable the peripheral
+}
 
 
 

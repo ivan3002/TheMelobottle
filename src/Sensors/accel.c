@@ -1,65 +1,74 @@
 #include "STM32F407xx.h"
-
-
-int acceldataread(){
-
-	I2C3->CR1 |= (0x01 << I2C_CR1_START_Pos); // Send the I2C start symbol
  
+
+//1010 1000 binary SUB to write for slave-transmit subaddress updating - 0xA8
+
+  /*EXTRA HINTS FROM ARDUINO CODE
+	byte xla = Wire.read();
+  byte xha = Wire.read();
+  byte yla = Wire.read();
+  byte yha = Wire.read();
+  byte zla = Wire.read();
+  byte zha = Wire.read();
+
+  combine high and low bytes
+  This no longer drops the lowest 4 bits of the readings from the DLH/DLM/DLHC, which are always 0
+  (12-bit resolution, left-aligned). The D has 16-bit resolution
+  a.x = (int16_t)(xha << 8 | xla);
+  a.y = (int16_t)(yha << 8 | yla);
+  a.z = (int16_t)(zha << 8 | zla);*/
+
+signed int x=0;
+signed int y=0;
+signed int z=0;
+int16_t xl=0;
+int16_t xh=0;
+int16_t yl=0;
+int16_t yh=0;
+int16_t zl=0;
+int16_t zh=0;
+int16_t pitch=0;
+int16_t roll=0;
+
+void initialiseaccel(){
 	
-	int time_a = 100000;  // Adjust the timeout value as needed
- 	while (!(I2C3->SR1 & I2C_SR1_SB) && time_a--); // Wait for start to complete 
-	if (time_a <= 0) {
-    return -1;  // error code
-	} else if (I2C3->SR1 & I2C_SR1_AF){
-		return -1;
-	}
+	// Accelerometer
+   // 0x00 = 0b00000000
+   // AFS = 0 (+/- 2 g full scale)
+	//CTRL2 Reg
+	PB_I2C_Write (0x3A,0x21 ,0x00);
 	
-	int time_b = 100000;
-	int dummy; 
-	I2C3->DR = 0x30; // Write to data register, read/write set to 0
-	while (!(I2C3->SR1 & I2C_SR1_ADDR) && time_b--); // Wait until address sent
-	if (time_b <= 0) {
-    //return -2;  // error code
-		dummy = (I2C3->SR2); // Dummy read of SR2 
-	} 
-	dummy = (I2C3->SR2); // Dummy read of SR2 
+	// 0x57 = 0b01010111
+  // AODR = 0101 (50 Hz ODR); AZEN = AYEN = AXEN = 1 (all axes enabled)
+	PB_I2C_Write (0x3A,0x20 ,0x57);
 	
-	int time_c = 100000;
-	I2C3->DR = 0x28; 
-	while (!(I2C3->SR1 & (1<<7))); // Wait until TxE bit set 
-	if (time_c <= 0) {
-    return -3;  // error code
-	} 
-	I2C3->CR1 |= I2C_CR1_STOP; // Send the I2C stop symbol
-	
-	I2C3->CR1 |= I2C_CR1_START; // Send the I2C start symbol
-	while (!(I2C3->SR1 & 0x0001)); // Wait for start to complete 
-	
-	
-	I2C3->DR = 0x31; // Read from data register, read/write set to 1
-	int rA=0;
-	int time_d = 100000;
-	
-	while (!(I2C3->SR1 & I2C_SR1_RXNE) && time_d--);
-	
-	rA = (I2C3->DR);
-	I2C3->CR1 |= I2C_CR1_STOP; // Send the I2C stop symbol
-	while (!(I2C3->SR2 & 0x0002)); // Wait for stop to complete 
-	
-	return rA;
+
 }
 
-void acceltest(){
-	int value;
-	value = acceldataread();
-	if (value==-1){
-		GPIOB->ODR |= (1 << 4);
-	} else if(value==-2){
-		GPIOB->ODR |= (1 << 5);
-	} else if(value>0 && !0x31){
-	  GPIOB->ODR |= (1 << 3);
-	}
+int16_t getangledata(){
+	
+	  xl=PB_I2C_Read_Single(0x3A,0x28);		// write address and register values
+		xh=PB_I2C_Read_Single(0x3A,0x29);
+		yl=PB_I2C_Read_Single(0x3A,0x2A);
+		yh=PB_I2C_Read_Single(0x3A,0x2B);
+		zl=PB_I2C_Read_Single(0x3A,0x2C);
+		zh=PB_I2C_Read_Single(0x3A,0x2D);
+		
+		
+		//axis may be mixed up lol
+		x = (int16_t)((xh << 8) | xl);
+		y = (int16_t)((yh << 8) | yl);
+		z = (int16_t)((zh << 8) | zl);
+		
+		pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
+		roll = 180 * atan2(y, sqrt(x*x + z*z))/3.142; //logo horizontal
+	
+	  return pitch;
+
 }
+
+
+
 
 	
 	
