@@ -17,7 +17,7 @@ uint32_t getEchoPulseDuration() {
     while (!(GPIOB->IDR & (1 << 2))); // Assuming echo pin is connected to B2
 
     // Start the timer
-    TIM1->CNT = 0; // Assuming you're using a timer, replace TIMx with your actual timer instance
+    TIM1->CNT = 0; // Reset the timer counter
     TIM1->CR1 |= TIM_CR1_CEN; // Enable the timer
 
     // Wait for the echo pulse to end
