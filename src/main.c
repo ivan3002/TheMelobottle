@@ -19,12 +19,10 @@ int main() {
 	//initialiseaccel();
 	
 	//while (1){
+		sawwave();
+	//} 
 	
 	
-//	} 
-while(1){
-	sawwave();
-	}
 }
 	
 

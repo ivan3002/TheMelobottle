@@ -31,7 +31,26 @@ void myAudioHalfTransferCallback(void) {
 void myAudioTransferCompleteCallback(void) {
  myAudioChangeBuffer(PlayBuff, PBSIZE);
  bufferStatus = secondHalfReq;
-} 
+}
+
+
+
+void saw(float desiredFreq, float volume){
+	for (int j = 0; j < SINESIZE; j++) {
+    float sawtoothWave = 0.0;
+		// harmonic iterations
+    for (int harmonic = 1; harmonic <= 10; harmonic++) {
+        float frequency = desiredFreq * harmonic;
+        float amplitude = volume / harmonic; // Adjust the amplitude here
+
+        sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE);
+    }
+
+    SineBuff[j] = (int16_t)(sawtoothWave * 10000); //writng all values into array
+	}
+	
+
+}
 
 // saw wave function
 void sawwave(){
@@ -48,26 +67,14 @@ void sawwave(){
 	
 	// Set-up the phase and phase increment:
 	float currentPhase = 0.0;
-	float desiredFreq = 440.0;
-	float phaseIncrement = (SINESIZE * desiredFreq / ((float)AUDIO_FREQUENCY_44K));
+	
+	float phaseIncrement = (SINESIZE * 440 / ((float)AUDIO_FREQUENCY_44K));
 	
 
 	
-	float volume = 1; // Adjust this value to control the overall volume
+	  // Adjust this value to control the overall volume
 
-	for (int j = 0; j < SINESIZE; j++) {
-    float sawtoothWave = 0.0;
-	// harmonic iterations
-    for (int harmonic = 1; harmonic <= 10; harmonic++) {
-        float frequency = desiredFreq * harmonic;
-        float amplitude = volume / harmonic; // Adjust the amplitude here
-
-        sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE);
-    }
-
-    SineBuff[j] = (int16_t)(sawtoothWave * 10000);
-	}
-	
+	saw(440, 1);
 	
 	
 	 
@@ -102,17 +109,11 @@ void sawwave(){
 		
 		
 		// cutoff for filter
-		float desiredCutoff = 440;
-	
-	
-		
-		
-	
+		float desiredCutoff = 10000;
 		
 		// below is for first order
-		 //float a1 = -( ( desiredCutoff - ( 2/DELTA_T ) ) / ( desiredCutoff + (2/DELTA_T) ) );
-
-		 //float b0 = desiredCutoff / (desiredCutoff+2/DELTA_T);
+		//float a1 = -( ( desiredCutoff - ( 2/DELTA_T ) ) / ( desiredCutoff + (2/DELTA_T) ) );
+		//float b0 = desiredCutoff / (desiredCutoff+2/DELTA_T);
 		
 		
 		// coefficient initialisation
@@ -129,57 +130,51 @@ void sawwave(){
 			startFill = 0;
 			endFill = PBSIZE / 2;
 			bufferStatus = firstHalfDone;
-}
-		
-		else if (bufferStatus == secondHalfReq) {
+			} else if (bufferStatus == secondHalfReq) {
 			startFill = PBSIZE / 2;
 			endFill = PBSIZE;
 			bufferStatus = secondHalfDone;
- }
+			}
 
-		if (startFill != endFill) {
-			// calc values for coefficient calc
-			float ff = desiredCutoff/AUDIO_FREQUENCY_44K;
-			float ita = 1.0/ tan(PI*ff);
+			if (startFill != endFill) {
+				// calc values for coefficient calc
+				float ff = desiredCutoff/AUDIO_FREQUENCY_44K;
+				float ita = 1.0/ tan(PI*ff);
 			
-			// calc coefficients
-			b0 = 1.0 / (1.0 + Q * ita + ita * ita);
-			b1 = 2*b0;
-			b2 = b0;
-			a1 = 2.0*(ita*ita - 1.0) * b0;
-			a2 = -(1.0 - Q*ita + ita*ita) * b0;
+				// calc coefficients
+				b0 = 1.0 / (1.0 + Q * ita + ita * ita);
+				b1 = 2*b0;
+				b2 = b0;
+				a1 = 2.0*(ita*ita - 1.0) * b0;
+				a2 = -(1.0 - Q*ita + ita*ita) * b0;
+				
+				
 			
-			// begin buffer fill loop
-			for (int i = startFill; i < endFill; i += 2) {
+				// begin buffer fill loop
+				for (int i = startFill; i < endFill; i += 2) {
 				
-				currentPhase += phaseIncrement;
-				if (currentPhase > SINESIZE) currentPhase -= SINESIZE;
-				int16_t nextSample = SineBuff[(uint16_t)(currentPhase)];
+					currentPhase += phaseIncrement;
+					if (currentPhase > SINESIZE) currentPhase -= SINESIZE;
+					int16_t nextSample = SineBuff[(uint16_t)(currentPhase)];
 				
+					// below is for first orrder
+					// float filteredSample = ((-1)*a1) * lastSampleOutput + b0 * (nextSample + lastSampleInput);				
+					// below is second order
+		
+					float filteredSample = ( a1 * lastSampleOutput ) + ( a2 * lastLastSampleOutput ) + ( b0 * nextSample )  + ( b1 * lastSampleInput ) + ( b2 * lastLastSampleInput );
 				
-				// below is for first orrder
-				// float filteredSample = ((-1)*a1) * lastSampleOutput + b0 * (nextSample + lastSampleInput);				
-				
-				// below is second order
-				
-				
-				
-				
-				
-				float filteredSample = ( a1 * lastSampleOutput ) + ( a2 * lastLastSampleOutput ) + ( b0 * nextSample )  + ( b1 * lastSampleInput ) + ( b2 * lastLastSampleInput );
-				
-				PlayBuff[i] = (int16_t)(0.5*filteredSample);
-				PlayBuff[i + 1] = (int16_t)(0.5*filteredSample);
+					PlayBuff[i] = (int16_t)(0.5*filteredSample);
+					PlayBuff[i + 1] = (int16_t)(0.5*filteredSample);
 				
 				
-				lastLastSampleInput = lastSampleInput; 		// x[n-1] => x[n-2]
-				lastSampleInput = nextSample;							// x[n] => x[n-1]
-				lastLastSampleOutput = lastSampleOutput;	// y[n-1] => y[n-2] 
-				lastSampleOutput = filteredSample;				// y[n] => y[n-1] or last output set
+					lastLastSampleInput = lastSampleInput; 		// x[n-1] => x[n-2]
+					lastSampleInput = nextSample;							// x[n] => x[n-1]
+					lastLastSampleOutput = lastSampleOutput;	// y[n-1] => y[n-2] 
+					lastSampleOutput = filteredSample;				// y[n] => y[n-1] or last output set
 				
 				
 				
-				/* // For straight, basic sawtooth
+				/* For straight, basic sawtooth
 					currentPhase += phaseIncrement;
 					if (currentPhase > SINESIZE) currentPhase -= SINESIZE;
 					int16_t nextSample = SineBuff[(uint16_t)(currentPhase)];
@@ -187,7 +182,7 @@ void sawwave(){
 					PlayBuff[i + 1] = nextSample;
 				*/
 				
-				
+			
 			}
 			
 		} 
