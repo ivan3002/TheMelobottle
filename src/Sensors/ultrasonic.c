@@ -33,11 +33,11 @@ uint32_t getEchoPulseDuration() {
 
 
 uint16_t measureDistance() {
-    // Replace this with your actual code to measure distance using the ultrasonic sensor
     // Return the measured distance in millimeters
     uint32_t pulseDuration = getEchoPulseDuration();
 	
-		uint16_t distance = (uint16_t)((pulseDuration * 343) / 2000);
+		uint16_t distance = (uint16_t)((pulseDuration * 343) / 2000); //divide by 2000 as time is given in microseconds 
+	                                                                //and we want millimetres
     return distance;
 }
 	
