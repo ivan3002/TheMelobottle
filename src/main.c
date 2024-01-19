@@ -15,12 +15,15 @@ int main() {
 	// Initialize your peripherals
 	initialpins();
 	//timerinit();
-	//PB_I2C_Init();
-	//initialiseaccel();
+	PB_I2C_Init();
+	initialiseaccel();
 	
 	//while (1){
 		sawwave();
+		//getangledata();
 	//} 
+	
+	
 	
 	
 }

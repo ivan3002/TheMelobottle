@@ -62,8 +62,10 @@ int16_t getangledata(){
 		
 		pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
 		roll = 180 * atan2(y, sqrt(x*x + z*z))/3.142; //logo horizontal
-	
-	  return pitch;
+		
+		if(roll>80) roll =80;
+		if(roll<-80) roll= -80;
+	  return roll;
 
 }
 

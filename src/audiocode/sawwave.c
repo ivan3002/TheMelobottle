@@ -52,9 +52,17 @@ void saw(float desiredFreq, float volume){
 
 }
 
-// saw wave function
-void sawwave(){
 
+float coefficients(float Q, float ita, float* b0, float* b1, float* b2, float* a1, float* a2) {
+		*b0 = 1.0 / (1.0 + Q * ita + ita * ita);
+		*b1 = 2* (*b0);
+		*b2 = *b0;
+		*a1 = 2.0*(ita*ita - 1.0) * (*b0);
+		*a2 = -(1.0 - Q*ita + ita*ita) * (*b0);
+
+}
+
+void audioinit(){
 	myAudioSpeedUpTheSystemClock();
 	
 	// Initialise the audio driver: 
@@ -64,17 +72,80 @@ void sawwave(){
 	for(int i=0; i <= PBSIZE; i++) {
 		PlayBuff[i] = 0; 
 	} 
+
+}
+
+void angleToFreq(float* f_0, float volume, float* phaseIncrement){
+	int16_t angle = getangledata();
+	//int angle = 8;
+	float noteRatio = 0.0;
+	
+	if (angle >= -80 && angle <-80+1*(PENTATONIC)) {
+		noteRatio = -12;
+	}
+	else if (angle >= -80+1*(PENTATONIC) && angle <-80+2*(PENTATONIC)) {
+		noteRatio = -10;
+	}
+	else if (angle >= -80+2*(PENTATONIC) && angle <-80+3*(PENTATONIC)) {
+		noteRatio = -8;
+	}
+	else if (angle >= -80+3*(PENTATONIC) && angle <-80+4*(PENTATONIC)) {
+		noteRatio = -5;
+	}
+	else if (angle >= -80+4*(PENTATONIC) && angle <-80+5*(PENTATONIC)) {
+		noteRatio = -3;
+	}
+	else if (angle >= -80+5*(PENTATONIC) && angle <-80+6*(PENTATONIC)) {
+		noteRatio = 0;
+	}
+	else if (angle >= -80+6*(PENTATONIC) && angle <-80+7*(PENTATONIC)) {
+		noteRatio = 2;
+	}
+	else if (angle >= -80+7*(PENTATONIC) && angle <-80+8*(PENTATONIC)) {
+		noteRatio = 4;
+	}
+	else if (angle >= -80+8*(PENTATONIC) && angle <-80+9*(PENTATONIC)) {
+		noteRatio = 7;
+	}
+	else if (angle >= -80+9*(PENTATONIC) && angle <-80+10*(PENTATONIC)) {
+		noteRatio = 9;
+	}
+	else if (angle >= -80+10*(PENTATONIC) && angle <-80+11*(PENTATONIC)) {
+		noteRatio = 12;
+	}
+	
+
+	
+	float ratio = pow(2, (noteRatio/12));
+	float note = *f_0 * ratio;
+	
+
+	*phaseIncrement = (SINESIZE * note / ((float)AUDIO_FREQUENCY_44K));
+	
+	saw(note, volume);
+	
+}
+
+
+
+
+// saw wave function
+void sawwave(){
+
+	audioinit();
 	
 	// Set-up the phase and phase increment:
 	float currentPhase = 0.0;
 	
-	float phaseIncrement = (SINESIZE * 440 / ((float)AUDIO_FREQUENCY_44K));
+	float desiredFrequency = 440.0;
+	float volume = 1;
+	float phaseIncrement = (SINESIZE * desiredFrequency / ((float)AUDIO_FREQUENCY_44K));
 	
 
 	
 	  // Adjust this value to control the overall volume
 
-	saw(440, 1);
+	angleToFreq(&desiredFrequency, volume, &phaseIncrement);
 	
 	
 	 
@@ -109,7 +180,7 @@ void sawwave(){
 		
 		
 		// cutoff for filter
-		float desiredCutoff = 10000;
+		float desiredCutoff = 10000 ;
 		
 		// below is for first order
 		//float a1 = -( ( desiredCutoff - ( 2/DELTA_T ) ) / ( desiredCutoff + (2/DELTA_T) ) );
@@ -142,13 +213,9 @@ void sawwave(){
 				float ita = 1.0/ tan(PI*ff);
 			
 				// calc coefficients
-				b0 = 1.0 / (1.0 + Q * ita + ita * ita);
-				b1 = 2*b0;
-				b2 = b0;
-				a1 = 2.0*(ita*ita - 1.0) * b0;
-				a2 = -(1.0 - Q*ita + ita*ita) * b0;
 				
 				
+				coefficients(Q, ita, &b0, &b1, &b2, &a1, &a2);
 			
 				// begin buffer fill loop
 				for (int i = startFill; i < endFill; i += 2) {
@@ -192,4 +259,3 @@ void sawwave(){
 
 	
 }
-
