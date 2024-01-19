@@ -455,11 +455,6 @@
               <FilePath>.\src\Sensors\accel.c</FilePath>
             </File>
             <File>
-              <FileName>initialisation_funcs.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\Initialisation\initialisation_funcs.c</FilePath>
-            </File>
-            <File>
               <FileName>ultrasonic.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\Sensors\ultrasonic.c</FilePath>
@@ -478,6 +473,11 @@
               <FileName>cs43l22.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\audiodrivers\cs43l22.c</FilePath>
+            </File>
+            <File>
+              <FileName>initialisation_funcs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\Initialisation\initialisation_funcs.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -11,7 +11,7 @@ uint32_t getEchoPulseDuration() {
 		int i;
     GPIOB->ODR |= (1 << 1); // Assuming trigger pin is connected to B1
     for (i = 0; i < 1000; ++i); // Add a delay or use a timer for precise timing
-			GPIOB->ODR &= ~(1 << 1);
+		GPIOB->ODR &= ~(1 << 1);
 
     // Wait for the echo pulse to start
     while (!(GPIOB->IDR & (1 << 2))); // Assuming echo pin is connected to B2
@@ -38,7 +38,8 @@ uint16_t measureDistance() {
 	
 		uint16_t distance = (uint16_t)((pulseDuration * 343) / 2000); //divide by 2000 as time is given in microseconds 
 	                                                                //and we want millimetres
-    return distance;
+		if (distance > 40) distance = 40; 
+    return distance; //looks like for some reason giving cm
 }
 	
 

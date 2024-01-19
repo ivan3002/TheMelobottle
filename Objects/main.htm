@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\main.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\main.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Fri Jan 19 12:02:47 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Fri Jan 19 16:55:28 2024
 <BR><P>
 <H3>Maximum Stack Usage =        424 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -608,7 +608,7 @@ Global Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 </UL>
 
@@ -686,107 +686,99 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[7a]"></a>MicroDelay</STRONG> (Thumb, 88 bytes, Stack size 12 bytes, initialisation_funcs.o(.text.MicroDelay))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = MicroDelay
-</UL>
-<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PB_I2C_Init
-</UL>
-
-<P><STRONG><a name="[79]"></a>PB_I2C_Init</STRONG> (Thumb, 306 bytes, Stack size 16 bytes, initialisation_funcs.o(.text.PB_I2C_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = PB_I2C_Init &rArr; MicroDelay
-</UL>
-<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MicroDelay
-</UL>
-<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[7b]"></a>PB_I2C_Read_Single</STRONG> (Thumb, 286 bytes, Stack size 40 bytes, i2ctests.o(.text.PB_I2C_Read_Single))
+<P><STRONG><a name="[79]"></a>PB_I2C_Read_Single</STRONG> (Thumb, 286 bytes, Stack size 40 bytes, i2ctests.o(.text.PB_I2C_Read_Single))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = PB_I2C_Read_Single &rArr; PB_I2C_Start_Read
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PB_I2C_Start_Read
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PB_I2C_Start_Read
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
+<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
 </UL>
 
-<P><STRONG><a name="[7c]"></a>PB_I2C_Start_Read</STRONG> (Thumb, 664 bytes, Stack size 44 bytes, i2ctests.o(.text.PB_I2C_Start_Read))
+<P><STRONG><a name="[7a]"></a>PB_I2C_Start_Read</STRONG> (Thumb, 664 bytes, Stack size 44 bytes, i2ctests.o(.text.PB_I2C_Start_Read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = PB_I2C_Start_Read
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PB_I2C_Read_Single
-</UL>
-
-<P><STRONG><a name="[9b]"></a>PB_I2C_Write</STRONG> (Thumb, 556 bytes, Stack size 40 bytes, i2ctests.o(.text.PB_I2C_Write))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = PB_I2C_Write
-</UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialiseaccel
+<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PB_I2C_Read_Single
 </UL>
 
 <P><STRONG><a name="[5b]"></a>SystemInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, system_stm32f4xx.o(.text.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(.text)
 </UL>
-<P><STRONG><a name="[7d]"></a>angleToFreq</STRONG> (Thumb, 1356 bytes, Stack size 40 bytes, sawwave.o(.text.angleToFreq))
+<P><STRONG><a name="[7b]"></a>angleToFreq</STRONG> (Thumb, 1356 bytes, Stack size 40 bytes, sawwave.o(.text.angleToFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = angleToFreq &rArr; __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
+<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
 </UL>
 
-<P><STRONG><a name="[83]"></a>audioDelay</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, audio_drivers.o(.text.audioDelay))
+<P><STRONG><a name="[81]"></a>audioDelay</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, audio_drivers.o(.text.audioDelay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = audioDelay &rArr; setAudioTimer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
+<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupResetForAudioDAC
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupDMAForI2SPeripheral
 </UL>
 
-<P><STRONG><a name="[86]"></a>audioinit</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, sawwave.o(.text.audioinit))
+<P><STRONG><a name="[84]"></a>audioinit</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, sawwave.o(.text.audioinit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 268<LI>Call Chain = audioinit &rArr; myAudioInitialisePeripherals &rArr; cs43l22_Init &rArr; cs43l22_SetVolume &rArr; CODEC_IO_Write &rArr; AUDIO_IO_Write &rArr; myI2Cx_WriteData &rArr; writeDataToI2CPeripheral &rArr; waitForFlagWithTimeout &rArr; setAudioTimer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioSpeedUpTheSystemClock
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioSpeedUpTheSystemClock
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[89]"></a>checkAudioDAC_ID</STRONG> (Thumb, 86 bytes, Stack size 24 bytes, audio_drivers.o(.text.checkAudioDAC_ID))
+<P><STRONG><a name="[87]"></a>calcCutoff</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, sawwave.o(.text.calcCutoff))
+<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = calcCutoff &rArr; __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measureDistance
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+</UL>
+
+<P><STRONG><a name="[8a]"></a>checkAudioDAC_ID</STRONG> (Thumb, 86 bytes, Stack size 24 bytes, audio_drivers.o(.text.checkAudioDAC_ID))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = checkAudioDAC_ID &rArr; readDataFromI2CPeripheral &rArr; waitForFlagWithTimeout &rArr; setAudioTimer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resetTheI2CDriver
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resetTheI2CDriver
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
 </UL>
 
-<P><STRONG><a name="[8c]"></a>coefficients</STRONG> (Thumb, 432 bytes, Stack size 96 bytes, sawwave.o(.text.coefficients))
+<P><STRONG><a name="[8d]"></a>coefficients</STRONG> (Thumb, 432 bytes, Stack size 96 bytes, sawwave.o(.text.coefficients))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = coefficients &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
 </UL>
 
 <P><STRONG><a name="[b2]"></a>configureAudioDACI2CRegisters</STRONG> (Thumb, 154 bytes, Stack size 8 bytes, audio_drivers.o(.text.configureAudioDACI2CRegisters))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = configureAudioDACI2CRegisters
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupAudioI2CPeripheral
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resetTheI2CDriver
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resetTheI2CDriver
 </UL>
 
 <P><STRONG><a name="[a2]"></a>configureI2SClockPLL</STRONG> (Thumb, 222 bytes, Stack size 8 bytes, audio_drivers.o(.text.configureI2SClockPLL))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = configureI2SClockPLL
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
 </UL>
 
 <P><STRONG><a name="[91]"></a>cs43l22_Init</STRONG> (Thumb, 434 bytes, Stack size 48 bytes, cs43l22.o(.text.cs43l22_Init))
@@ -796,7 +788,7 @@ Global Symbols
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CODEC_IO_Write
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AUDIO_IO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
 </UL>
 
 <P><STRONG><a name="[94]"></a>cs43l22_Play</STRONG> (Thumb, 114 bytes, Stack size 32 bytes, cs43l22.o(.text.cs43l22_Play))
@@ -824,23 +816,29 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cs43l22_Init
 </UL>
 
-<P><STRONG><a name="[7e]"></a>getangledata</STRONG> (Thumb, 568 bytes, Stack size 80 bytes, accel.o(.text.getangledata))
+<P><STRONG><a name="[9e]"></a>getEchoPulseDuration</STRONG> (Thumb, 154 bytes, Stack size 4 bytes, ultrasonic.o(.text.getEchoPulseDuration))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = getEchoPulseDuration
+</UL>
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measureDistance
+</UL>
+
+<P><STRONG><a name="[7c]"></a>getangledata</STRONG> (Thumb, 568 bytes, Stack size 80 bytes, accel.o(.text.getangledata))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = getangledata &rArr; __hardfp_atan2 &rArr; atan &rArr; __hardfp_atan &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PB_I2C_Read_Single
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PB_I2C_Read_Single
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
+<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
 </UL>
 
-<P><STRONG><a name="[85]"></a>hasAudioTimerFinished</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, audio_drivers.o(.text.hasAudioTimerFinished))
+<P><STRONG><a name="[83]"></a>hasAudioTimerFinished</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, audio_drivers.o(.text.hasAudioTimerFinished))
 <BR><BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForFlagWithTimeout
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioDelay
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioDelay
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForI2CTXEFlagUntilTimeout
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForI2CMasterAddressFlagUntilTimeout
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForI2CBTFFlagUntilTimeout
@@ -850,21 +848,13 @@ Global Symbols
 <P><STRONG><a name="[a1]"></a>initAudioTimer</STRONG> (Thumb, 364 bytes, Stack size 56 bytes, audio_drivers.o(.text.initAudioTimer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = initAudioTimer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
 </UL>
 
-<P><STRONG><a name="[9a]"></a>initialiseaccel</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, accel.o(.text.initialiseaccel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = initialiseaccel &rArr; PB_I2C_Write
-</UL>
-<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PB_I2C_Write
-</UL>
-<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[9c]"></a>initialpins</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, initialisation_funcs.o(.text.initialpins))
+<P><STRONG><a name="[9a]"></a>initialpins</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, initialisation_funcs.o(.text.initialpins))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = initialpins
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setgpioclock
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setgpioclock
 </UL>
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -872,12 +862,20 @@ Global Symbols
 <P><STRONG><a name="[69]"></a>main</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 424<LI>Call Chain = main &rArr; sawwave &rArr; angleToFreq &rArr; __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialpins
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialiseaccel
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PB_I2C_Init
+<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerinit
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialpins
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioinit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
+</UL>
+
+<P><STRONG><a name="[88]"></a>measureDistance</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, ultrasonic.o(.text.measureDistance))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = measureDistance &rArr; getEchoPulseDuration
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getEchoPulseDuration
+</UL>
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calcCutoff
 </UL>
 
 <P><STRONG><a name="[9f]"></a>myAudioChangeBuffer</STRONG> (Thumb, 130 bytes, Stack size 24 bytes, audio_drivers.o(.text.myAudioChangeBuffer))
@@ -892,7 +890,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Stream7_IRQHandler
 </UL>
 
-<P><STRONG><a name="[88]"></a>myAudioInitialisePeripherals</STRONG> (Thumb, 152 bytes, Stack size 24 bytes, audio_drivers.o(.text.myAudioInitialisePeripherals))
+<P><STRONG><a name="[86]"></a>myAudioInitialisePeripherals</STRONG> (Thumb, 152 bytes, Stack size 24 bytes, audio_drivers.o(.text.myAudioInitialisePeripherals))
 <BR><BR>[Stack]<UL><LI>Max Depth = 252<LI>Call Chain = myAudioInitialisePeripherals &rArr; cs43l22_Init &rArr; cs43l22_SetVolume &rArr; CODEC_IO_Write &rArr; AUDIO_IO_Write &rArr; myI2Cx_WriteData &rArr; writeDataToI2CPeripheral &rArr; waitForFlagWithTimeout &rArr; setAudioTimer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupResetForAudioDAC
@@ -901,20 +899,20 @@ Global Symbols
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initAudioTimer
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cs43l22_Init
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configureI2SClockPLL
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkAudioDAC_ID
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkAudioDAC_ID
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupAudioI2CPeripheral
 </UL>
-<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioinit
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioinit
 </UL>
 
-<P><STRONG><a name="[87]"></a>myAudioSpeedUpTheSystemClock</STRONG> (Thumb, 148 bytes, Stack size 16 bytes, audio_drivers.o(.text.myAudioSpeedUpTheSystemClock))
+<P><STRONG><a name="[85]"></a>myAudioSpeedUpTheSystemClock</STRONG> (Thumb, 148 bytes, Stack size 16 bytes, audio_drivers.o(.text.myAudioSpeedUpTheSystemClock))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = myAudioSpeedUpTheSystemClock &rArr; myConfigureFlashWaitStatesAndBusClocks &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myConfigureTheMainClockPLL
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myConfigureI2SClock
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myConfigureFlashWaitStatesAndBusClocks
 </UL>
-<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioinit
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioinit
 </UL>
 
 <P><STRONG><a name="[aa]"></a>myAudioStartPlaying</STRONG> (Thumb, 122 bytes, Stack size 24 bytes, audio_drivers.o(.text.myAudioStartPlaying))
@@ -923,7 +921,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupDMAForAudioDAC
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cs43l22_Play
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
 </UL>
 
 <P><STRONG><a name="[78]"></a>myAudioTransferCompleteCallback</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, sawwave.o(.text.myAudioTransferCompleteCallback))
@@ -940,7 +938,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForFlagWithTimeout
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioSpeedUpTheSystemClock
+<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioSpeedUpTheSystemClock
 </UL>
 
 <P><STRONG><a name="[a9]"></a>myConfigureI2SClock</STRONG> (Thumb, 130 bytes, Stack size 24 bytes, audio_drivers.o(.text.myConfigureI2SClock))
@@ -948,7 +946,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForFlagWithTimeout
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioSpeedUpTheSystemClock
+<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioSpeedUpTheSystemClock
 </UL>
 
 <P><STRONG><a name="[a7]"></a>myConfigureTheMainClockPLL</STRONG> (Thumb, 194 bytes, Stack size 24 bytes, audio_drivers.o(.text.myConfigureTheMainClockPLL))
@@ -956,19 +954,19 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForFlagWithTimeout
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioSpeedUpTheSystemClock
+<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioSpeedUpTheSystemClock
 </UL>
 
 <P><STRONG><a name="[75]"></a>myI2Cx_WriteData</STRONG> (Thumb, 124 bytes, Stack size 40 bytes, audio_drivers.o(.text.myI2Cx_WriteData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = myI2Cx_WriteData &rArr; writeDataToI2CPeripheral &rArr; waitForFlagWithTimeout &rArr; setAudioTimer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDataToI2CPeripheral
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resetTheI2CDriver
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resetTheI2CDriver
 </UL>
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AUDIO_IO_Write
 </UL>
 
-<P><STRONG><a name="[8a]"></a>readDataFromI2CPeripheral</STRONG> (Thumb, 664 bytes, Stack size 32 bytes, audio_drivers.o(.text.readDataFromI2CPeripheral))
+<P><STRONG><a name="[8b]"></a>readDataFromI2CPeripheral</STRONG> (Thumb, 664 bytes, Stack size 32 bytes, audio_drivers.o(.text.readDataFromI2CPeripheral))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = readDataFromI2CPeripheral &rArr; waitForFlagWithTimeout &rArr; setAudioTimer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForFlagWithTimeout
@@ -977,53 +975,53 @@ Global Symbols
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myI2C_WaitOnRXNEFlagUntilTimeout
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearTheADDRFlag
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkAudioDAC_ID
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkAudioDAC_ID
 </UL>
 
-<P><STRONG><a name="[82]"></a>saw</STRONG> (Thumb, 356 bytes, Stack size 64 bytes, sawwave.o(.text.saw))
+<P><STRONG><a name="[80]"></a>saw</STRONG> (Thumb, 356 bytes, Stack size 64 bytes, sawwave.o(.text.saw))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = saw &rArr; __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
+<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
 </UL>
 
-<P><STRONG><a name="[9e]"></a>sawwave</STRONG> (Thumb, 692 bytes, Stack size 120 bytes, sawwave.o(.text.sawwave))
+<P><STRONG><a name="[9d]"></a>sawwave</STRONG> (Thumb, 692 bytes, Stack size 120 bytes, sawwave.o(.text.sawwave))
 <BR><BR>[Stack]<UL><LI>Max Depth = 416<LI>Call Chain = sawwave &rArr; angleToFreq &rArr; __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_tan
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioStartPlaying
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioinit
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calcCutoff
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[84]"></a>setAudioTimer</STRONG> (Thumb, 118 bytes, Stack size 12 bytes, audio_drivers.o(.text.setAudioTimer))
+<P><STRONG><a name="[82]"></a>setAudioTimer</STRONG> (Thumb, 118 bytes, Stack size 12 bytes, audio_drivers.o(.text.setAudioTimer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = setAudioTimer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForFlagWithTimeout
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioDelay
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioDelay
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForI2CTXEFlagUntilTimeout
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForI2CMasterAddressFlagUntilTimeout
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waitForI2CBTFFlagUntilTimeout
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myI2C_WaitOnRXNEFlagUntilTimeout
 </UL>
 
-<P><STRONG><a name="[9d]"></a>setgpioclock</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, initialisation_funcs.o(.text.setgpioclock))
-<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialpins
+<P><STRONG><a name="[9b]"></a>setgpioclock</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, initialisation_funcs.o(.text.setgpioclock))
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialpins
 </UL>
 
 <P><STRONG><a name="[a0]"></a>setupDMAForAudioDAC</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, audio_drivers.o(.text.setupDMAForAudioDAC))
@@ -1036,13 +1034,13 @@ Global Symbols
 <P><STRONG><a name="[a3]"></a>setupDMAForI2SPeripheral</STRONG> (Thumb, 216 bytes, Stack size 24 bytes, audio_drivers.o(.text.setupDMAForI2SPeripheral))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = setupDMAForI2SPeripheral &rArr; NVIC_EncodePriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioDelay
+<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioDelay
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_GetPriorityGrouping
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EncodePriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
 </UL>
 
 <P><STRONG><a name="[a4]"></a>setupI2SPeripheral</STRONG> (Thumb, 340 bytes, Stack size 64 bytes, audio_drivers.o(.text.setupI2SPeripheral))
@@ -1050,26 +1048,30 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Configure_GPIO_Output
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
 </UL>
 
 <P><STRONG><a name="[a6]"></a>setupResetForAudioDAC</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, audio_drivers.o(.text.setupResetForAudioDAC))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = setupResetForAudioDAC &rArr; audioDelay &rArr; setAudioTimer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioDelay
+<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioDelay
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Configure_GPIO_Output
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
+</UL>
+
+<P><STRONG><a name="[9c]"></a>timerinit</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, initialisation_funcs.o(.text.timerinit))
+<BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[ab]"></a>waitForFlagWithTimeout</STRONG> (Thumb, 102 bytes, Stack size 32 bytes, audio_drivers.o(.text.waitForFlagWithTimeout))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = waitForFlagWithTimeout &rArr; setAudioTimer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
+<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDataToI2CPeripheral
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myConfigureTheMainClockPLL
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myConfigureI2SClock
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myConfigureFlashWaitStatesAndBusClocks
@@ -1093,7 +1095,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
 <P><STRONG><a name="[bc]"></a>__hardfp_atan</STRONG> (Thumb, 622 bytes, Stack size 48 bytes, atan.o(i.__hardfp_atan))
@@ -1105,11 +1107,11 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan
 </UL>
@@ -1123,14 +1125,14 @@ Global Symbols
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmpeq
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
+<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
 </UL>
 
-<P><STRONG><a name="[80]"></a>__hardfp_pow</STRONG> (Thumb, 3088 bytes, Stack size 184 bytes, pow.o(i.__hardfp_pow))
+<P><STRONG><a name="[7e]"></a>__hardfp_pow</STRONG> (Thumb, 3088 bytes, Stack size 184 bytes, pow.o(i.__hardfp_pow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
@@ -1146,14 +1148,15 @@ Global Symbols
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calcCutoff
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
 </UL>
 
 <P><STRONG><a name="[b3]"></a>__hardfp_sin</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, sin.o(i.__hardfp_sin))
@@ -1167,7 +1170,7 @@ Global Symbols
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
 </UL>
 
 <P><STRONG><a name="[97]"></a>__hardfp_sqrt</STRONG> (Thumb, 122 bytes, Stack size 32 bytes, sqrt.o(i.__hardfp_sqrt))
@@ -1176,7 +1179,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
+<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
 </UL>
 
 <P><STRONG><a name="[b4]"></a>__hardfp_tan</STRONG> (Thumb, 108 bytes, Stack size 32 bytes, tan.o(i.__hardfp_tan))
@@ -1188,7 +1191,7 @@ Global Symbols
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
 </UL>
 
 <P><STRONG><a name="[cd]"></a>__ieee754_rem_pio2</STRONG> (Thumb, 938 bytes, Stack size 120 bytes, rred.o(i.__ieee754_rem_pio2))
@@ -1196,13 +1199,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_tan
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
@@ -1212,9 +1215,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = __kernel_cos &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
@@ -1223,14 +1226,14 @@ Global Symbols
 <P><STRONG><a name="[c1]"></a>__kernel_poly</STRONG> (Thumb, 248 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
 <P><STRONG><a name="[cf]"></a>__kernel_sin</STRONG> (Thumb, 280 bytes, Stack size 72 bytes, sin_i.o(i.__kernel_sin))
@@ -1239,10 +1242,10 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
 </UL>
@@ -1255,13 +1258,13 @@ Global Symbols
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_tan
 </UL>
@@ -1269,15 +1272,15 @@ Global Symbols
 <P><STRONG><a name="[c7]"></a>__mathlib_dbl_divzero</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_divzero))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __mathlib_dbl_divzero &rArr; __aeabi_ddiv
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
 <P><STRONG><a name="[bd]"></a>__mathlib_dbl_infnan</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_infnan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __mathlib_dbl_infnan &rArr; __aeabi_dadd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_tan
@@ -1287,39 +1290,39 @@ Global Symbols
 <P><STRONG><a name="[c4]"></a>__mathlib_dbl_infnan2</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_infnan2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __mathlib_dbl_infnan2 &rArr; __aeabi_dadd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 </UL>
 
 <P><STRONG><a name="[ca]"></a>__mathlib_dbl_invalid</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_invalid))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __mathlib_dbl_invalid &rArr; __aeabi_ddiv
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_tan
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
 <P><STRONG><a name="[c8]"></a>__mathlib_dbl_overflow</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_overflow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __mathlib_dbl_overflow &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
 <P><STRONG><a name="[bf]"></a>__mathlib_dbl_underflow</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_underflow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __mathlib_dbl_underflow &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
 <P><STRONG><a name="[c5]"></a>atan</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, atan.o(i.atan))
@@ -1336,7 +1339,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 </UL>
 
@@ -1346,7 +1349,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
 <P><STRONG><a name="[c3]"></a>__aeabi_dneg</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, basic.o(x$fpl$basic))
@@ -1354,7 +1357,7 @@ Global Symbols
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 </UL>
 
@@ -1368,13 +1371,14 @@ Global Symbols
 
 <P><STRONG><a name="[11a]"></a>_fabs</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, basic.o(x$fpl$basic), UNUSED)
 
-<P><STRONG><a name="[81]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
+<P><STRONG><a name="[7f]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calcCutoff
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
 </UL>
 
 <P><STRONG><a name="[d3]"></a>_d2f</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f), UNUSED)
@@ -1382,7 +1386,7 @@ Global Symbols
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 </UL>
 
-<P><STRONG><a name="[8d]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
+<P><STRONG><a name="[8e]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
@@ -1392,9 +1396,9 @@ Global Symbols
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
 </UL>
 
 <P><STRONG><a name="[d6]"></a>_dadd</STRONG> (Thumb, 332 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
@@ -1414,19 +1418,19 @@ Global Symbols
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dcmpeq
 </UL>
 
-<P><STRONG><a name="[8e]"></a>__aeabi_ddiv</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv))
+<P><STRONG><a name="[8f]"></a>__aeabi_ddiv</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_ddiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_divzero
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
 </UL>
 
 <P><STRONG><a name="[db]"></a>_ddiv</STRONG> (Thumb, 556 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv), UNUSED)
@@ -1451,8 +1455,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
 </UL>
 
 <P><STRONG><a name="[de]"></a>_dfix</STRONG> (Thumb, 94 bytes, Stack size 32 bytes, dfix.o(x$fpl$dfix), UNUSED)
@@ -1462,9 +1466,9 @@ Global Symbols
 <P><STRONG><a name="[96]"></a>__aeabi_i2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt))
 <BR><BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
 </UL>
 
 <P><STRONG><a name="[11b]"></a>_dflt</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt), UNUSED)
@@ -1486,7 +1490,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drcmple
 </UL>
 
-<P><STRONG><a name="[90]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
+<P><STRONG><a name="[89]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
@@ -1497,11 +1501,12 @@ Global Symbols
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_overflow
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calcCutoff
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getangledata
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
 </UL>
 
 <P><STRONG><a name="[e0]"></a>_dmul</STRONG> (Thumb, 332 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul), UNUSED)
@@ -1533,7 +1538,7 @@ Global Symbols
 <P><STRONG><a name="[cb]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cdrcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
 <P><STRONG><a name="[e1]"></a>_drcmple</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf), UNUSED)
@@ -1548,7 +1553,7 @@ Global Symbols
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 </UL>
 
@@ -1566,7 +1571,7 @@ Global Symbols
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
 </UL>
 
-<P><STRONG><a name="[8f]"></a>__aeabi_dsub</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub))
+<P><STRONG><a name="[90]"></a>__aeabi_dsub</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dsub
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
@@ -1574,9 +1579,9 @@ Global Symbols
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
 </UL>
 
 <P><STRONG><a name="[e5]"></a>_dsub</STRONG> (Thumb, 472 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub), UNUSED)
@@ -1584,13 +1589,14 @@ Global Symbols
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
 </UL>
 
-<P><STRONG><a name="[7f]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
+<P><STRONG><a name="[7d]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saw
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;coefficients
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calcCutoff
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleToFreq
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sawwave
 </UL>
 
 <P><STRONG><a name="[e6]"></a>_f2d</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
@@ -1623,7 +1629,7 @@ Global Symbols
 <P><STRONG><a name="[cc]"></a>__ARM_scalbn</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, scalbn.o(x$fpl$scalbn))
 <BR><BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
 <P><STRONG><a name="[e8]"></a>__fpl_cmpreturn</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, trapv.o(x$fpl$trapveneer))
@@ -1663,25 +1669,25 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = clearTheADDRFlag
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDataToI2CPeripheral
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
 </UL>
 
 <P><STRONG><a name="[ad]"></a>myI2C_WaitOnRXNEFlagUntilTimeout</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, audio_drivers.o(.text.myI2C_WaitOnRXNEFlagUntilTimeout))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = myI2C_WaitOnRXNEFlagUntilTimeout &rArr; setAudioTimer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
+<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
 </UL>
 
-<P><STRONG><a name="[8b]"></a>resetTheI2CDriver</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, audio_drivers.o(.text.resetTheI2CDriver))
+<P><STRONG><a name="[8c]"></a>resetTheI2CDriver</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, audio_drivers.o(.text.resetTheI2CDriver))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = resetTheI2CDriver &rArr; configureAudioDACI2CRegisters
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configureAudioDACI2CRegisters
 </UL>
 <BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myI2Cx_WriteData
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkAudioDAC_ID
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkAudioDAC_ID
 </UL>
 
 <P><STRONG><a name="[a5]"></a>setupAudioI2CPeripheral</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, audio_drivers.o(.text.setupAudioI2CPeripheral))
@@ -1690,7 +1696,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configureAudioDACI2CRegisters
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupClocksAndGPIOForAudioI2C
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAudioInitialisePeripherals
 </UL>
 
 <P><STRONG><a name="[b5]"></a>setupClocksAndGPIOForAudioI2C</STRONG> (Thumb, 182 bytes, Stack size 32 bytes, audio_drivers.o(.text.setupClocksAndGPIOForAudioI2C))
@@ -1708,8 +1714,8 @@ Local Symbols
 <P><STRONG><a name="[bb]"></a>waitForI2CBTFFlagUntilTimeout</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, audio_drivers.o(.text.waitForI2CBTFFlagUntilTimeout))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = waitForI2CBTFFlagUntilTimeout &rArr; setAudioTimer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
+<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDataToI2CPeripheral
 </UL>
@@ -1717,21 +1723,21 @@ Local Symbols
 <P><STRONG><a name="[af]"></a>waitForI2CMasterAddressFlagUntilTimeout</STRONG> (Thumb, 144 bytes, Stack size 16 bytes, audio_drivers.o(.text.waitForI2CMasterAddressFlagUntilTimeout))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = waitForI2CMasterAddressFlagUntilTimeout &rArr; setAudioTimer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
+<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDataToI2CPeripheral
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
 </UL>
 
 <P><STRONG><a name="[b1]"></a>waitForI2CTXEFlagUntilTimeout</STRONG> (Thumb, 124 bytes, Stack size 16 bytes, audio_drivers.o(.text.waitForI2CTXEFlagUntilTimeout))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = waitForI2CTXEFlagUntilTimeout &rArr; setAudioTimer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
+<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAudioTimer
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hasAudioTimerFinished
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDataToI2CPeripheral
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDataFromI2CPeripheral
 </UL>
 
 <P><STRONG><a name="[76]"></a>CODEC_IO_Write</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, cs43l22.o(.text.CODEC_IO_Write))
