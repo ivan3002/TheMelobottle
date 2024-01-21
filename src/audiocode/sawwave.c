@@ -13,8 +13,8 @@
 
 int16_t PlayBuff[PBSIZE]; 
 int16_t SineBuff[SINESIZE]; 
-float DELTA_T = 1.0/44100;
-float distanceToFreqA = 87.297, distanceToFreqB = 0.059;
+// float DELTA_T = 1.0/44100; // used in calculation for first order filter
+float distanceToFreqA = 87.297, distanceToFreqB = 0.059; // used in calculation for second order filter cutoff
 
 //define scale
 float PENTATONIC = 160.0/11;
@@ -42,10 +42,10 @@ void saw(float desiredFreq, float volume){
 	float sawtoothWave = 0.0;
 	// harmonic iterations
 	for (int harmonic = 1; harmonic <= 10; harmonic++) {
-	    float frequency = desiredFreq * harmonic;
+	    float frequency = desiredFreq * harmonic; // get the harmonic frequency
 	    float amplitude = volume / harmonic; // Adjust the amplitude here
-	
-	    sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE);
+	    // add to other values	
+	    sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE); 
 	}
 
     	SineBuff[j] = (int16_t)(sawtoothWave * 10000); //writng all values into array
