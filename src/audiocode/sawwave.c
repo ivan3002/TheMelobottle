@@ -14,7 +14,7 @@
 int16_t PlayBuff[PBSIZE]; 
 int16_t SineBuff[SINESIZE]; 
 float DELTA_T = 1.0/44100;
-float distanceToFreqA = 87.297, distanceToFreqB = 0.059;
+float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;
 
 //define scale
 float PENTATONIC = 160.0/11;
@@ -28,6 +28,7 @@ enum eMainStatus { normal, changingNoteOrBuffer } currentState = normal;
 // Audio callbacks:
 void myAudioHalfTransferCallback(void) {
 	bufferStatus = firstHalfReq;
+	
 }
 
 void myAudioTransferCompleteCallback(void) {
@@ -41,7 +42,7 @@ void saw(float desiredFreq, float volume){
 	for (int j = 0; j < SINESIZE; j++) {
     float sawtoothWave = 0.0;
 		// harmonic iterations
-    for (int harmonic = 1; harmonic <= 10; harmonic++) {
+    for (int harmonic = 1; harmonic <= 20; harmonic++) {
         float frequency = desiredFreq * harmonic;
         float amplitude = volume / harmonic; // Adjust the amplitude here
 
@@ -130,12 +131,12 @@ void angleToFreq(float* f_0, float volume, float* phaseIncrement){
 
 
 
-
-
 void calcCutoff(float* desiredCutoff) {
 	float distance = measureDistance();
 	*desiredCutoff = distanceToFreqA * pow(10, (distanceToFreqB * distance));
 }
+
+
 // saw wave function
 void sawwave(){
 	// Set-up the phase and phase increment:
@@ -150,8 +151,8 @@ void sawwave(){
 
 	
 	
-	//Start the audio driver play routine
-	myAudioStartPlaying(PlayBuff, PBSIZE); 
+		//Start the audio driver play routine
+		myAudioStartPlaying(PlayBuff, PBSIZE); 
 		
 		float lastSampleInput = 0.0, lastLastSampleInput= 0.0, lastSampleOutput = 0.0, lastLastSampleOutput = 0.0, filteredSample = 0.0;
 		//float a1 = 0.9776, b0 =  0.0112;
@@ -160,7 +161,7 @@ void sawwave(){
 		// cutoff for filter
 
 		float desiredCutoff = 0.0;
-		calcCutoff(&desiredCutoff);
+		
 		
 		
 		// below is for first order
@@ -174,15 +175,15 @@ void sawwave(){
 		float	Q = 1*0.5;
 		
 	 //while (1){
-	 
-		angleToFreq(&desiredFrequency, volume, &phaseIncrement); 
+	 angleToFreq(&desiredFrequency, volume, &phaseIncrement);
+	 //calcCutoff(&desiredCutoff);
+		
 		while(1) {
 		
 		
 		// If there's been a request to fill half of the buffer,
 		// then set the start and end points to fill:
 		
-		 
 		uint32_t startFill = 0, endFill = 0;
 		if (bufferStatus == firstHalfReq) {
 			startFill = 0;
@@ -192,10 +193,12 @@ void sawwave(){
 			startFill = PBSIZE / 2;
 			endFill = PBSIZE;
 			bufferStatus = secondHalfDone;
+			
 		}
 
 		if (startFill != endFill) {
 			// calc values for coefficient calc
+			
 			calcCutoff(&desiredCutoff);
 			float ff = desiredCutoff/AUDIO_FREQUENCY_44K;
 			float ita = 1.0/ tan(PI*ff);
@@ -204,7 +207,7 @@ void sawwave(){
 			
 			
 			coefficients(Q, ita, &b0, &b1, &b2, &a1, &a2);
-		
+ 
 			// begin buffer fill loop
 			for (int i = startFill; i < endFill; i += 2) {
 			

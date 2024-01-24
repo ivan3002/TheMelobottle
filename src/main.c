@@ -18,13 +18,14 @@ int main() {
 	audioinit();
 	initialpins();
 	timerinit();
-	//PB_I2C_Init();
-	//initialiseaccel();
+	PB_I2C_Init();
+	initialiseaccel();
 
 	//while (1){
 		sawwave();
 		//getangledata();
-	//	measureAndControlLEDtest();
+	//measureAndControlLEDtest();
+	
 		
 	//} 
 	
