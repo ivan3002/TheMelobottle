@@ -47,27 +47,30 @@ void initialiseaccel(){
 
 int16_t getangledata(){
 	
-	  xl=PB_I2C_Read_Single(0x3A,0x28);		// write address and register values
-		xh=PB_I2C_Read_Single(0x3A,0x29);
-		yl=PB_I2C_Read_Single(0x3A,0x2A);
-		yh=PB_I2C_Read_Single(0x3A,0x2B);
-		zl=PB_I2C_Read_Single(0x3A,0x2C);
-		zh=PB_I2C_Read_Single(0x3A,0x2D);
+	// write address and register values
+	xl=PB_I2C_Read_Single(0x3A,0x28); 
+	xh=PB_I2C_Read_Single(0x3A,0x29);
+	yl=PB_I2C_Read_Single(0x3A,0x2A);
+	yh=PB_I2C_Read_Single(0x3A,0x2B);
+	zl=PB_I2C_Read_Single(0x3A,0x2C);
+	zh=PB_I2C_Read_Single(0x3A,0x2D);
 		
 		
-		//axis may be mixed up lol
-		x = (int16_t)((xh << 8) | xl);
-		y = (int16_t)((yh << 8) | yl);
-		z = (int16_t)((zh << 8) | zl);
-		
-		pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
-		roll = 180 * atan2(y, sqrt(x*x + z*z))/3.142; //logo horizontal
+	//axis may be mixed up 
+	x = (int16_t)((xh << 8) | xl);
+	y = (int16_t)((yh << 8) | yl);
+	z = (int16_t)((zh << 8) | zl);
+
+	
+	// equations for 	
+	pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
+	roll = 180 * atan2(y, sqrt(x*x + z*z))/3.142; //logo horizontal
 		
 		
 	
-		if(roll>80) roll =80;
-		if(roll<-80) roll= -80;
-	  return roll;
+	if(roll>80) roll = 80; // if greater than 80, snap to 80
+	if(roll<-80) roll = -80; // if greater than 90, snap to 90
+	return roll; // return roll value gained 
 
 }
 
