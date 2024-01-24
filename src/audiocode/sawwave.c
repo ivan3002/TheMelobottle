@@ -13,8 +13,9 @@
 
 int16_t PlayBuff[PBSIZE]; 
 int16_t SineBuff[SINESIZE]; 
-// float DELTA_T = 1.0/44100; // used in calculation for first order filter
-float distanceToFreqA = 87.297, distanceToFreqB = 0.059; // used in calculation for second order filter cutoff
+
+float DELTA_T = 1.0/44100;// used in calculation for first order filter
+float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;// used in calculation for second order filter cutoff
 
 //define scale
 float PENTATONIC = 160.0/11;
@@ -28,6 +29,7 @@ enum eMainStatus { normal, changingNoteOrBuffer } currentState = normal;
 // Audio callbacks:
 void myAudioHalfTransferCallback(void) {
 	bufferStatus = firstHalfReq;
+	
 }
 
 void myAudioTransferCompleteCallback(void) {
@@ -38,14 +40,19 @@ void myAudioTransferCompleteCallback(void) {
 
 
 void saw(float desiredFreq, float volume){
-    for (int j = 0; j < SINESIZE; j++) {
-	float sawtoothWave = 0.0;
-	// harmonic iterations
-	for (int harmonic = 1; harmonic <= 10; harmonic++) {
-	    float frequency = desiredFreq * harmonic; // get the harmonic frequency
-	    float amplitude = volume / harmonic; // Adjust the amplitude here
-	    // add to other values	
-	    sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE); 
+
+	for (int j = 0; j < SINESIZE; j++) {
+    float sawtoothWave = 0.0;
+		// harmonic iterations
+    for (int harmonic = 1; harmonic <= 20; harmonic++) {
+        float frequency = desiredFreq * harmonic; // get the harmonic frequency
+        float amplitude = volume / harmonic; // Adjust the amplitude here
+
+        sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE);
+    }
+
+    SineBuff[j] = (int16_t)(sawtoothWave * 10000); //writng all values into array
+
 	}
 
     	SineBuff[j] = (int16_t)(sawtoothWave * 10000); //writng all values into array
@@ -132,12 +139,13 @@ void angleToFreq(float* f_0, float volume, float* phaseIncrement){
 
 
 
-
-void calcCutoff(float* desiredCutoff) { // calculating cutoff from distance
-	float distance = measureDistance(); // get distance
-	// with some constants, calc cutoff based upon range of 1-40cm mapping to 100-20kHz
+void calcCutoff(float* desiredCutoff) {
+	float distance = measureDistance();
+  // with some constants, calc cutoff based upon range of 1-40cm mapping to 100-20kHz
 	*desiredCutoff = distanceToFreqA * pow(10, (distanceToFreqB * distance));
 }
+
+
 
 // saw wave function
 void sawwave(){
@@ -153,6 +161,7 @@ void sawwave(){
 
 	
 	
+
 	//Start the audio driver play routine
 	myAudioStartPlaying(PlayBuff, PBSIZE); 
 	// initialise values for output with filter
@@ -175,6 +184,7 @@ void sawwave(){
 	float a1,a2,b0,b1,b2;
 	// q factor initialisation
 	float	Q = 1*0.5;
+
 		
 	 
 	 
@@ -197,6 +207,9 @@ void sawwave(){
 		bufferStatus = secondHalfDone;
 	}
 
+		float desiredCutoff = 0.0;
+		
+
 	if (startFill != endFill) {
 		// calc values for coefficient calc
 		calcCutoff(&desiredCutoff);
@@ -204,6 +217,7 @@ void sawwave(){
 		float ita = 1.0/ tan(PI*ff);
 	
 		// calc coefficients
+
 		
 		
 		coefficients(Q, ita, &b0, &b1, &b2, &a1, &a2);
@@ -221,8 +235,10 @@ void sawwave(){
 			// using values stored from last sample, and coefficients which were calculated, sample is filtered
 			float filteredSample = ( a1 * lastSampleOutput ) + ( a2 * lastLastSampleOutput ) + ( b0 * nextSample )  + ( b1 * lastSampleInput ) + ( b2 * lastLastSampleInput );
 		
+
 			PlayBuff[i] = (int16_t)(0.5*filteredSample); // volume decreased due to additions
 			PlayBuff[i + 1] = (int16_t)(0.5*filteredSample);
+
 		
 			// set values for next time around
 			lastLastSampleInput = lastSampleInput; 		// x[n-1] => x[n-2]
@@ -231,6 +247,7 @@ void sawwave(){
 			lastSampleOutput = filteredSample;				// y[n] => y[n-1] or last output set
 		
 		
+
 		
 		/* For straight, basic sawtooth
 			currentPhase += phaseIncrement;
@@ -240,7 +257,13 @@ void sawwave(){
 			PlayBuff[i + 1] = nextSample;
 		*/
 			
-		
+
+			
+			coefficients(Q, ita, &b0, &b1, &b2, &a1, &a2);
+ 
+			// begin buffer fill loop
+			for (int i = startFill; i < endFill; i += 2) {
+
 			
 			
 		} 

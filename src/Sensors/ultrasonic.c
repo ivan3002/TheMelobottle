@@ -17,7 +17,7 @@ uint32_t getEchoPulseDuration() {
     while (!(GPIOB->IDR & (1 << 2))); // Assuming echo pin is connected to B2
 
     // Start the timer
-    TIM1->CNT = 0; // Assuming you're using a timer, replace TIMx with your actual timer instance
+    TIM1->CNT = 0; // Reset the timer counter
     TIM1->CR1 |= TIM_CR1_CEN; // Enable the timer
 
     // Wait for the echo pulse to end
@@ -36,17 +36,17 @@ uint16_t measureDistance() {
     // Return the measured distance in millimeters
     uint32_t pulseDuration = getEchoPulseDuration();
 	
-		uint16_t distance = (uint16_t)((pulseDuration * 343) / 2000); //divide by 2000 as time is given in microseconds 
+		uint16_t getdistance = (uint16_t)((pulseDuration * 343) / 2000); //divide by 2000 as time is given in microseconds 
 	                                                                //and we want millimetres
-		if (distance > 40) distance = 40; 
-    return distance; //looks like for some reason giving cm
+
+	if (getdistance >= 400) getdistance = 400; 
+  return getdistance; //looks like for some reason giving cm
 }
 	
 
 
 void measureAndControlLEDtest() {
-    // For simplicity, I'm assuming a function named "measureDistance" that returns the distance in millimeters
-
+  
 
     // Measure distance
     uint16_t distance = measureDistance();
@@ -57,7 +57,7 @@ void measureAndControlLEDtest() {
 	
     // Turn on LED if the measured distance is less than the threshold
     if (distance < thresholdDistance) {
-        GPIOB->ODR |= (1 << 3); // Turn on LED (Assuming LED is connected to pin B3)
+        GPIOB->ODR |= (1 << 3); // Turn on LED 
     } else {
         GPIOB->ODR &= ~(1 << 3); // Turn off LED
 				
