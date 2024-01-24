@@ -27,6 +27,318 @@ Project File Date:  01/23/2024
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
+src/main.c(1): warning: In file included from...
+src/Sensors/ultrasonic.h(6): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void measureAndControlLEDtest();
+                             ^
+                              void
+src/main.c(2): warning: In file included from...
+src/Sensors/accel.h(3): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void initialiseaccel();
+                    ^
+                     void
+src/Sensors/accel.h(4): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+int16_t getangledata(); 
+                    ^
+                     void
+src/Sensors/accel.h(4): warning: no newline at end of file [-Wnewline-eof]
+int16_t getangledata(); 
+                        ^
+src/main.c(3): warning: In file included from...
+src/Initialisation/initialisation_funcs.h(5): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void PB_I2C_Init();
+                ^
+                 void
+src/main.c(4): warning: In file included from...
+src/Initialisation/i2ctests.h(5): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void PB_I2C_Reset();
+                 ^
+                  void
+src/Initialisation/i2ctests.h(8): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void greenLED();
+             ^
+              void
+src/Initialisation/i2ctests.h(9): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void yellowLED();
+              ^
+               void
+src/main.c(7): warning: In file included from...
+src/audiocode/sawwave.h(4): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void audioinit();
+              ^
+               void
+src/main.c(15): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+int main() {
+        ^
+         void
+src/main.c(17): warning: // comments are not allowed in this language [-Wcomment]
+        // Initialize your peripherals
+        ^
+src/main.c(25): warning: implicit declaration of function 'sawwave' [-Wimplicit-function-declaration]
+                sawwave();
+                ^
+12 warnings generated.
+compiling main.c...
+src/Sensors/accel.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "STM32F407xx.h"
+         ^~~~~~~~~~~~~~~
+         "stm32f407xx.h"
+src/Sensors/accel.c(4): warning: // comments are not allowed in this language [-Wcomment]
+//1010 1000 binary SUB to write for slave-transmit subaddress updating - 0xA8
+^
+src/Sensors/accel.c(21): warning: no previous extern declaration for non-static variable 'x' [-Wmissing-variable-declarations]
+signed int x=0;
+           ^
+src/Sensors/accel.c(21): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+signed int x=0;
+^
+src/Sensors/accel.c(22): warning: no previous extern declaration for non-static variable 'y' [-Wmissing-variable-declarations]
+signed int y=0;
+           ^
+src/Sensors/accel.c(22): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+signed int y=0;
+^
+src/Sensors/accel.c(23): warning: no previous extern declaration for non-static variable 'z' [-Wmissing-variable-declarations]
+signed int z=0;
+           ^
+src/Sensors/accel.c(23): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+signed int z=0;
+^
+src/Sensors/accel.c(24): warning: no previous extern declaration for non-static variable 'xl' [-Wmissing-variable-declarations]
+int16_t xl=0;
+        ^
+src/Sensors/accel.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t xl=0;
+^
+src/Sensors/accel.c(25): warning: no previous extern declaration for non-static variable 'xh' [-Wmissing-variable-declarations]
+int16_t xh=0;
+        ^
+src/Sensors/accel.c(25): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t xh=0;
+^
+src/Sensors/accel.c(26): warning: no previous extern declaration for non-static variable 'yl' [-Wmissing-variable-declarations]
+int16_t yl=0;
+        ^
+src/Sensors/accel.c(26): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t yl=0;
+^
+src/Sensors/accel.c(27): warning: no previous extern declaration for non-static variable 'yh' [-Wmissing-variable-declarations]
+int16_t yh=0;
+        ^
+src/Sensors/accel.c(27): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t yh=0;
+^
+src/Sensors/accel.c(28): warning: no previous extern declaration for non-static variable 'zl' [-Wmissing-variable-declarations]
+int16_t zl=0;
+        ^
+src/Sensors/accel.c(28): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t zl=0;
+^
+src/Sensors/accel.c(29): warning: no previous extern declaration for non-static variable 'zh' [-Wmissing-variable-declarations]
+int16_t zh=0;
+        ^
+src/Sensors/accel.c(29): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t zh=0;
+^
+src/Sensors/accel.c(30): warning: no previous extern declaration for non-static variable 'pitch' [-Wmissing-variable-declarations]
+int16_t pitch=0;
+        ^
+src/Sensors/accel.c(30): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t pitch=0;
+^
+src/Sensors/accel.c(31): warning: no previous extern declaration for non-static variable 'roll' [-Wmissing-variable-declarations]
+int16_t roll=0;
+        ^
+src/Sensors/accel.c(31): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int16_t roll=0;
+^
+src/Sensors/accel.c(33): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void initialiseaccel(){
+                    ^
+                     void
+src/Sensors/accel.c(39): warning: implicit declaration of function 'PB_I2C_Write' [-Wimplicit-function-declaration]
+        PB_I2C_Write (0x3A,0x21 ,0x00);
+        ^
+src/Sensors/accel.c(33): warning: no previous prototype for function 'initialiseaccel' [-Wmissing-prototypes]
+void initialiseaccel(){
+     ^
+src/Sensors/accel.c(33): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void initialiseaccel(){
+^
+static 
+src/Sensors/accel.c(48): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+int16_t getangledata(){
+                    ^
+                     void
+src/Sensors/accel.c(51): warning: implicit declaration of function 'PB_I2C_Read_Single' [-Wimplicit-function-declaration]
+        xl=PB_I2C_Read_Single(0x3A,0x28); 
+           ^
+src/Sensors/accel.c(51): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+        xl=PB_I2C_Read_Single(0x3A,0x28); 
+          ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(52): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+        xh=PB_I2C_Read_Single(0x3A,0x29);
+          ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(53): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+        yl=PB_I2C_Read_Single(0x3A,0x2A);
+          ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(54): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+        yh=PB_I2C_Read_Single(0x3A,0x2B);
+          ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(55): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+        zl=PB_I2C_Read_Single(0x3A,0x2C);
+          ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(56): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+        zh=PB_I2C_Read_Single(0x3A,0x2D);
+          ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/Sensors/accel.c(66): warning: implicitly declaring library function 'atan2' with type 'double (double, double)' [-Wimplicit-function-declaration]
+        pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
+                      ^
+src/Sensors/accel.c(66): note: include the header <math.h> or explicitly provide a declaration for 'atan2'
+src/Sensors/accel.c(66): warning: implicitly declaring library function 'sqrt' with type 'double (double)' [-Wimplicit-function-declaration]
+        pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
+                               ^
+src/Sensors/accel.c(66): note: include the header <math.h> or explicitly provide a declaration for 'sqrt'
+src/Sensors/accel.c(66): warning: implicit conversion turns floating-point number into integer: 'double' to 'int16_t' (aka 'short') [-Wfloat-conversion]
+        pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
+              ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+src/Sensors/accel.c(67): warning: implicit conversion turns floating-point number into integer: 'double' to 'int16_t' (aka 'short') [-Wfloat-conversion]
+        roll = 180 * atan2(y, sqrt(x*x + z*z))/3.142; //logo horizontal
+             ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+src/Sensors/accel.c(48): warning: no previous prototype for function 'getangledata' [-Wmissing-prototypes]
+int16_t getangledata(){
+        ^
+src/Sensors/accel.c(48): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int16_t getangledata(){
+^
+static 
+29 warnings generated.
+compiling accel.c...
+src/Initialisation/i2ctests.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "STM32F407xx.h"
+         ^~~~~~~~~~~~~~~
+         "stm32f407xx.h"
+src/Initialisation/i2ctests.c(3): warning: // comments are not allowed in this language [-Wcomment]
+//This code is based on the setup for the "Procboard." The accelerometer used is the same as our application here
+^
+src/Initialisation/i2ctests.c(21): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(27): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(28): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR2;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(13): warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+        int32_t volatile temp = 0;  // Used for dummy reads to clear flags
+                         ^
+src/Initialisation/i2ctests.c(8): warning: no previous prototype for function 'PB_I2C_Write' [-Wmissing-prototypes]
+int32_t PB_I2C_Write (char address, char reg, char data) {
+        ^
+src/Initialisation/i2ctests.c(8): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int32_t PB_I2C_Write (char address, char reg, char data) {
+^
+static 
+src/Initialisation/i2ctests.c(49): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void PB_I2C_Reset() {
+                 ^
+                  void
+src/Initialisation/i2ctests.c(51): warning: implicit declaration of function 'MicroDelay' [-Wimplicit-function-declaration]
+        MicroDelay(1000);
+        ^
+src/Initialisation/i2ctests.c(52): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        I2C3->CR1               &= ~(1<<15);
+                                ~~ ^~~~~~~~
+src/Initialisation/i2ctests.c(49): warning: no previous prototype for function 'PB_I2C_Reset' [-Wmissing-prototypes]
+void PB_I2C_Reset() {
+     ^
+src/Initialisation/i2ctests.c(49): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void PB_I2C_Reset() {
+^
+static 
+src/Initialisation/i2ctests.c(70): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(78): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(79): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR2;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(101): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(61): warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+        int32_t volatile temp = 0;  // Used for dummy reads to clear flags
+                         ^
+src/Initialisation/i2ctests.c(56): warning: no previous prototype for function 'PB_I2C_Start_Read' [-Wmissing-prototypes]
+int32_t PB_I2C_Start_Read (char address, char reg) {
+        ^
+src/Initialisation/i2ctests.c(56): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int32_t PB_I2C_Start_Read (char address, char reg) {
+^
+static 
+src/Initialisation/i2ctests.c(124): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR1;  // Clear ADDR flag
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(125): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->SR2;
+             ~ ~~~~~~^~~
+src/Initialisation/i2ctests.c(130): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
+        temp = I2C3->DR;
+             ~ ~~~~~~^~
+src/Initialisation/i2ctests.c(110): warning: no previous prototype for function 'PB_I2C_Read_Single' [-Wmissing-prototypes]
+int32_t PB_I2C_Read_Single (char address, char reg) {
+        ^
+src/Initialisation/i2ctests.c(110): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int32_t PB_I2C_Read_Single (char address, char reg) {
+^
+static 
+src/Initialisation/i2ctests.c(141): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void greenLED(){
+             ^
+              void
+src/Initialisation/i2ctests.c(142): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR &= ~(1 << 5);
+                   ~~ ^~~~~~~~~
+src/Initialisation/i2ctests.c(144): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+        for (int i = 0; i < 100000; ++i) {
+             ^
+src/Initialisation/i2ctests.c(144): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+src/Initialisation/i2ctests.c(147): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR &= ~(1 << 4);
+                   ~~ ^~~~~~~~~
+src/Initialisation/i2ctests.c(141): warning: no previous prototype for function 'greenLED' [-Wmissing-prototypes]
+void greenLED(){
+     ^
+src/Initialisation/i2ctests.c(141): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void greenLED(){
+^
+static 
+src/Initialisation/i2ctests.c(149): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void yellowLED(){
+              ^
+               void
+src/Initialisation/i2ctests.c(150): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR &= ~(1 << 4);
+                   ~~ ^~~~~~~~~
+src/Initialisation/i2ctests.c(152): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+        for (int i = 0; i <100000; ++i) {
+             ^
+src/Initialisation/i2ctests.c(152): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+src/Initialisation/i2ctests.c(155): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR &= ~(1 << 5);
+                   ~~ ^~~~~~~~~
+src/Initialisation/i2ctests.c(149): warning: no previous prototype for function 'yellowLED' [-Wmissing-prototypes]
+void yellowLED(){
+     ^
+src/Initialisation/i2ctests.c(149): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void yellowLED(){
+^
+static 
+33 warnings generated.
+compiling i2ctests.c...
 src/Sensors/ultrasonic.c(1): warning: In file included from...
 src/Sensors/../Initialisation/initialisation_funcs.h(5): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
 void PB_I2C_Init();
@@ -232,321 +544,6 @@ src/audiodrivers/cs43l22.c(474): warning: implicit conversion loses integer prec
   ~~~~~~ ^~~~~~
 47 warnings generated.
 compiling cs43l22.c...
-src/main.c(1): warning: In file included from...
-src/Sensors/ultrasonic.h(6): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void measureAndControlLEDtest();
-                             ^
-                              void
-src/main.c(2): warning: In file included from...
-src/Sensors/accel.h(3): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void initialiseaccel();
-                    ^
-                     void
-src/Sensors/accel.h(4): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-int16_t getangledata(); 
-                    ^
-                     void
-src/Sensors/accel.h(4): warning: no newline at end of file [-Wnewline-eof]
-int16_t getangledata(); 
-                        ^
-src/main.c(3): warning: In file included from...
-src/Initialisation/initialisation_funcs.h(5): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void PB_I2C_Init();
-                ^
-                 void
-src/main.c(4): warning: In file included from...
-src/Initialisation/i2ctests.h(5): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void PB_I2C_Reset();
-                 ^
-                  void
-src/Initialisation/i2ctests.h(8): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void greenLED();
-             ^
-              void
-src/Initialisation/i2ctests.h(9): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void yellowLED();
-              ^
-               void
-src/main.c(7): warning: In file included from...
-src/audiocode/sawwave.h(4): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void audioinit();
-              ^
-               void
-src/main.c(15): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-int main() {
-        ^
-         void
-src/main.c(17): warning: // comments are not allowed in this language [-Wcomment]
-        // Initialize your peripherals
-        ^
-src/main.c(25): warning: implicit declaration of function 'sawwave' [-Wimplicit-function-declaration]
-                sawwave();
-                ^
-12 warnings generated.
-compiling main.c...
-src/Initialisation/i2ctests.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
-#include "STM32F407xx.h"
-         ^~~~~~~~~~~~~~~
-         "stm32f407xx.h"
-src/Initialisation/i2ctests.c(3): warning: // comments are not allowed in this language [-Wcomment]
-//This code is based on the setup for the "Procboard." The accelerometer used is the same as our application here
-^
-src/Initialisation/i2ctests.c(21): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(27): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(28): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR2;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(13): warning: variable 'temp' set but not used [-Wunused-but-set-variable]
-        int32_t volatile temp = 0;  // Used for dummy reads to clear flags
-                         ^
-src/Initialisation/i2ctests.c(8): warning: no previous prototype for function 'PB_I2C_Write' [-Wmissing-prototypes]
-int32_t PB_I2C_Write (char address, char reg, char data) {
-        ^
-src/Initialisation/i2ctests.c(8): note: declare 'static' if the function is not intended to be used outside of this translation unit
-int32_t PB_I2C_Write (char address, char reg, char data) {
-^
-static 
-src/Initialisation/i2ctests.c(49): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void PB_I2C_Reset() {
-                 ^
-                  void
-src/Initialisation/i2ctests.c(51): warning: implicit declaration of function 'MicroDelay' [-Wimplicit-function-declaration]
-        MicroDelay(1000);
-        ^
-src/Initialisation/i2ctests.c(52): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        I2C3->CR1               &= ~(1<<15);
-                                ~~ ^~~~~~~~
-src/Initialisation/i2ctests.c(49): warning: no previous prototype for function 'PB_I2C_Reset' [-Wmissing-prototypes]
-void PB_I2C_Reset() {
-     ^
-src/Initialisation/i2ctests.c(49): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void PB_I2C_Reset() {
-^
-static 
-src/Initialisation/i2ctests.c(70): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(78): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(79): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR2;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(101): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(61): warning: variable 'temp' set but not used [-Wunused-but-set-variable]
-        int32_t volatile temp = 0;  // Used for dummy reads to clear flags
-                         ^
-src/Initialisation/i2ctests.c(56): warning: no previous prototype for function 'PB_I2C_Start_Read' [-Wmissing-prototypes]
-int32_t PB_I2C_Start_Read (char address, char reg) {
-        ^
-src/Initialisation/i2ctests.c(56): note: declare 'static' if the function is not intended to be used outside of this translation unit
-int32_t PB_I2C_Start_Read (char address, char reg) {
-^
-static 
-src/Initialisation/i2ctests.c(124): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR1;  // Clear ADDR flag
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(125): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->SR2;
-             ~ ~~~~~~^~~
-src/Initialisation/i2ctests.c(130): warning: implicit conversion changes signedness: 'volatile uint32_t' (aka 'volatile unsigned int') to 'int32_t' (aka 'int') [-Wsign-conversion]
-        temp = I2C3->DR;
-             ~ ~~~~~~^~
-src/Initialisation/i2ctests.c(110): warning: no previous prototype for function 'PB_I2C_Read_Single' [-Wmissing-prototypes]
-int32_t PB_I2C_Read_Single (char address, char reg) {
-        ^
-src/Initialisation/i2ctests.c(110): note: declare 'static' if the function is not intended to be used outside of this translation unit
-int32_t PB_I2C_Read_Single (char address, char reg) {
-^
-static 
-src/Initialisation/i2ctests.c(141): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void greenLED(){
-             ^
-              void
-src/Initialisation/i2ctests.c(142): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOB->ODR &= ~(1 << 5);
-                   ~~ ^~~~~~~~~
-src/Initialisation/i2ctests.c(144): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
-        for (int i = 0; i < 100000; ++i) {
-             ^
-src/Initialisation/i2ctests.c(144): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/Initialisation/i2ctests.c(147): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOB->ODR &= ~(1 << 4);
-                   ~~ ^~~~~~~~~
-src/Initialisation/i2ctests.c(141): warning: no previous prototype for function 'greenLED' [-Wmissing-prototypes]
-void greenLED(){
-     ^
-src/Initialisation/i2ctests.c(141): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void greenLED(){
-^
-static 
-src/Initialisation/i2ctests.c(149): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void yellowLED(){
-              ^
-               void
-src/Initialisation/i2ctests.c(150): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOB->ODR &= ~(1 << 4);
-                   ~~ ^~~~~~~~~
-src/Initialisation/i2ctests.c(152): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
-        for (int i = 0; i <100000; ++i) {
-             ^
-src/Initialisation/i2ctests.c(152): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/Initialisation/i2ctests.c(155): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOB->ODR &= ~(1 << 5);
-                   ~~ ^~~~~~~~~
-src/Initialisation/i2ctests.c(149): warning: no previous prototype for function 'yellowLED' [-Wmissing-prototypes]
-void yellowLED(){
-     ^
-src/Initialisation/i2ctests.c(149): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void yellowLED(){
-^
-static 
-33 warnings generated.
-compiling i2ctests.c...
-src/Sensors/accel.c(1): warning: non-portable path to file '"stm32f407xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
-#include "STM32F407xx.h"
-         ^~~~~~~~~~~~~~~
-         "stm32f407xx.h"
-src/Sensors/accel.c(4): warning: // comments are not allowed in this language [-Wcomment]
-//1010 1000 binary SUB to write for slave-transmit subaddress updating - 0xA8
-^
-src/Sensors/accel.c(21): warning: no previous extern declaration for non-static variable 'x' [-Wmissing-variable-declarations]
-signed int x=0;
-           ^
-src/Sensors/accel.c(21): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-signed int x=0;
-^
-src/Sensors/accel.c(22): warning: no previous extern declaration for non-static variable 'y' [-Wmissing-variable-declarations]
-signed int y=0;
-           ^
-src/Sensors/accel.c(22): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-signed int y=0;
-^
-src/Sensors/accel.c(23): warning: no previous extern declaration for non-static variable 'z' [-Wmissing-variable-declarations]
-signed int z=0;
-           ^
-src/Sensors/accel.c(23): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-signed int z=0;
-^
-src/Sensors/accel.c(24): warning: no previous extern declaration for non-static variable 'xl' [-Wmissing-variable-declarations]
-int16_t xl=0;
-        ^
-src/Sensors/accel.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t xl=0;
-^
-src/Sensors/accel.c(25): warning: no previous extern declaration for non-static variable 'xh' [-Wmissing-variable-declarations]
-int16_t xh=0;
-        ^
-src/Sensors/accel.c(25): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t xh=0;
-^
-src/Sensors/accel.c(26): warning: no previous extern declaration for non-static variable 'yl' [-Wmissing-variable-declarations]
-int16_t yl=0;
-        ^
-src/Sensors/accel.c(26): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t yl=0;
-^
-src/Sensors/accel.c(27): warning: no previous extern declaration for non-static variable 'yh' [-Wmissing-variable-declarations]
-int16_t yh=0;
-        ^
-src/Sensors/accel.c(27): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t yh=0;
-^
-src/Sensors/accel.c(28): warning: no previous extern declaration for non-static variable 'zl' [-Wmissing-variable-declarations]
-int16_t zl=0;
-        ^
-src/Sensors/accel.c(28): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t zl=0;
-^
-src/Sensors/accel.c(29): warning: no previous extern declaration for non-static variable 'zh' [-Wmissing-variable-declarations]
-int16_t zh=0;
-        ^
-src/Sensors/accel.c(29): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t zh=0;
-^
-src/Sensors/accel.c(30): warning: no previous extern declaration for non-static variable 'pitch' [-Wmissing-variable-declarations]
-int16_t pitch=0;
-        ^
-src/Sensors/accel.c(30): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t pitch=0;
-^
-src/Sensors/accel.c(31): warning: no previous extern declaration for non-static variable 'roll' [-Wmissing-variable-declarations]
-int16_t roll=0;
-        ^
-src/Sensors/accel.c(31): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int16_t roll=0;
-^
-src/Sensors/accel.c(33): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void initialiseaccel(){
-                    ^
-                     void
-src/Sensors/accel.c(39): warning: implicit declaration of function 'PB_I2C_Write' [-Wimplicit-function-declaration]
-        PB_I2C_Write (0x3A,0x21 ,0x00);
-        ^
-src/Sensors/accel.c(33): warning: no previous prototype for function 'initialiseaccel' [-Wmissing-prototypes]
-void initialiseaccel(){
-     ^
-src/Sensors/accel.c(33): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void initialiseaccel(){
-^
-static 
-src/Sensors/accel.c(48): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-int16_t getangledata(){
-                    ^
-                     void
-src/Sensors/accel.c(50): warning: implicit declaration of function 'PB_I2C_Read_Single' [-Wimplicit-function-declaration]
-          xl=PB_I2C_Read_Single(0x3A,0x28);             // write address and register values
-             ^
-src/Sensors/accel.c(50): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-          xl=PB_I2C_Read_Single(0x3A,0x28);             // write address and register values
-            ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(51): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-                xh=PB_I2C_Read_Single(0x3A,0x29);
-                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(52): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-                yl=PB_I2C_Read_Single(0x3A,0x2A);
-                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(53): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-                yh=PB_I2C_Read_Single(0x3A,0x2B);
-                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(54): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-                zl=PB_I2C_Read_Single(0x3A,0x2C);
-                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(55): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
-                zh=PB_I2C_Read_Single(0x3A,0x2D);
-                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/Sensors/accel.c(63): warning: implicitly declaring library function 'atan2' with type 'double (double, double)' [-Wimplicit-function-declaration]
-                pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
-                              ^
-src/Sensors/accel.c(63): note: include the header <math.h> or explicitly provide a declaration for 'atan2'
-src/Sensors/accel.c(63): warning: implicitly declaring library function 'sqrt' with type 'double (double)' [-Wimplicit-function-declaration]
-                pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
-                                       ^
-src/Sensors/accel.c(63): note: include the header <math.h> or explicitly provide a declaration for 'sqrt'
-src/Sensors/accel.c(63): warning: implicit conversion turns floating-point number into integer: 'double' to 'int16_t' (aka 'short') [-Wfloat-conversion]
-                pitch = 180 * atan2(x, sqrt(y*y + z*z))/3.142; //logo vertical
-                      ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
-src/Sensors/accel.c(64): warning: implicit conversion turns floating-point number into integer: 'double' to 'int16_t' (aka 'short') [-Wfloat-conversion]
-                roll = 180 * atan2(y, sqrt(x*x + z*z))/3.142; //logo horizontal
-                     ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
-src/Sensors/accel.c(80): warning: no newline at end of file [-Wnewline-eof]
-        
-        ^
-src/Sensors/accel.c(48): warning: no previous prototype for function 'getangledata' [-Wmissing-prototypes]
-int16_t getangledata(){
-        ^
-src/Sensors/accel.c(48): note: declare 'static' if the function is not intended to be used outside of this translation unit
-int16_t getangledata(){
-^
-static 
-30 warnings generated.
-compiling accel.c...
 src/audiocode/sawwave.c(1): warning: In file included from...
 src/audiocode/../audiodrivers/Audio_Drivers.h(2): warning: // comments are not allowed in this language [-Wcomment]
 // My versions of the audio drivers supplied with the STM32F4 discovery board.
@@ -565,244 +562,241 @@ src/audiocode/../audiodrivers/./audio_replacement.h(1): warning: // comments are
 src/audiocode/sawwave.c(9): warning: // comments are not allowed in this language [-Wcomment]
 // Set up the sine look-up table:
 ^
-src/audiocode/sawwave.c(16): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
-float DELTA_T = 1.0/44100;
+src/audiocode/sawwave.c(17): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+float DELTA_T = 1.0/44100;// used in calculation for first order filter
       ~~~~~~~   ~~~^~~~~~
-src/audiocode/sawwave.c(16): warning: no previous extern declaration for non-static variable 'DELTA_T' [-Wmissing-variable-declarations]
-float DELTA_T = 1.0/44100;
+src/audiocode/sawwave.c(17): warning: no previous extern declaration for non-static variable 'DELTA_T' [-Wmissing-variable-declarations]
+float DELTA_T = 1.0/44100;// used in calculation for first order filter
       ^
-src/audiocode/sawwave.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-float DELTA_T = 1.0/44100;
+src/audiocode/sawwave.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+float DELTA_T = 1.0/44100;// used in calculation for first order filter
 ^
-src/audiocode/sawwave.c(17): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
-float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;
+src/audiocode/sawwave.c(18): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;// used in calculation for second order filter cutoff
       ~~~~~~~~~~~~~~~   ^~~~~~~
-src/audiocode/sawwave.c(17): warning: no previous extern declaration for non-static variable 'distanceToFreqA' [-Wmissing-variable-declarations]
-float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;
+src/audiocode/sawwave.c(18): warning: no previous extern declaration for non-static variable 'distanceToFreqA' [-Wmissing-variable-declarations]
+float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;// used in calculation for second order filter cutoff
       ^
-src/audiocode/sawwave.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;
+src/audiocode/sawwave.c(18): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;// used in calculation for second order filter cutoff
 ^
-src/audiocode/sawwave.c(17): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
-float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;
+src/audiocode/sawwave.c(18): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;// used in calculation for second order filter cutoff
                                  ~~~~~~~~~~~~~~~   ^~~~~~
-src/audiocode/sawwave.c(17): warning: no previous extern declaration for non-static variable 'distanceToFreqB' [-Wmissing-variable-declarations]
-float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;
+src/audiocode/sawwave.c(18): warning: no previous extern declaration for non-static variable 'distanceToFreqB' [-Wmissing-variable-declarations]
+float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;// used in calculation for second order filter cutoff
                                  ^
-src/audiocode/sawwave.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;
+src/audiocode/sawwave.c(18): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;// used in calculation for second order filter cutoff
 ^
-src/audiocode/sawwave.c(20): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+src/audiocode/sawwave.c(21): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
 float PENTATONIC = 160.0/11;
       ~~~~~~~~~~   ~~~~~^~~
-src/audiocode/sawwave.c(20): warning: no previous extern declaration for non-static variable 'PENTATONIC' [-Wmissing-variable-declarations]
+src/audiocode/sawwave.c(21): warning: no previous extern declaration for non-static variable 'PENTATONIC' [-Wmissing-variable-declarations]
 float PENTATONIC = 160.0/11;
       ^
-src/audiocode/sawwave.c(20): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+src/audiocode/sawwave.c(21): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 float PENTATONIC = 160.0/11;
 ^
-src/audiocode/sawwave.c(23): warning: no previous extern declaration for non-static variable 'noteStatus' [-Wmissing-variable-declarations]
+src/audiocode/sawwave.c(24): warning: no previous extern declaration for non-static variable 'noteStatus' [-Wmissing-variable-declarations]
 enum eNoteStatus { ready, going, finish } noteStatus = ready;
                                           ^
-src/audiocode/sawwave.c(23): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+src/audiocode/sawwave.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 enum eNoteStatus { ready, going, finish } noteStatus = ready;
 ^
-src/audiocode/sawwave.c(25): warning: no previous extern declaration for non-static variable 'bufferStatus' [-Wmissing-variable-declarations]
+src/audiocode/sawwave.c(26): warning: no previous extern declaration for non-static variable 'bufferStatus' [-Wmissing-variable-declarations]
                         secondHalfReq, secondHalfDone } bufferStatus = empty; 
                                                         ^
-src/audiocode/sawwave.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+src/audiocode/sawwave.c(25): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 enum eBufferStatus { empty, finished, firstHalfReq, firstHalfDone,
 ^
-src/audiocode/sawwave.c(26): warning: no previous extern declaration for non-static variable 'currentState' [-Wmissing-variable-declarations]
+src/audiocode/sawwave.c(27): warning: no previous extern declaration for non-static variable 'currentState' [-Wmissing-variable-declarations]
 enum eMainStatus { normal, changingNoteOrBuffer } currentState = normal;
                                                   ^
-src/audiocode/sawwave.c(26): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+src/audiocode/sawwave.c(27): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 enum eMainStatus { normal, changingNoteOrBuffer } currentState = normal;
 ^
-src/audiocode/sawwave.c(42): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+src/audiocode/sawwave.c(44): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
         for (int j = 0; j < SINESIZE; j++) {
              ^
-src/audiocode/sawwave.c(42): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/audiocode/sawwave.c(45): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+src/audiocode/sawwave.c(44): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+src/audiocode/sawwave.c(47): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
     for (int harmonic = 1; harmonic <= 20; harmonic++) {
          ^
-src/audiocode/sawwave.c(45): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/audiocode/sawwave.c(46): warning: implicit conversion from 'int' to 'float' may lose precision [-Wimplicit-int-float-conversion]
-        float frequency = desiredFreq * harmonic;
+src/audiocode/sawwave.c(47): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+src/audiocode/sawwave.c(48): warning: implicit conversion from 'int' to 'float' may lose precision [-Wimplicit-int-float-conversion]
+        float frequency = desiredFreq * harmonic; // get the harmonic frequency
                                       ~ ^~~~~~~~
-src/audiocode/sawwave.c(47): warning: implicit conversion from 'int' to 'float' may lose precision [-Wimplicit-int-float-conversion]
+src/audiocode/sawwave.c(49): warning: implicit conversion from 'int' to 'float' may lose precision [-Wimplicit-int-float-conversion]
         float amplitude = volume / harmonic; // Adjust the amplitude here
                                  ~ ^~~~~~~~
-src/audiocode/sawwave.c(49): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+src/audiocode/sawwave.c(51): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
         sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE);
                         ^~~~~~~~~ ~
-src/audiocode/sawwave.c(49): warning: implicit conversion when assigning computation result loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+src/audiocode/sawwave.c(51): warning: implicit conversion when assigning computation result loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
         sawtoothWave += amplitude * sin(j * 2.0 * PI * harmonic / SINESIZE);
                      ~~ ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/audiocode/sawwave.c(46): warning: unused variable 'frequency' [-Wunused-variable]
-        float frequency = desiredFreq * harmonic;
+src/audiocode/sawwave.c(48): warning: unused variable 'frequency' [-Wunused-variable]
+        float frequency = desiredFreq * harmonic; // get the harmonic frequency
               ^
-src/audiocode/sawwave.c(41): warning: no previous prototype for function 'saw' [-Wmissing-prototypes]
+src/audiocode/sawwave.c(42): warning: no previous prototype for function 'saw' [-Wmissing-prototypes]
 void saw(float desiredFreq, float volume){
      ^
-src/audiocode/sawwave.c(41): note: declare 'static' if the function is not intended to be used outside of this translation unit
+src/audiocode/sawwave.c(42): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void saw(float desiredFreq, float volume){
 ^
 static 
-src/audiocode/sawwave.c(60): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+src/audiocode/sawwave.c(63): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
                 *b0 = 1.0 / (1.0 + Q * ita + ita * ita);
                     ~ ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/audiocode/sawwave.c(60): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+src/audiocode/sawwave.c(63): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
                 *b0 = 1.0 / (1.0 + Q * ita + ita * ita);
                                            ~ ~~~~^~~~~
-src/audiocode/sawwave.c(60): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+src/audiocode/sawwave.c(63): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
                 *b0 = 1.0 / (1.0 + Q * ita + ita * ita);
                                  ~ ~~^~~~~
-src/audiocode/sawwave.c(63): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+src/audiocode/sawwave.c(66): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
                 *a1 = 2.0*(ita*ita - 1.0) * (*b0);
                     ~ ~~~~~~~~~~~~~~~~~~~~^~~~~~~
-src/audiocode/sawwave.c(63): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+src/audiocode/sawwave.c(66): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
                 *a1 = 2.0*(ita*ita - 1.0) * (*b0);
                                           ~  ^~~
-src/audiocode/sawwave.c(63): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+src/audiocode/sawwave.c(66): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
                 *a1 = 2.0*(ita*ita - 1.0) * (*b0);
                            ~~~^~~~ ~
-src/audiocode/sawwave.c(64): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+src/audiocode/sawwave.c(67): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
                 *a2 = -(1.0 - Q*ita + ita*ita) * (*b0);
                     ~ ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
-src/audiocode/sawwave.c(64): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+src/audiocode/sawwave.c(67): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
                 *a2 = -(1.0 - Q*ita + ita*ita) * (*b0);
                                                ~  ^~~
-src/audiocode/sawwave.c(64): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+src/audiocode/sawwave.c(67): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
                 *a2 = -(1.0 - Q*ita + ita*ita) * (*b0);
                                     ~ ~~~^~~~
-src/audiocode/sawwave.c(64): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+src/audiocode/sawwave.c(67): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
                 *a2 = -(1.0 - Q*ita + ita*ita) * (*b0);
                             ~ ~^~~~
-src/audiocode/sawwave.c(59): warning: no previous prototype for function 'coefficients' [-Wmissing-prototypes]
+src/audiocode/sawwave.c(62): warning: no previous prototype for function 'coefficients' [-Wmissing-prototypes]
 float coefficients(float Q, float ita, float* b0, float* b1, float* b2, float* a1, float* a2) {
       ^
-src/audiocode/sawwave.c(59): note: declare 'static' if the function is not intended to be used outside of this translation unit
+src/audiocode/sawwave.c(62): note: declare 'static' if the function is not intended to be used outside of this translation unit
 float coefficients(float Q, float ita, float* b0, float* b1, float* b2, float* a1, float* a2) {
 ^
 static 
-src/audiocode/sawwave.c(66): warning: non-void function does not return a value [-Wreturn-type]
+src/audiocode/sawwave.c(69): warning: non-void function does not return a value [-Wreturn-type]
 }
 ^
-src/audiocode/sawwave.c(68): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+src/audiocode/sawwave.c(71): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
 void audioinit(){
               ^
                void
-src/audiocode/sawwave.c(75): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+src/audiocode/sawwave.c(79): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
         for(int i=0; i <= PBSIZE; i++) {
             ^
-src/audiocode/sawwave.c(75): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/audiocode/sawwave.c(68): warning: no previous prototype for function 'audioinit' [-Wmissing-prototypes]
+src/audiocode/sawwave.c(79): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+src/audiocode/sawwave.c(71): warning: no previous prototype for function 'audioinit' [-Wmissing-prototypes]
 void audioinit(){
      ^
-src/audiocode/sawwave.c(68): note: declare 'static' if the function is not intended to be used outside of this translation unit
+src/audiocode/sawwave.c(71): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void audioinit(){
 ^
 static 
-src/audiocode/sawwave.c(82): warning: implicit declaration of function 'getangledata' [-Wimplicit-function-declaration]
+src/audiocode/sawwave.c(86): warning: implicit declaration of function 'getangledata' [-Wimplicit-function-declaration]
         int16_t angle = getangledata();
                         ^
-src/audiocode/sawwave.c(82): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+src/audiocode/sawwave.c(86): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
         int16_t angle = getangledata();
                 ~~~~~   ^~~~~~~~~~~~~~
-src/audiocode/sawwave.c(122): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+src/audiocode/sawwave.c(126): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
         float ratio = pow(2, (noteRatio/12));
               ~~~~~   ^~~~~~~~~~~~~~~~~~~~~~
-src/audiocode/sawwave.c(122): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+src/audiocode/sawwave.c(126): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
         float ratio = pow(2, (noteRatio/12));
                       ~~~     ~~~~~~~~~^~~
-src/audiocode/sawwave.c(122): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+src/audiocode/sawwave.c(126): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
         float ratio = pow(2, (noteRatio/12));
               ^
-src/audiocode/sawwave.c(81): warning: no previous prototype for function 'angleToFreq' [-Wmissing-prototypes]
+src/audiocode/sawwave.c(85): warning: no previous prototype for function 'angleToFreq' [-Wmissing-prototypes]
 void angleToFreq(float* f_0, float volume, float* phaseIncrement){
      ^
-src/audiocode/sawwave.c(81): note: declare 'static' if the function is not intended to be used outside of this translation unit
+src/audiocode/sawwave.c(85): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void angleToFreq(float* f_0, float volume, float* phaseIncrement){
 ^
 static 
-src/audiocode/sawwave.c(135): warning: implicit declaration of function 'measureDistance' [-Wimplicit-function-declaration]
+src/audiocode/sawwave.c(142): warning: implicit declaration of function 'measureDistance' [-Wimplicit-function-declaration]
         float distance = measureDistance();
                          ^
-src/audiocode/sawwave.c(135): warning: implicit conversion from 'int' to 'float' may lose precision [-Wimplicit-int-float-conversion]
+src/audiocode/sawwave.c(142): warning: implicit conversion from 'int' to 'float' may lose precision [-Wimplicit-int-float-conversion]
         float distance = measureDistance();
               ~~~~~~~~   ^~~~~~~~~~~~~~~~~
-src/audiocode/sawwave.c(136): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+src/audiocode/sawwave.c(144): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
         *desiredCutoff = distanceToFreqA * pow(10, (distanceToFreqB * distance));
                        ~ ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/audiocode/sawwave.c(136): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+src/audiocode/sawwave.c(144): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
         *desiredCutoff = distanceToFreqA * pow(10, (distanceToFreqB * distance));
                                            ~~~      ~~~~~~~~~~~~~~~~^~~~~~~~~~
-src/audiocode/sawwave.c(136): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+src/audiocode/sawwave.c(144): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
         *desiredCutoff = distanceToFreqA * pow(10, (distanceToFreqB * distance));
                          ^~~~~~~~~~~~~~~ ~
-src/audiocode/sawwave.c(134): warning: no previous prototype for function 'calcCutoff' [-Wmissing-prototypes]
+src/audiocode/sawwave.c(141): warning: no previous prototype for function 'calcCutoff' [-Wmissing-prototypes]
 void calcCutoff(float* desiredCutoff) {
      ^
-src/audiocode/sawwave.c(134): note: declare 'static' if the function is not intended to be used outside of this translation unit
+src/audiocode/sawwave.c(141): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void calcCutoff(float* desiredCutoff) {
 ^
 static 
-src/audiocode/sawwave.c(141): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+src/audiocode/sawwave.c(150): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
 void sawwave(){
             ^
              void
-src/audiocode/sawwave.c(204): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
-                        float ita = 1.0/ tan(PI*ff);
-                              ~~~   ~~~^~~~~~~~~~~~
-src/audiocode/sawwave.c(204): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
-                        float ita = 1.0/ tan(PI*ff);
-                                               ~^~
-src/audiocode/sawwave.c(212): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
-                        for (int i = startFill; i < endFill; i += 2) {
-                             ^
-src/audiocode/sawwave.c(212): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-src/audiocode/sawwave.c(212): warning: implicit conversion changes signedness: 'uint32_t' (aka 'unsigned int') to 'int' [-Wsign-conversion]
-                        for (int i = startFill; i < endFill; i += 2) {
-                                 ~   ^~~~~~~~~
-src/audiocode/sawwave.c(222): warning: declaration shadows a local variable [-Wshadow]
-                                float filteredSample = ( a1 * lastSampleOutput ) + ( a2 * lastLastSampleOutput ) + ( b0 * nextSample )  + ( b1 * lastSampleInput ) + ( b2 * lastLastSampleInput );
-                                      ^
-src/audiocode/sawwave.c(157): note: previous declaration is here
-                float lastSampleInput = 0.0, lastLastSampleInput= 0.0, lastSampleOutput = 0.0, lastLastSampleOutput = 0.0, filteredSample = 0.0;
-                                                                                                                           ^
-src/audiocode/sawwave.c(224): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
-                                PlayBuff[i] = (int16_t)(0.5*filteredSample);
-                                                           ~^~~~~~~~~~~~~~
-src/audiocode/sawwave.c(225): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
-                                PlayBuff[i + 1] = (int16_t)(0.5*filteredSample);
-                                                               ~^~~~~~~~~~~~~~
-src/audiocode/sawwave.c(216): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
-                                int16_t nextSample = SineBuff[(uint16_t)(currentPhase)];
-                                        ^
-src/audiocode/sawwave.c(203): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
-                        float ff = desiredCutoff/AUDIO_FREQUENCY_44K;
+src/audiocode/sawwave.c(216): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
+                float ita = 1.0/ tan(PI*ff);
+                      ~~~   ~~~^~~~~~~~~~~~
+src/audiocode/sawwave.c(216): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+                float ita = 1.0/ tan(PI*ff);
+                                       ~^~
+src/audiocode/sawwave.c(225): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+                for (int i = startFill; i < endFill; i += 2) {
+                     ^
+src/audiocode/sawwave.c(225): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+src/audiocode/sawwave.c(225): warning: implicit conversion changes signedness: 'uint32_t' (aka 'unsigned int') to 'int' [-Wsign-conversion]
+                for (int i = startFill; i < endFill; i += 2) {
+                         ~   ^~~~~~~~~
+src/audiocode/sawwave.c(235): warning: declaration shadows a local variable [-Wshadow]
+                        float filteredSample = ( a1 * lastSampleOutput ) + ( a2 * lastLastSampleOutput ) + ( b0 * nextSample )  + ( b1 * lastSampleInput ) + ( b2 * lastLastSampleInput );
                               ^
-src/audiocode/sawwave.c(253): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-src/audiocode/sawwave.c(157): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
-                float lastSampleInput = 0.0, lastLastSampleInput= 0.0, lastSampleOutput = 0.0, lastLastSampleOutput = 0.0, filteredSample = 0.0;
+src/audiocode/sawwave.c(167): note: previous declaration is here
+        float lastSampleInput = 0.0, lastLastSampleInput= 0.0, lastSampleOutput = 0.0, lastLastSampleOutput = 0.0, filteredSample = 0.0;
+                                                                                                                   ^
+src/audiocode/sawwave.c(238): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+                        PlayBuff[i] = (int16_t)(0.5*filteredSample); // volume decreased due to additions
+                                                   ~^~~~~~~~~~~~~~
+src/audiocode/sawwave.c(239): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+                        PlayBuff[i + 1] = (int16_t)(0.5*filteredSample);
+                                                       ~^~~~~~~~~~~~~~
+src/audiocode/sawwave.c(229): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+                        int16_t nextSample = SineBuff[(uint16_t)(currentPhase)];
+                                ^
+src/audiocode/sawwave.c(215): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+                float ff = desiredCutoff/AUDIO_FREQUENCY_44K;
                       ^
-src/audiocode/sawwave.c(157): warning: unused variable 'filteredSample' [-Wunused-variable]
-                float lastSampleInput = 0.0, lastLastSampleInput= 0.0, lastSampleOutput = 0.0, lastLastSampleOutput = 0.0, filteredSample = 0.0;
-                                                                                                                           ^
-src/audiocode/sawwave.c(141): warning: no previous prototype for function 'sawwave' [-Wmissing-prototypes]
+src/audiocode/sawwave.c(167): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+        float lastSampleInput = 0.0, lastLastSampleInput= 0.0, lastSampleOutput = 0.0, lastLastSampleOutput = 0.0, filteredSample = 0.0;
+              ^
+src/audiocode/sawwave.c(167): warning: unused variable 'filteredSample' [-Wunused-variable]
+        float lastSampleInput = 0.0, lastLastSampleInput= 0.0, lastSampleOutput = 0.0, lastLastSampleOutput = 0.0, filteredSample = 0.0;
+                                                                                                                   ^
+src/audiocode/sawwave.c(150): warning: no previous prototype for function 'sawwave' [-Wmissing-prototypes]
 void sawwave(){
      ^
-src/audiocode/sawwave.c(141): note: declare 'static' if the function is not intended to be used outside of this translation unit
+src/audiocode/sawwave.c(150): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void sawwave(){
 ^
 static 
-src/audiocode/sawwave.c(212): warning: comparison of integers of different signs: 'int' and 'uint32_t' (aka 'unsigned int') [-Wsign-compare]
-                        for (int i = startFill; i < endFill; i += 2) {
-                                                ~ ^ ~~~~~~~
-src/audiocode/sawwave.c(141): warning: function 'sawwave' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+src/audiocode/sawwave.c(225): warning: comparison of integers of different signs: 'int' and 'uint32_t' (aka 'unsigned int') [-Wsign-compare]
+                for (int i = startFill; i < endFill; i += 2) {
+                                        ~ ^ ~~~~~~~
+src/audiocode/sawwave.c(150): warning: function 'sawwave' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
 void sawwave(){
               ^
 src/audiocode/sawwave.c(14): warning: no previous extern declaration for non-static variable 'PlayBuff' [-Wmissing-variable-declarations]
@@ -817,7 +811,7 @@ int16_t SineBuff[SINESIZE];
 src/audiocode/sawwave.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 int16_t SineBuff[SINESIZE]; 
 ^
-72 warnings generated.
+71 warnings generated.
 compiling sawwave.c...
 src/audiodrivers/Audio_Drivers.c(2): warning: // comments are not allowed in this language [-Wcomment]
 // My versions of the audio drivers required for the the STM32F4 discovery board.
@@ -1198,8 +1192,8 @@ compiling initialisation_funcs.c...
 assembling startup_stm32f407xx.s...
 compiling system_stm32f4xx.c...
 linking...
-Program Size: Code=25288 RO-data=1264 RW-data=36 ZI-data=11904  
-".\Objects\main.axf" - 0 Error(s), 288 Warning(s).
+Program Size: Code=25320 RO-data=1264 RW-data=36 ZI-data=11904  
+".\Objects\main.axf" - 0 Error(s), 286 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -1225,10 +1219,10 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   MDK/Device/Source/ARM/STM32F40xxx_41xxx_OPT.s
       Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f407xx.s
       Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
+      Source file:   MDK/Device/Source/ARM/STM32F40xxx_41xxx_OPT.s
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
 Build Time Elapsed:  00:00:06
 </pre>
