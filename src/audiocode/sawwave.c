@@ -55,9 +55,8 @@ void saw(float desiredFreq, float volume){
 
 	}
 
-    	SineBuff[j] = (int16_t)(sawtoothWave * 10000); //writng all values into array
-    }	
 }
+
 
 
 float coefficients(float Q, float ita, float* b0, float* b1, float* b2, float* a1, float* a2) {
@@ -207,7 +206,7 @@ void sawwave(){
 		bufferStatus = secondHalfDone;
 	}
 
-		float desiredCutoff = 0.0;
+		//float desiredCutoff = 0.0;
 		
 
 	if (startFill != endFill) {
@@ -261,16 +260,12 @@ void sawwave(){
 			
 			coefficients(Q, ita, &b0, &b1, &b2, &a1, &a2);
  
-			// begin buffer fill loop
-			for (int i = startFill; i < endFill; i += 2) {
-
-			
-			
-		} 
+			// begin buffer fill loop 
 			
 		
 		} 
 	} // end of while loop 
 
 	
+}
 }
