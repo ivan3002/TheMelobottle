@@ -1,34 +1,6 @@
 # TheMelobottle
 
 
-All up to date code will be here (in src folder)
-https://youtu.be/tRZGeaHPoaw?si=M6d74r01X-D-Ogb2 great vid on how git and github works, worth a watch.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Instructions
-- Get GIT - https://git-scm.com/downloads
-- Open gitbash
-- In the command line
-     - cd (path to where you want to store files)
-     - git clone https://github.com/ivan3002/TheMelobottle.git
-     - cd repository_directory (Replace "repository_directory" with the name of the directory created by the cloning process.) -  e.g. cd M:/TheMelobottle
-  It's a good practice to work on a separate branch for your changes. Create and switch to a new branch: 
-     - git checkout -b branch_name (e.g. ivan's branch)
-  Open the files, make your changes, and save them.
-     - git add .
-     - git commit -m "Your commit message here"
-     - git push -u origin branch_name
-
-  **At the start of each subsequent session you do simply use the command "git pull" to get the most up to date code. Then when finished the same git add .; git commit -m and git push commands
- **
-  - You can use the command git status to see the files that need to be pushed
-
-If you are working on a shared repository and want to merge your changes into the main branch, you typically create a pull request. This can be done on the GitHub website.
-
-- Go to your repository on GitHub.
-- Switch to the branch you just pushed.
-- Click on "New Pull Request."
-- Review your changes and create the pull request.
-- After the pull request is reviewed and accepted, your changes will be merged into the main branch.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. **Input Processing Functions:**
    - **Ultrasonic Sensor:**
