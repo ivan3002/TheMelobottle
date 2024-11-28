@@ -21,7 +21,6 @@
 5. **System Initialization and Control:**
    - **Initialization Function:**
      - Initialize all necessary hardware and software components.
-     - 
    - **Main Control Loop:**
      - The main loop that coordinates the system's operation.
 
@@ -29,27 +28,7 @@ The above is the priority at the moment
 
  ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-**Mode Switching:**
-     - Function to switch between different synthesis modes (sawtooth, sine, Karplus-Strong).
-     - Each mode might have its own set of parameters.
 
-
-3. **User Interface Functions:**
-   - **Display Functions:**
-     - Functions for updating and interacting with the display.
-     - Display mode indicators, parameter values, etc.
-
-   - **User Input Handling:**
-     - Functions to handle user inputs (buttons, rotary encoder, etc.).
-     - Interpret user inputs for mode switching, parameter adjustments, etc.
-
-4. **Audio Output Functions:**
-   - **Audio Output Control:**
-     - Function to control the audio output.
-     - Adjust volume, mute, etc.
-
-   - **Communication with Audio Hardware:**
-     - Interface functions for sending audio data to the audio hardware.
 
    
 
