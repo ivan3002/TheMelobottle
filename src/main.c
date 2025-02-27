@@ -20,14 +20,7 @@ int main() {
 	timerinit();
 	PB_I2C_Init();
 	initialiseaccel();
-
-	//while (1){
-		sawwave();
-		//getangledata();
-	//measureAndControlLEDtest();
-	
-		
-	//} 
+	sawwave();
 	
 	
 	
