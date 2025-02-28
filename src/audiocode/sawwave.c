@@ -15,7 +15,7 @@ int16_t PlayBuff[PBSIZE];
 int16_t SineBuff[SINESIZE]; 
 
 float DELTA_T = 1.0/44100;// used in calculation for first order filter
-float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;// used in calculation for second order filter cutoff
+float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;// used in calculation for second order filter cutoff - coefficients
 
 //define scale
 float PENTATONIC = 160.0/11;
