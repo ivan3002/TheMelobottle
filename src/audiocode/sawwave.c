@@ -11,14 +11,16 @@
 #define SINESIZE 1024
 #define PBSIZE 4096 
 
+//angle range of 160 degrees divided by 11 notes - 2 octaves of pentatonic scale
+#define PENTATONIC (160.0/11)
+
 int16_t PlayBuff[PBSIZE]; 
 int16_t SineBuff[SINESIZE]; 
 
 float DELTA_T = 1.0/44100;// used in calculation for first order filter
-float distanceToFreqA = 870.297, distanceToFreqB = 0.0034;// used in calculation for second order filter cutoff - coefficients
+float coefA = 870.297, coefB = 0.0034;// used in calculation for second order filter cutoff - coefficients
 
-//define scale
-float PENTATONIC = 160.0/11;
+
 
 
 enum eNoteStatus { ready, going, finish } noteStatus = ready;
@@ -87,45 +89,16 @@ void audioinit(){
 void angleToFreq(float* f_0, float volume, float* phaseIncrement){
 	int16_t angle = getangledata();
 	//int angle = 8;
-	float noteRatio = 0.0;
-	// for the angle in a range, have it set to a certain note based upon the inintal f_0 value 
-	if (angle >= -80 && angle <-80+1*(PENTATONIC)) {
-		noteRatio = -12;
-	}
-	else if (angle >= -80+1*(PENTATONIC) && angle <-80+2*(PENTATONIC)) {
-		noteRatio = -10;
-	}
-	else if (angle >= -80+2*(PENTATONIC) && angle <-80+3*(PENTATONIC)) {
-		noteRatio = -8;
-	}
-	else if (angle >= -80+3*(PENTATONIC) && angle <-80+4*(PENTATONIC)) {
-		noteRatio = -5;
-	}
-	else if (angle >= -80+4*(PENTATONIC) && angle <-80+5*(PENTATONIC)) {
-		noteRatio = -3;
-	}
-	else if (angle >= -80+5*(PENTATONIC) && angle <-80+6*(PENTATONIC)) {
-		noteRatio = 0;
-	}
-	else if (angle >= -80+6*(PENTATONIC) && angle <-80+7*(PENTATONIC)) {
-		noteRatio = 2;
-	}
-	else if (angle >= -80+7*(PENTATONIC) && angle <-80+8*(PENTATONIC)) {
-		noteRatio = 4;
-	}
-	else if (angle >= -80+8*(PENTATONIC) && angle <-80+9*(PENTATONIC)) {
-		noteRatio = 7;
-	}
-	else if (angle >= -80+9*(PENTATONIC) && angle <-80+10*(PENTATONIC)) {
-		noteRatio = 9;
-	}
-	else if (angle >= -80+10*(PENTATONIC) && angle <-80+11*(PENTATONIC)) {
-		noteRatio = 12;
-	}
+	//float noteRatio = 0.0;
+	
+	int noteRatio[11] = {-12, -10, -8, -5, -3, 0, 2, 4, 7, 9, 12};
+	// for the angle in a range, have it set to a certain note based upon the initial f_0 value 
+	int index = (angle + 80) / PENTATONIC;
 	
 
 	// calculate the ratio based upon the new note (2^(-12/12) to 2^(12/12))
-	float ratio = pow(2, (noteRatio/12));
+	float ratio = pow(2, (noteRatio[index]/12));
+	
 	// multiply the old frequency by the new ratio
 	float note = *f_0 * ratio; 
 	
@@ -143,7 +116,7 @@ void angleToFreq(float* f_0, float volume, float* phaseIncrement){
 void calcCutoff(float* desiredCutoff) {
 	float distance = measureDistance();
   // with some constants, calc cutoff based upon range of 1-40cm mapping to 100-20kHz
-	*desiredCutoff = distanceToFreqA * pow(10, (distanceToFreqB * distance));
+	*desiredCutoff = coefA * pow(10, (coefB * distance));
 }
 
 
