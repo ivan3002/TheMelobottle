@@ -59,8 +59,10 @@ void saw(float desiredFreq, float volume){
 
 
 
-float coefficients(float Q, float ita, float* b0, float* b1, float* b2, float* a1, float* a2) {
-		*b0 = 1.0 / (1.0 + Q * ita + ita * ita);
+void coefficients(float Q, float ita, float* b0, float* b1, float* b2, float* a1, float* a2) {
+		float denom =  1.0 + Q *ita + ita * ita; // ita refers to damping ratio
+	
+		*b0 = 1.0 / denom;
 		*b1 = 2* (*b0);
 		*b2 = *b0;
 		*a1 = 2.0*(ita*ita - 1.0) * (*b0);
@@ -156,28 +158,15 @@ void sawwave(){
 	float phaseIncrement = (SINESIZE * desiredFrequency / ((float)AUDIO_FREQUENCY_44K)); // increment for 
 	
 	  
-
-
-	
-	
-
 	//Start the audio driver play routine
 	myAudioStartPlaying(PlayBuff, PBSIZE); 
 	// initialise values for output with filter
 	float lastSampleInput = 0.0, lastLastSampleInput= 0.0, lastSampleOutput = 0.0, lastLastSampleOutput = 0.0, filteredSample = 0.0;
 	
-	
-	
 	// cutoff for filter
 
 	float desiredCutoff = 0.0; // initialise cutoff
 	calcCutoff(&desiredCutoff); // calculate cutoff from distance
-	
-	
-	// below is for first order
-	//float a1 = -( ( desiredCutoff - ( 2/DELTA_T ) ) / ( desiredCutoff + (2/DELTA_T) ) );
-	//float b0 = desiredCutoff / (desiredCutoff+2/DELTA_T);
-	
 	
 	// coefficient initialisation
 	float a1,a2,b0,b1,b2;
@@ -191,81 +180,63 @@ void sawwave(){
 	while(1) {
 	
 	
-	// If there's been a request to fill half of the buffer,
-	// then set the start and end points to fill:
-	
-	 
-	uint32_t startFill = 0, endFill = 0; // intialise buffer values
-	if (bufferStatus == firstHalfReq) {
-		startFill = 0;
-		endFill = PBSIZE / 2;
-		bufferStatus = firstHalfDone;
-	} else if (bufferStatus == secondHalfReq) {
-		startFill = PBSIZE / 2;
-		endFill = PBSIZE;
-		bufferStatus = secondHalfDone;
-	}
+		// If there's been a request to fill half of the buffer,
+		// then set the start and end points to fill:
+		
+		uint32_t startFill = 0, endFill = 0; // intialise buffer values
+		if (bufferStatus == firstHalfReq) {
+			startFill = 0;
+			endFill = PBSIZE / 2;
+			bufferStatus = firstHalfDone;
+		} else if (bufferStatus == secondHalfReq) {
+			startFill = PBSIZE / 2;
+			endFill = PBSIZE;
+			bufferStatus = secondHalfDone;
+		}
 
-		//float desiredCutoff = 0.0;
-		
-
-	if (startFill != endFill) {
-		// calc values for coefficient calc
-		calcCutoff(&desiredCutoff);
-		float ff = desiredCutoff/AUDIO_FREQUENCY_44K;
-		float ita = 1.0/ tan(PI*ff);
-	
-		// calc coefficients
-
-		
-		
-		coefficients(Q, ita, &b0, &b1, &b2, &a1, &a2);
-	
-		// begin buffer fill loop
-		for (int i = startFill; i < endFill; i += 2) {
-		
-			currentPhase += phaseIncrement;
-			if (currentPhase > SINESIZE) currentPhase -= SINESIZE;
-			int16_t nextSample = SineBuff[(uint16_t)(currentPhase)];
-		
-			// below is for first orrder
-			// float filteredSample = ((-1)*a1) * lastSampleOutput + b0 * (nextSample + lastSampleInput);				
-			// below is second order
-			// using values stored from last sample, and coefficients which were calculated, sample is filtered
-			float filteredSample = ( a1 * lastSampleOutput ) + ( a2 * lastLastSampleOutput ) + ( b0 * nextSample )  + ( b1 * lastSampleInput ) + ( b2 * lastLastSampleInput );
-		
-
-			PlayBuff[i] = (int16_t)(0.5*filteredSample); // volume decreased due to additions
-			PlayBuff[i + 1] = (int16_t)(0.5*filteredSample);
-
-		
-			// set values for next time around
-			lastLastSampleInput = lastSampleInput; 		// x[n-1] => x[n-2]
-			lastSampleInput = nextSample;							// x[n] => x[n-1]
-			lastLastSampleOutput = lastSampleOutput;	// y[n-1] => y[n-2] 
-			lastSampleOutput = filteredSample;				// y[n] => y[n-1] or last output set
-		
-		
-
-		
-		/* For straight, basic sawtooth
-			currentPhase += phaseIncrement;
-			if (currentPhase > SINESIZE) currentPhase -= SINESIZE;
-			int16_t nextSample = SineBuff[(uint16_t)(currentPhase)];
-			PlayBuff[i] = nextSample;
-			PlayBuff[i + 1] = nextSample;
-		*/
+			//float desiredCutoff = 0.0;
 			
 
-			
+		if (startFill != endFill) {
+			// calc values for coefficient calc
+			calcCutoff(&desiredCutoff);
+			float ff = desiredCutoff/AUDIO_FREQUENCY_44K;
+			float ita = 1.0/ tan(PI*ff);
+		
+			// calc coefficients
 			coefficients(Q, ita, &b0, &b1, &b2, &a1, &a2);
- 
-			// begin buffer fill loop 
+		
+			// begin buffer fill loop
+			for (int i = startFill; i < endFill; i += 2) {
+			
+				currentPhase += phaseIncrement;
+				if (currentPhase > SINESIZE) currentPhase -= SINESIZE;
+				int16_t nextSample = SineBuff[(uint16_t)(currentPhase)];
+			
+							
+				// below is second order
+				// using values stored from last sample, and coefficients which were calculated, sample is filtered
+				float filteredSample = ( a1 * lastSampleOutput ) + ( a2 * lastLastSampleOutput ) + ( b0 * nextSample )  + ( b1 * lastSampleInput ) + ( b2 * lastLastSampleInput );
+			
+
+				PlayBuff[i] = (int16_t)(0.5*filteredSample); // volume decreased due to additions
+				PlayBuff[i + 1] = (int16_t)(0.5*filteredSample);
+
+			
+				// set values for next time around
+				lastLastSampleInput = lastSampleInput; 		// x[n-1] => x[n-2]
+				lastSampleInput = nextSample;							// x[n] => x[n-1]
+				lastLastSampleOutput = lastSampleOutput;	// y[n-1] => y[n-2] 
+				lastSampleOutput = filteredSample;				// y[n] => y[n-1] or last output set
 			
 		
-		} 
-	} // end of while loop 
+				
+				coefficients(Q, ita, &b0, &b1, &b2, &a1, &a2);
+			
+		
+			} 
+		} // end of while loop 
 
 	
-}
+	}
 }

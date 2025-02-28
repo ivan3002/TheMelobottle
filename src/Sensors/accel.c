@@ -69,7 +69,7 @@ int16_t getangledata(){
 		
 	
 	if(roll>80) roll = 80; // if greater than 80, snap to 80
-	if(roll<-80) roll = -80; // if greater than 90, snap to 90
+	if(roll<-80) roll = -80; // if less than -80, snap to -80
 	return roll; // return roll value gained 
 
 }
