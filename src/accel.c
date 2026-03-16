@@ -1,4 +1,4 @@
-#include "STM32F407xx.h"
+#include "stm32f407xx.h"
  
 
 //1010 1000 binary SUB to write for slave-transmit subaddress updating - 0xA8

@@ -40,7 +40,7 @@
 /* Includes ------------------------------------------------------------------*/
 // The next line is a modification to the original source code to remove 
 // dependencies on the HAL library.  (Dave Pearce - May 2019).
-#include "./audio_replacement.h"
+#include "audio_replacement.h"
 
 /** @addtogroup BSP
   * @{

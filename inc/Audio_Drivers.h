@@ -30,7 +30,7 @@
 #include <stdint.h>
 #include "stm32f407xx.h"
 #include "system_stm32f4xx.h"
-#include "./cs43l22.h"
+#include "cs43l22.h"
 
 #define DAC_ADDR_ON_I2C 0x94
 

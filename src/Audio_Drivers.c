@@ -2,8 +2,8 @@
 // My versions of the audio drivers required for the the STM32F4 discovery board.
 // For usage, see the header file Audio_Drivers.h.
 
-#include "./Audio_Drivers.h"
-#include "./cs43l22.h"
+#include "Audio_Drivers.h"
+#include "cs43l22.h"
 
 #define myUNUSED(X) (void)X      /* To avoid gcc/g++ warnings */
 	

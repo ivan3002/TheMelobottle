@@ -1,10 +1,10 @@
-#include "Sensors/ultrasonic.h"
-#include "Sensors/accel.h"
-#include "Initialisation/initialisation_funcs.h"
-#include "Initialisation/i2ctests.h"
+#include "ultrasonic.h"
+#include "accel.h"
+#include "initialisation_funcs.h"
+#include "i2ctests.h"
 #include <stdint.h>
 #include <math.h>
-#include "audiocode/sawwave.h"
+#include "sawwave.h"
 
 
 

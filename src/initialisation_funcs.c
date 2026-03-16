@@ -1,4 +1,4 @@
-#include "STM32F407xx.h"
+#include "stm32f407xx.h"
 #include "i2ctests.h"
 
 

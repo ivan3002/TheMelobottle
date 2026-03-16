@@ -1,4 +1,4 @@
-#include "STM32F407xx.h"
+#include "stm32f407xx.h"
 
 //This code is based on the setup for the "Procboard." The accelerometer used is the same as our application here
 //The I2C setup here works. I believe issue from before was I needed to configure registers on the LSM303D first as well.

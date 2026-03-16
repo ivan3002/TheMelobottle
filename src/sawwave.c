@@ -1,5 +1,5 @@
-#include "../audiodrivers/Audio_Drivers.h"
-#include "../audiodrivers/cs43l22.h"
+#include "Audio_Drivers.h"
+#include "cs43l22.h"
 #include <math.h>
 #include <stdlib.h>
 #include <stdint.h>
